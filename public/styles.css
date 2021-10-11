@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+a:link,
+a:visited {
+  color: #e2e2e2;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 50px;
+  background: #467966;
+  color: #e2e2e2;
+}
+
+.menu {
+  margin-top: 15px;
+}
+
+.menu > li {
+  display: inline;
+  margin-right: 50px;
+}
+
+.menu > li:last-of-type {
+  margin-right: 0;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown > span {
+  z-index: 2;
+  position: relative; /* This is important! */
+  cursor: pointer;
+}
+
+.categories-menu {
+  display: flex;
+  flex-direction: column;
+  background: #77b69f;
+  border-radius: 5px;
+  padding-top: 60px;
+
+  position: absolute;
+  top: -25px;
+  left: -30px;
+}
+
+.categories-menu {
+  /* categories-menu only displays when hovered over*/
+  display: none;
+}
+
+.dropdown:hover .categories-menu {
+  display: flex;
+  flex-direction: column;
+  background: #77b69f;
+  z-index: 1;
+}
+
+.categories-menu li {
+  list-style: none;
+  border-bottom: 1px solid #fff;
+
+  padding: 0 40px 10px 20px;
+  margin: 10px;
+}
+
+.categories-menu li:last-of-type {
+  border-bottom: none;
+}
+
+.content {
+  position: relative;
+  margin-top: 40px;
+}
