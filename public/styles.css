@@ -18,7 +18,11 @@ a:hover {
   text-decoration: underline;
 }
 
-.header {
+.title-banner-container {
+  display: flex;
+}
+
+.nav {
   display: flex;
   justify-content: space-between;
 
