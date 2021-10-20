@@ -2,13 +2,26 @@
   <ul class="menu">
     <li><a href="/">Home</a></li>
     <li class="dropdown">
-      <span>Categories▾</span>
+      <span><a href="#">Categories</a>▾</span>
       <ul class="categories-menu">
         <li><a href="#">Blogs</a></li>
         <li><a href="#">Quotes</a></li>
       </ul>
     </li>
-    <li><a href="/search">Search</a></li>
+    <li class="dropdown">
+      <span>Search</span>
+      <ul class="search-field">
+        <li>
+          <form class="search-form">
+            <label for="search-input" class="label"></label>
+            <input id="search-input" name="search-input" type="text" />
+          </form>
+        </li>
+        <li>
+          <button id="search-for-keyword-button">Search!</button>
+        </li>
+      </ul>
+    </li>
   </ul>
   <div class="add-new-blog-container">
     <a class="add-new-blog" href="/new-blog">
