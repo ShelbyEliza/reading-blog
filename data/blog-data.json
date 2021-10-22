@@ -1,0 +1,34 @@
+{
+  "blogs": [
+    {
+      "id": "1",
+      "bookTitle": "A Wizard of Earthsea",
+      "author": "Ursula K. Le Guin",
+      "startDate": "07-15-2021",
+      "endDate": "08-15-2021",
+      "rating": "5",
+      "tags": "Fiction",
+      "blogContent": "A very good book."
+    },
+    {
+      "id": "2",
+      "bookTitle": "The Tombs of Atuan",
+      "author": "Ursula K. Le Guin",
+      "startDate": "08-15-2021",
+      "endDate": "09-15-2021",
+      "rating": "5",
+      "tags": "Fiction",
+      "blogContent": "A very good sequel."
+    },
+    {
+      "id": "3",
+      "bookTitle": "The Farthest Shore",
+      "author": "Ursula K. Le Guin",
+      "startDate": "09-15-2021",
+      "endDate": "",
+      "rating": "5",
+      "tags": "Fiction",
+      "blogContent": "A very good trilogy."
+    }
+  ]
+}

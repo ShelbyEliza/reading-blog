@@ -1,32 +1,66 @@
-module.exports = class Blog {
+const fs = require("fs");
+
+class Blog {
   constructor(
+    id,
     bookTitle,
-    bookAuthor,
-    blogDescription,
+    author,
     startDate,
     endDate,
-    newVocabularies,
-    blogImages,
-    bookQuotes,
     rating,
     tags,
-    futureReads,
     blogContent
   ) {
+    this.id = id;
     this.bookTitle = bookTitle;
-    this.bookAuthor = bookAuthor;
-    this.blogDescription = blogDescription;
+    this.author = author;
     this.startDate = startDate;
     this.endDate = endDate;
-    this.newVocabularies = newVocabularies;
-    this.blogImages = blogImages;
-    this.bookQuotes = bookQuotes;
     this.rating = rating;
     this.tags = tags;
-    this.futureReads = futureReads;
     this.blogContent = blogContent;
   }
-  toString() {
-    return `${this.bookTitle} by ${this.bookAuthor}`;
+}
+
+class Blogs {
+  constructor() {
+    this.blogEntries = [];
   }
-};
+
+  readData() {
+    fs.readFile("data/blog-data.json", (err, data) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      const blogsData = JSON.parse(data);
+      this.blogEntries = blogsData.blogs.map(this.createEntry);
+      console.log(this.blogEntries);
+    });
+  }
+  createEntry(blogData) {
+    let {
+      id,
+      bookTitle,
+      author,
+      startDate,
+      endDate,
+      rating,
+      tags,
+      blogContent,
+    } = blogData;
+    let blog = new Blog(
+      id,
+      bookTitle,
+      author,
+      startDate,
+      endDate,
+      rating,
+      tags,
+      blogContent
+    );
+    return blog;
+  }
+}
+
+module.exports = (Blog, Blogs);

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./partials/head.ejs') %>
+  <%- include('../partials/head.ejs') %>
   <body>
-    <%- include('./partials/header.ejs') %> <%- include('./partials/nav.ejs') %>
+    <%- include('../partials/header.ejs') %> <%- include('../partials/nav.ejs')
+    %>
     <h1>Add a new entry below!</h1>
-    <form action="/blogs" method="POST" class="add-blog-form">
+    <form action="/" method="POST" class="add-blog-form">
       <div class="form-row">
         <label for="book-title" class="label">Book Title</label>
         <input
@@ -16,15 +17,10 @@
         />
       </div>
       <div class="form-row">
-        <label for="book-author" class="label">Author</label>
-        <input
-          id="book-author"
-          name="book-author"
-          type="text"
-          required="required"
-        />
+        <label for="author" class="label">Author</label>
+        <input id="author" name="author" type="text" required="required" />
       </div>
-      <div class="form-row">
+      <!-- <div class="form-row">
         <label for="blog-description" class="label"
           >Describe this blog post</label
         >
@@ -34,7 +30,7 @@
           type="text"
           required="required"
         />
-      </div>
+      </div> -->
       <!-- TO DO: change date input value to show current date -->
       <div class="form-row">
         <label for="start-date" class="label">Began Reading On</label>
@@ -61,7 +57,7 @@
         />
       </div>
       <!-- TO DO: turn vocab & quotes input into multi-input -->
-      <div class="form-row">
+      <!-- <div class="form-row">
         <label for="new-vocabulary" class="label"
           >Did you learn any new words?</label
         >
@@ -85,9 +81,9 @@
       <div class="form-row">
         <label for="new-quote" class="label">Important Quotes</label>
         <input id="new-quote" name="new-quote" type="text" />
-      </div>
+      </div> -->
       <!-- TO DO: add graphic of stars with corresonding results -->
-      <div class="form-row">
+      <!-- <div class="form-row">
         <label for="rating" class="label">How many stars?</label>
         <input
           id="rating"
@@ -96,16 +92,16 @@
           src="#"
           required="required"
         />
-      </div>
+      </div> -->
       <!-- TO DO: add boxes to select from-->
       <div class="form-row">
         <label for="tag" class="label">Tags</label>
         <input id="tags" name="tags" type="checkbox" required="required" />
       </div>
-      <div class="form-row">
+      <!-- <div class="form-row">
         <label for="future-reads" class="label">Suggested Future Reads</label>
         <input id="future-reads" name="future-reads" type="text" />
-      </div>
+      </div> -->
       <div class="form-row">
         <label for="blog-content" class="label"
           >Your Thoughts on the Book:</label

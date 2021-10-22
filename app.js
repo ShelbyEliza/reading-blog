@@ -1,6 +1,7 @@
 const express = require("express");
 const { render } = require("ejs");
-const Blog = require("./modules/blog");
+const Blogs = require("./modules/blog");
+// const blogRoutes = require("./routes/blogRoutes");
 
 const app = express();
 
@@ -9,21 +10,32 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.static("data"));
 
-const blogs = [];
-blogs.push(new Blog("The Farthest Shore", "Ursula K. Le Guin", "2021"));
-blogs.push(new Blog("The Tombs of Atuan", "Ursula K. Le Guin", "2021"));
-blogs.push(new Blog("A Wizard of Earthsea", "Ursula K. Le Guin", "2021"));
+// const blogs = [];
+// blogs.push(new Blog("The Farthest Shore", "Ursula K. Le Guin", "2021"));
+// blogs.push(new Blog("The Tombs of Atuan", "Ursula K. Le Guin", "2021"));
+// blogs.push(new Blog("A Wizard of Earthsea", "Ursula K. Le Guin", "2021"));
+
+const blogs = new Blogs();
+blogs.readData();
+console.log(blogs.blogEntries);
+
+app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
 app.get("/", (req, res) => {
-  res.render("index", { title: "Reading Blog" });
+  res.render("blogs/index", { title: "Reading Blog" });
 });
 
 app.get("/create", (req, res) => {
-  res.render("create", { title: "New Blog" });
+  res.render("blogs/create", { title: "New Blog" });
 });
 
 app.get("/details", (req, res) => {
-  res.render("details", { title: "Blog Details" });
+  res.render("blogs/details", { title: "Blog Details" });
 });
 
 app.get("/search", (req, res) => {
@@ -33,5 +45,7 @@ app.get("/search", (req, res) => {
 app.get("/view-quote", (req, res) => {
   res.render("view-quote", { title: "View Quote" });
 });
+
+// app.use("/blogs", blogRoutes);
 
 app.listen(3000);
