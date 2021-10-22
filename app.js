@@ -18,12 +18,12 @@ app.get("/", (req, res) => {
   res.render("index", { title: "Reading Blog" });
 });
 
-app.get("/new-blog", (req, res) => {
-  res.render("new-blog", { title: "New Blog" });
+app.get("/create", (req, res) => {
+  res.render("create", { title: "New Blog" });
 });
 
-app.get("/view-blog", (req, res) => {
-  res.render("view-blog", { title: "View Blog" });
+app.get("/details", (req, res) => {
+  res.render("details", { title: "Blog Details" });
 });
 
 app.get("/search", (req, res) => {

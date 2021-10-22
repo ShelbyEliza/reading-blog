@@ -3,3 +3,5 @@ change date input value to show current date
 turn vocab & quotes input into multi-input
 add graphic of stars with corresonding results
 add boxes to select from
+
+https://www.youtube.com/watch?v=6iZiqQZBQJY 5:54 minutes in. 
