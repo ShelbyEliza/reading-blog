@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { v4: uuidv4 } = require("uuid");
 
 class Blog {
   constructor(
@@ -22,7 +23,7 @@ class Blog {
   }
 }
 
-class Blogs {
+class BlogList {
   constructor() {
     this.blogEntries = [];
   }
@@ -33,12 +34,26 @@ class Blogs {
         console.log(err);
         return;
       }
-      const blogsData = JSON.parse(data);
-      this.blogEntries = blogsData.blogs.map(this.createEntry);
-      console.log(this.blogEntries);
+      try {
+        const blogsData = JSON.parse(data);
+        // console.log(blogsData);
+        this.blogEntries = blogsData.blogs.map(this.createEntry);
+        return this.blogEntries;
+        // console.log(this.blogEntries);
+      } catch (err) {
+        console.log("Error parsing JSON string:", err);
+      }
     });
   }
+
+  // populateEntries(blogsData) {}
+
   createEntry(blogData) {
+    let uniqueID = uuidv4();
+    if (blogData.id == undefined) {
+      blogData.id = uniqueID;
+    }
+
     let {
       id,
       bookTitle,
@@ -49,6 +64,7 @@ class Blogs {
       tags,
       blogContent,
     } = blogData;
+
     let blog = new Blog(
       id,
       bookTitle,
@@ -61,6 +77,20 @@ class Blogs {
     );
     return blog;
   }
+
+  addBlogToBlogs(blogObject) {
+    this.blogEntries.push(blogObject);
+  }
+
+  writeEntry() {
+    const jsonString = JSON.stringify(this.blogEntries);
+    fs.writeFile("data/blog-data.json", jsonString, (err) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+    });
+  }
 }
 
-module.exports = (Blog, Blogs);
+module.exports = (Blog, BlogList);

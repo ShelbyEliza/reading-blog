@@ -164,17 +164,27 @@ a:hover {
   cursor: pointer;
 }
 
-.create-blog-container {
+.content-container {
   display: flex;
+  flex-direction: column;
 }
 
 .content {
   margin: 0px 60px;
-  padding: 0px 40px;
+  padding: 0px 40px 100px 40px;
   background: #966533ff;
   color: #2e2525ff;
 }
-.content-box {
+
+.create-blog-title {
+  margin: 0px 60px;
+  padding: 20px 40px;
+  background: #966533ff;
+  color: #2e2525ff;
+}
+
+.content-box,
+.create-blog-form {
   background: #2e2525ff;
   color: #966533ff;
 
@@ -206,4 +216,32 @@ a:hover {
 
   margin: auto;
   padding: 10px;
+}
+
+.input-cluster {
+  display: flex;
+  justify-content: flex-start;
+}
+/* .input-cluster input:first-of-type {
+  margin-right: 30px;
+} */
+
+.form-row {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.form-row label {
+  margin: 5px 5px 5px 0px;
+  padding: 0px 10px;
+}
+.form-row input {
+  margin-left: 30px;
+}
+
+.form-row textarea {
+  width: 100%;
+  min-height: 200px;
 }

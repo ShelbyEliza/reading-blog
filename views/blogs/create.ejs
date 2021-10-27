@@ -4,121 +4,77 @@
   <body>
     <%- include('../partials/header.ejs') %> <%- include('../partials/nav.ejs')
     %>
-    <h1>Add a new entry below!</h1>
-    <form action="/" method="POST" class="add-blog-form">
-      <div class="form-row">
-        <label for="book-title" class="label">Book Title</label>
-        <input
-          id="book-title"
-          name="book-title"
-          type="text"
-          placeholder="Books, books, books..."
-          required="required"
-        />
-      </div>
-      <div class="form-row">
-        <label for="author" class="label">Author</label>
-        <input id="author" name="author" type="text" required="required" />
-      </div>
-      <!-- <div class="form-row">
-        <label for="blog-description" class="label"
-          >Describe this blog post</label
-        >
-        <input
-          id="blog-description"
-          name="blog-description"
-          type="text"
-          required="required"
-        />
-      </div> -->
-      <!-- TO DO: change date input value to show current date -->
-      <div class="form-row">
-        <label for="start-date" class="label">Began Reading On</label>
-        <input
-          id="start-date"
-          name="start-date"
-          type="date"
-          value="2021-10-15"
-          min="1992-11-16"
-          max="2092-11-16"
-          required="required"
-        />
-      </div>
-      <div class="form-row">
-        <label for="end-date" class="label">Finished Reading On</label>
-        <input
-          id="end-date"
-          name="end-date"
-          type="date"
-          value="2021-10-15"
-          min="1992-11-16"
-          max="2092-11-16"
-          required="required"
-        />
-      </div>
-      <!-- TO DO: turn vocab & quotes input into multi-input -->
-      <!-- <div class="form-row">
-        <label for="new-vocabulary" class="label"
-          >Did you learn any new words?</label
-        >
-        <input
-          id="new-vocabulary"
-          name="new-vocabulary"
-          type="text"
-          required="required"
-        />
-      </div>
-      <div class="form-row">
-        <label for="new-image" class="label">Add Image</label>
-        <input
-          id="new-image"
-          name="new-image"
-          type="file"
-          accept="image/png, image/svg, image/jpeg"
-          multiple
-        />
-      </div>
-      <div class="form-row">
-        <label for="new-quote" class="label">Important Quotes</label>
-        <input id="new-quote" name="new-quote" type="text" />
-      </div> -->
-      <!-- TO DO: add graphic of stars with corresonding results -->
-      <!-- <div class="form-row">
-        <label for="rating" class="label">How many stars?</label>
-        <input
-          id="rating"
-          name="rating"
-          type="image"
-          src="#"
-          required="required"
-        />
-      </div> -->
-      <!-- TO DO: add boxes to select from-->
-      <div class="form-row">
-        <label for="tag" class="label">Tags</label>
-        <input id="tags" name="tags" type="checkbox" required="required" />
-      </div>
-      <!-- <div class="form-row">
-        <label for="future-reads" class="label">Suggested Future Reads</label>
-        <input id="future-reads" name="future-reads" type="text" />
-      </div> -->
-      <div class="form-row">
-        <label for="blog-content" class="label"
-          >Your Thoughts on the Book:</label
-        >
-        <textarea
-          id="blog-content"
-          name="blog-content"
-          rows="20"
-          cols="30"
-          required="required"
-        >
-        </textarea>
-      </div>
+    <div class="content-container">
+      <h1 class="create-blog-title">Add a new entry below!</h1>
+      <form action="/" method="POST" class="content">
+        <div class="create-blog-form">
+          <div class="input-cluster">
+            <div class="form-row">
+              <label for="book-title" class="label">Book Title</label>
+              <input
+                id="book-title"
+                name="book-title"
+                type="text"
+                placeholder="Books, books, books..."
+                required="required"
+              />
+            </div>
+            <div class="form-row">
+              <label for="author" class="label">Author</label>
+              <input
+                id="author"
+                name="author"
+                type="text"
+                required="required"
+              />
+            </div>
+          </div>
 
-      <div class="form-row form-button">
-        <button id="post-new-blog-button">Post!</button>
-      </div>
-    </form>
+          <!-- TO DO: change date input value to show current date -->
+          <div class="input-cluster">
+            <div class="form-row">
+              <label for="start-date" class="label">Started: </label>
+              <input
+                id="start-date"
+                name="start-date"
+                type="date"
+                value="2021-10-15"
+                min="1992-11-16"
+                max="2092-11-16"
+                required="required"
+              />
+            </div>
+            <div class="form-row">
+              <label for="end-date" class="label">Finished: </label>
+              <input
+                id="end-date"
+                name="end-date"
+                type="date"
+                value="2021-10-15"
+                min="1992-11-16"
+                max="2092-11-16"
+                required="required"
+              />
+            </div>
+          </div>
+          <!-- TO DO: add boxes to select from-->
+          <div class="form-row">
+            <label for="tag" class="label">Tags</label>
+            <input id="tags" name="tags" type="checkbox" required="required" />
+          </div>
+          <div class="form-row">
+            <label for="blog-content" class="label"
+              >Your Thoughts on the Book:</label
+            >
+            <textarea id="blog-content" name="blog-content" required="required">
+            </textarea>
+          </div>
+
+          <div class="form-row form-button">
+            <button id="post-new-blog-button">Post!</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

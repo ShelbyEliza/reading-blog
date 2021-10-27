@@ -1,6 +1,6 @@
 const express = require("express");
 const { render } = require("ejs");
-const Blogs = require("./modules/blog");
+const BlogList = require("./modules/blog");
 // const blogRoutes = require("./routes/blogRoutes");
 
 const app = express();
@@ -8,16 +8,11 @@ const app = express();
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
-app.use(express.static("data"));
+app.use(express.static("modules"));
 
-// const blogs = [];
-// blogs.push(new Blog("The Farthest Shore", "Ursula K. Le Guin", "2021"));
-// blogs.push(new Blog("The Tombs of Atuan", "Ursula K. Le Guin", "2021"));
-// blogs.push(new Blog("A Wizard of Earthsea", "Ursula K. Le Guin", "2021"));
-
-const blogs = new Blogs();
+const blogs = new BlogList();
 blogs.readData();
-console.log(blogs.blogEntries);
+// blogs.writeEntry();
 
 app.use(express.json());
 app.use(
