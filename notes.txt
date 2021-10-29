@@ -3,7 +3,7 @@
 ----------------------------------------------------------------------------------------------------------------------
 - https://www.youtube.com/watch?v=6iZiqQZBQJY 5:54 minutes in. 
 
-
+nodemon app --ext js
 
 ----------------------------------------------------------------------------------------------------------------------
                                                TO DO:
@@ -16,6 +16,21 @@ create.ejs -
   + add boxes to select from
 index.ejs - 
   + display archived blog posts (newest to oldest) & create multiple pages to view older posts
+
+
+----------------------------------------------------------------------------------------------------------------------
+                                               Plans:
+----------------------------------------------------------------------------------------------------------------------
+
+Dual fileSystem - 
+  + have an archive json file
+    - stores old posts 
+  + have a new blog post json file 
+    - read file, 
+    - convert to object,
+    - push data to blogEntries array,
+    - convert blogEntries array into json data,
+    - write to archive json file
 
 ----------------------------------------------------------------------------------------------------------------------
                                             App Functionality:

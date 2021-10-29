@@ -25,28 +25,40 @@ class Blog {
 
 class BlogList {
   constructor() {
-    this.blogEntries = [];
+    this.blogEntries = {
+      blogs: [],
+    };
   }
 
-  readData() {
-    fs.readFile("data/blog-data.json", (err, data) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
-      try {
-        const blogsData = JSON.parse(data);
-        // console.log(blogsData);
-        this.blogEntries = blogsData.blogs.map(this.createEntry);
-        return this.blogEntries;
-        // console.log(this.blogEntries);
-      } catch (err) {
-        console.log("Error parsing JSON string:", err);
-      }
+  readDataPromise(file) {
+    return new Promise((resolve) => {
+      fs.readFile(file, (err, data) => {
+        console.log("successful promise - read");
+        resolve(data);
+      });
     });
   }
 
-  // populateEntries(blogsData) {}
+  convertJsonToObjectPromise(data) {
+    return new Promise((resolve) => {
+      console.log("successful promise - convert json to obj");
+      const objectsData = JSON.parse(data);
+      resolve(objectsData);
+    });
+  }
+
+  createMultipleEntriesPromise(objectsData) {
+    return new Promise((resolve, reject) => {
+      if (objectsData != undefined) {
+        console.log("successful promise - createMulti");
+        this.blogEntries.blogs = objectsData.blogs.map(this.createEntry);
+        // console.log(this.blogEntries);
+        resolve(this.blogEntries);
+      } else {
+        reject("Error!!");
+      }
+    });
+  }
 
   createEntry(blogData) {
     let uniqueID = uuidv4();
@@ -78,19 +90,40 @@ class BlogList {
     return blog;
   }
 
-  addBlogToBlogs(blogObject) {
-    this.blogEntries.push(blogObject);
+  addBlogToEntries(blogObject) {
+    this.blogEntries.blogs.push(blogObject);
   }
 
-  writeEntry() {
-    const jsonString = JSON.stringify(this.blogEntries);
-    fs.writeFile("data/blog-data.json", jsonString, (err) => {
+  convertObjectToJsonPromise(blogEntries) {
+    // console.log(blogEntries);
+    return new Promise((resolve) => {
+      console.log("successful promise - convert obj to json");
+      const jsonString = JSON.stringify(blogEntries);
+      // console.log(jsonString);
+      resolve(jsonString);
+    });
+  }
+
+  writeEntry(jsonString) {
+    fs.writeFile("data/test-data.json", jsonString, (err) => {
       if (err) {
-        console.log(err);
-        return;
+        console.log("ERROR writing to files");
+      } else {
+        console.log("Done writing files");
       }
     });
   }
 }
+
+const blogs = new BlogList();
+
+blogs
+  .readDataPromise("data/blog-data.json")
+  .then((data) => blogs.convertJsonToObjectPromise(data))
+  .then((objectsData) => blogs.createMultipleEntriesPromise(objectsData))
+  .then((blogsEntries) => blogs.convertObjectToJsonPromise(blogsEntries))
+  .then((jsonString) => blogs.writeEntry(jsonString));
+
+console.log("done");
 
 module.exports = (Blog, BlogList);
