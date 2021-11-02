@@ -170,6 +170,9 @@ a:hover {
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
+
   margin: 0px 60px;
   padding: 0px 40px 100px 40px;
   background: #966533ff;
@@ -188,6 +191,9 @@ a:hover {
   background: #2e2525ff;
   color: #966533ff;
 
+  display: flex;
+  /* flex-direction: column; */
+
   border: 5px solid #473120ff;
 
   padding: 20px;
@@ -196,6 +202,7 @@ a:hover {
 
 .content-box-heading {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding-bottom: 10px;
 }
