@@ -15,8 +15,8 @@ app.use(express.static("modules"));
 
 startup.then((results) => {
   console.log("app");
-  console.log(results);
-  console.log(results[0]);
+  // console.log(results);
+  // console.log(results[0]);
   return results;
 });
 

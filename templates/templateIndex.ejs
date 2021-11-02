@@ -6,28 +6,24 @@
     %>
 
     <div class="content">
-      <h2 class="page-title">All Blogs</h2>
-      <% if (blogs.length > 0) { %> <% for (var i = 0; i < blogs.length; i++ ) {
-      %>
+      <h2 class="page-title">Page Title</h2>
       <div class="content-box">
         <div class="content-box-top">
           <div class="content-box-heading">
-            <h1 class="title"><%= blogs[i].bookTitle %></h1>
-            <h2 class="author"><%= blogs[i].author %></h2>
+            <h1 class="title">Book Title</h1>
+            <h2 class="author">Book Author</h2>
           </div>
-          <div class="thumbnail">
+          <div class="thumbnail-container">
             <img
-              class="title-banner-image"
+              class="thumbnail"
               src="./images/test-image-opt.svg"
               alt="An image of some stylized purple outlined trees on a dark landscape."
             />
           </div>
         </div>
-        <div class="blog-snippet"><%= blogs[i].blogContent %></div>
+        <div class="blog-snippet">Blog Snippet</div>
       </div>
-      <% } } else { %>
-      <p>There are no blogs to display.</p>
-      <% } %>
     </div>
+    <%- include('../partials/footer.ejs') %>
   </body>
 </html>
