@@ -3,7 +3,7 @@ const { render } = require("ejs");
 const BlogList = require("./modules/blog");
 const startup = require("./modules/blog");
 
-// const blogRoutes = require("./routes/blogRoutes");
+const blogRoutes = require("./routes/blogRoutes");
 
 const app = express();
 
@@ -11,8 +11,6 @@ app.set("view engine", "ejs");
 
 app.use(express.static("public"));
 app.use(express.static("modules"));
-
-startup;
 
 app.use(express.json());
 app.use(
@@ -22,20 +20,15 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  startup.then((results) =>
-    res.render("blogs/index", {
-      title: "Reading Blog",
-      blogs: results,
-    })
-  );
+  res.redirect("/blogs");
 });
 
 app.get("/create", (req, res) => {
-  res.render("blogs/create", { title: "Create New Blog" });
+  res.redirect("/blogs");
 });
 
 app.get("/details", (req, res) => {
-  res.render("blogs/details", { title: "Blog Details" });
+  res.redirect("/blogs");
 });
 
 app.get("/search", (req, res) => {
@@ -46,6 +39,6 @@ app.get("/view-quote", (req, res) => {
   res.render("view-quote", { title: "View Quote" });
 });
 
-// app.use("/blogs", blogRoutes);
+app.use("/blogs", blogRoutes);
 
 app.listen(3000);

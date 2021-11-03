@@ -7,13 +7,13 @@
     <div class="content">
       <h2 class="page-title">Add a new entry below!</h2>
       <div class="form-container">
-        <form action="/" method="POST">
+        <form action="/blogs" method="POST">
           <div class="form-column">
             <div class="form-row">
-              <label for="book-title" class="label">Book Title</label>
+              <label for="bookTitle" class="label">Book Title</label>
               <input
-                id="book-title"
-                name="book-title"
+                id="bookTitle"
+                name="bookTitle"
                 type="text"
                 placeholder="Books, books, books..."
                 required="required"
@@ -37,10 +37,10 @@
 
           <div class="form-column">
             <div class="form-row">
-              <label for="start-date" class="label">Started: </label>
+              <label for="startDate" class="label">Started: </label>
               <input
-                id="start-date"
-                name="start-date"
+                id="startDate"
+                name="startDate"
                 type="date"
                 value="2021-10-15"
                 min="1992-11-16"
@@ -52,10 +52,10 @@
 
           <div class="form-column">
             <div class="form-row">
-              <label for="end-date" class="label">Finished: </label>
+              <label for="endDate" class="label">Finished: </label>
               <input
-                id="end-date"
-                name="end-date"
+                id="endDate"
+                name="endDate"
                 type="date"
                 value="2021-10-15"
                 min="1992-11-16"
@@ -79,10 +79,10 @@
 
           <!-- <div class="form-column"> -->
           <div class="form-row">
-            <label for="blog-content" class="label"
+            <label for="blogContent" class="label"
               >Your Thoughts on the Book:</label
             >
-            <textarea id="blog-content" name="blog-content" required="required">
+            <textarea id="blogContent" name="blogContent" required="required">
             </textarea>
           </div>
           <!-- </div> -->

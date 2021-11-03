@@ -1,8 +1,12 @@
-// const express = require("express");
-// const blogController = require("../controllers/blogController");
+const express = require("express");
+const blogController = require("../controllers/blogController");
 
-// const router = express.Router();
+const router = express.Router();
 
-// // router.get("/", blogController.blog_index);
+router.get("/", blogController.loadHomepage);
+router.get("/create", blogController.loadCreatePage);
+router.get("/details", blogController.loadDetailsPage);
 
-// module.exports = router;
+router.post("/", blogController.createNewPost);
+
+module.exports = router;

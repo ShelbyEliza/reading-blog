@@ -89,39 +89,33 @@ class BlogList {
       tags,
       blogContent
     );
+    // console.log(blog);
     return blog;
   }
 
-  // addBlogToEntriesPromise(blogObject) {
-  //   return new Promise((resolve) => {
-  //     console.log("successful promise - addBlogToEntries");
-  //     this.blogEntries.blogs.push(blogObject);
-  //     resolve(this.blogEntries);
-  //   });
-  // }
+  addToEntries(blogObject) {
+    console.log("successful - addToEntries");
+    this.blogEntries.blogs.push(blogObject);
+    return this.blogEntries;
+  }
 
-  convertObjectToJsonPromise(blogEntries) {
-    // console.log(blogEntries);
-    return new Promise((resolve) => {
-      console.log("successful promise - convert obj to json");
-      const jsonString = JSON.stringify(blogEntries);
-      // console.log(jsonString);
-      resolve(jsonString);
-    });
+  convertObjectToJson(blogEntries) {
+    console.log("successful - convertObjectToJson");
+    const jsonString = JSON.stringify(blogEntries);
+    // console.log(jsonString);
+    return jsonString;
   }
 
   writeEntry(jsonString) {
-    fs.writeFile("data/blog-data.json", jsonString, (err) => {
-      if (err) {
-        console.log("ERROR writing to files");
-      } else {
-        console.log("Done writing files");
-      }
+    return new Promise((resolve) => {
+      fs.writeFile("data/blog-data.json", jsonString, (err) => {
+        if (err) {
+          console.log("ERROR writing to files");
+        } else {
+          resolve("Done writing files");
+        }
+      });
     });
-  }
-
-  createNewPost() {
-    return new Promise((resolve) => {});
   }
 }
 
@@ -137,35 +131,14 @@ const startupPromise = new Promise((resolve) => {
   );
 });
 
-// const blog_index = (req, res) => {
-//   Blog.find()
-//     .sort()
-//     .then((result) => {
-//       res.render("blogs/index", { title: "All Blogs", blogs: result });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
+const createNewPost = (createdData) => {
+  console.log("Creating new post");
 
-// const blog_create_post = (req, res) => {
-//   const blog = new Blog(req.body);
-//   return blog
-//     .then((blogData) => blogs.createEntry(blogData))
-//     .then((newlyCreatedBlog) => blogs.addBlogToEntriesPromise(newlyCreatedBlog))
-//     .then((result) => {
-//       res.redirect("/");
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
+  const allBlogEntries = blogs.addToEntries(blogs.createEntry(createdData));
+  const jsonString = blogs.convertObjectToJson(allBlogEntries);
+  blogs.writeEntry(jsonString).then((writenEntries) => {
+    console.log("successfully written to json file");
+  });
+};
 
-// blogs
-//   .readDataPromise("data/blog-data.json")
-//   .then((data) => blogs.convertJsonToObjectPromise(data))
-//   .then((objectsData) => blogs.createMultipleEntriesPromise(objectsData))
-//   .then((blogsEntries) => blogs.convertObjectToJsonPromise(blogsEntries))
-//   .then((jsonString) => blogs.writeEntry(jsonString));
-
-module.exports = (Blog, BlogList, startupPromise);
+module.exports = { Blog, BlogList, startupPromise, createNewPost };
