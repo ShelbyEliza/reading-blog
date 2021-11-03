@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { resolve } = require("path");
 const { v4: uuidv4 } = require("uuid");
 
 class Blog {
@@ -119,11 +120,22 @@ class BlogList {
     });
   }
 
-  // createPost = (req, res) => {
-  //   const blog = new Blog(req.body);
-  //   return blog;
-  // };
+  createNewPost() {
+    return new Promise((resolve) => {});
+  }
 }
+
+const blogs = new BlogList();
+
+const startupPromise = new Promise((resolve) => {
+  console.log("successful promise - startup");
+  resolve(
+    blogs
+      .readDataPromise("data/blog-data.json")
+      .then((data) => blogs.convertJsonToObjectPromise(data))
+      .then((objectsData) => blogs.createMultipleEntriesPromise(objectsData))
+  );
+});
 
 // const blog_index = (req, res) => {
 //   Blog.find()
@@ -148,28 +160,6 @@ class BlogList {
 //       console.log(err);
 //     });
 // };
-
-const blogs = new BlogList();
-
-const startupPromise = new Promise((resolve) => {
-  console.log("successful promise - startup");
-  resolve(
-    blogs
-      .readDataPromise("data/blog-data.json")
-      .then((data) => blogs.convertJsonToObjectPromise(data))
-      .then((objectsData) => blogs.createMultipleEntriesPromise(objectsData))
-  );
-
-  // .then((objectList) => {
-  //   console.log("blog.js");
-  //   resolve(objectList.blogs);
-  // });
-});
-
-// startupPromise.then((results) => {
-//   // console.log(blogs);
-//   console.log(results);
-// });
 
 // blogs
 //   .readDataPromise("data/blog-data.json")
