@@ -54,7 +54,6 @@ class BlogList {
       if (objectsData != undefined) {
         console.log("successful promise - createMulti");
         this.blogEntries.blogs = objectsData.blogs.map(this.createEntry);
-        // console.log(this.blogEntries.blogs);
         resolve(this.blogEntries.blogs);
       } else {
         reject("Error!!");
@@ -128,6 +127,7 @@ const startupPromise = new Promise((resolve) => {
       .readDataPromise("data/blog-data.json")
       .then((data) => blogs.convertJsonToObjectPromise(data))
       .then((objectsData) => blogs.createMultipleEntriesPromise(objectsData))
+      .then((allEntriesArray) => reverseOrder(allEntriesArray))
   );
 });
 
@@ -139,6 +139,12 @@ const createNewPost = (createdData) => {
   blogs.writeEntry(jsonString).then((writenEntries) => {
     console.log("successfully written to json file");
   });
+};
+
+const reverseOrder = (array) => {
+  const ascendingResults = array;
+  const descendingResults = ascendingResults.reverse();
+  return descendingResults;
 };
 
 module.exports = { Blog, BlogList, startupPromise, createNewPost };

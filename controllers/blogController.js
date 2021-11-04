@@ -1,11 +1,5 @@
 const blogModules = require("../modules/blog");
 
-// blog_index (gets all blogs and injects them into index view),
-// blog_details (get single blog),
-// blog_create_get (send back the actual form),
-// blog_create_post (create a new blog),
-// blog_delete (delete blog)
-
 const loadHomepage = (req, res) => {
   blogModules.startupPromise.then((results) => {
     res.render("blogs/index", {
@@ -20,8 +14,33 @@ const loadCreatePage = (req, res) => {
 };
 
 const loadDetailsPage = (req, res) => {
-  res.render("blogs/details", { title: "Blog Details" });
+  blogModules.startupPromise.then((entriesArray) => {
+    entriesArray.forEach((blog) => {
+      const ID = req.params.id;
+      if (blog.id == ID) {
+        const matchingBlog = blog;
+        this.specifiedBlog = matchingBlog;
+        return matchingBlog;
+      }
+    });
+    res.render("blogs/details", {
+      title: "Blog Details",
+      blog: this.specifiedBlog,
+    });
+  });
 };
+
+// const deleteBlog = (req, res) => {
+//   const id = req.params.id;
+
+//   Blog.findByIdAndDelete(id)
+//     .then((result) => {
+//       res.json({ redirect: "/blogs" });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// };
 
 const createNewPost = (req, res) => {
   blogModules.createNewPost(req.body);
@@ -33,4 +52,5 @@ module.exports = {
   loadCreatePage,
   loadDetailsPage,
   createNewPost,
+  // deleteBlog
 };

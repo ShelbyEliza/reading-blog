@@ -2,7 +2,29 @@
 <html lang="en">
   <%- include('../partials/head.ejs') %>
   <body>
-    <%- include('../partials/nav.ejs') %>
-    <h1>This is a particular blog.</h1>
+    <%- include('../partials/header.ejs') %> <%- include('../partials/nav.ejs')
+    %>
+
+    <div class="content">
+      <div class="content-box">
+        <div class="content-box-top">
+          <div class="content-box-heading">
+              <h3 class="title"><%= blog.bookTitle %></h3>
+              </a>
+            <h2 class="author"><%= blog.author %></h2>
+          </div>
+          <div class="thumbnail">
+            <img
+              class="title-banner-image"
+              src="../images/test-image-opt.svg"
+              alt="An image of some stylized purple outlined trees on a dark landscape."
+            />
+          </div>
+        </div>
+        <div class="blog-snippet"><%= blog.blogContent %></div>
+      </div>
+    </div>
+
+    
   </body>
-</html>
+</html> 
