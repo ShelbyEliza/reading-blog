@@ -54,6 +54,7 @@ class BlogList {
       if (objectsData != undefined) {
         console.log("successful promise - createMulti");
         this.blogEntries.blogs = objectsData.blogs.map(this.createEntry);
+        // console.log(this.blogEntries.blogs);
         resolve(this.blogEntries.blogs);
       } else {
         reject("Error!!");
@@ -88,20 +89,18 @@ class BlogList {
       tags,
       blogContent
     );
-    // console.log(blog);
     return blog;
   }
 
   addToEntries(blogObject) {
     console.log("successful - addToEntries");
-    this.blogEntries.blogs.push(blogObject);
+    this.blogEntries.blogs.unshift(blogObject);
     return this.blogEntries;
   }
 
   convertObjectToJson(blogEntries) {
     console.log("successful - convertObjectToJson");
-    const jsonString = JSON.stringify(blogEntries);
-    // console.log(jsonString);
+    const jsonString = JSON.stringify(blogEntries, null, 4);
     return jsonString;
   }
 
@@ -116,6 +115,11 @@ class BlogList {
       });
     });
   }
+
+  updateAfterDelete(updatedArray) {
+    this.blogEntries.blogs = updatedArray;
+    return this.blogEntries;
+  }
 }
 
 const blogs = new BlogList();
@@ -128,6 +132,7 @@ const startupPromise = new Promise((resolve) => {
       .then((data) => blogs.convertJsonToObjectPromise(data))
       .then((objectsData) => blogs.createMultipleEntriesPromise(objectsData))
       .then((allEntriesArray) => reverseOrder(allEntriesArray))
+    // .then((allEntriesArray) => reverseOrder(allEntriesArray))
   );
 });
 
@@ -142,9 +147,42 @@ const createNewPost = (createdData) => {
 };
 
 const reverseOrder = (array) => {
-  const ascendingResults = array;
-  const descendingResults = ascendingResults.reverse();
-  return descendingResults;
+  const lastBlog = array.length - 1;
+
+  if (array[lastBlog].id == 1) {
+    var reversedResults = array;
+  } else {
+    reversedResults = array.reverse();
+  }
+  return reversedResults;
 };
 
-module.exports = { Blog, BlogList, startupPromise, createNewPost };
+const deletePost = (array, ID) => {
+  console.log("beginning of deletePost function");
+  array.forEach((blog) => {
+    if (blog.id == ID) {
+      this.blogToDelete = blog;
+    }
+  });
+  const indexOfBlog = array.indexOf(this.blogToDelete);
+
+  if (indexOfBlog > -1) {
+    array.splice(indexOfBlog, 1);
+    const updatedArray = blogs.updateAfterDelete(array);
+    const updatedJsonString = blogs.convertObjectToJson(updatedArray);
+
+    blogs.writeEntry(updatedJsonString);
+    console.log("end of deleteBlog function");
+  } else {
+    console.log("Error.");
+  }
+};
+
+module.exports = {
+  Blog,
+  BlogList,
+  startupPromise,
+  createNewPost,
+  reverseOrder,
+  deletePost,
+};

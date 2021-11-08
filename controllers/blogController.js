@@ -1,10 +1,10 @@
 const blogModules = require("../modules/blog");
 
 const loadHomepage = (req, res) => {
-  blogModules.startupPromise.then((results) => {
+  blogModules.startupPromise.then((allBlogEntries) => {
     res.render("blogs/index", {
       title: "Reading Blog",
-      blogs: results,
+      blogs: allBlogEntries,
     });
   });
 };
@@ -14,8 +14,8 @@ const loadCreatePage = (req, res) => {
 };
 
 const loadDetailsPage = (req, res) => {
-  blogModules.startupPromise.then((entriesArray) => {
-    entriesArray.forEach((blog) => {
+  blogModules.startupPromise.then((allBlogEntries) => {
+    allBlogEntries.forEach((blog) => {
       const ID = req.params.id;
       if (blog.id == ID) {
         const matchingBlog = blog;
@@ -30,17 +30,15 @@ const loadDetailsPage = (req, res) => {
   });
 };
 
-// const deleteBlog = (req, res) => {
-//   const id = req.params.id;
+const deleteBlog = (req, res) => {
+  blogModules.startupPromise.then((allBlogEntries) => {
+    const ID = req.params.id;
+    blogModules.deletePost(allBlogEntries, ID);
+    // return res.json({ redirect: "/blogs" });
+  });
 
-//   Blog.findByIdAndDelete(id)
-//     .then((result) => {
-//       res.json({ redirect: "/blogs" });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
+  // res.redirect("/blogs");
+};
 
 const createNewPost = (req, res) => {
   blogModules.createNewPost(req.body);
@@ -52,5 +50,5 @@ module.exports = {
   loadCreatePage,
   loadDetailsPage,
   createNewPost,
-  // deleteBlog
+  deleteBlog,
 };
