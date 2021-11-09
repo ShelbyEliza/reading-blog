@@ -129,21 +129,92 @@ app.js -
 -----------------------------------------------------------------------------------------------------------------------
                                  json data backup:
 -----------------------------------------------------------------------------------------------------------------------
+
 {
   "blogs": [
     {
-      "id": "5e17e7cd-d9f3-471f-ba19-12dc35f3465f",
-      "bookTitle": "A Wizard of Earthsea",
+      "id": "10",
+      "bookTitle": "10",
       "author": "Ursula K. Le Guin",
-      "startDate": "07-15-2021",
-      "endDate": "08-15-2021",
+      "startDate": "09-15-2021",
+      "endDate": "",
       "rating": "5",
       "tags": "Fiction",
-      "blogContent": "A very good book."
+      "blogContent": "A very good trilogy."
+    },
+    {
+      "id": "9",
+      "bookTitle": "9",
+      "author": "Ursula K. Le Guin",
+      "startDate": "09-15-2021",
+      "endDate": "",
+      "rating": "5",
+      "tags": "Fiction",
+      "blogContent": "A very good trilogy."
+    },
+    {
+      "id": "8",
+      "bookTitle": "8",
+      "author": "Ursula K. Le Guin",
+      "startDate": "09-15-2021",
+      "endDate": "",
+      "rating": "5",
+      "tags": "Fiction",
+      "blogContent": "A very good trilogy."
+    },
+    {
+      "id": "7",
+      "bookTitle": "7",
+      "author": "Ursula K. Le Guin",
+      "startDate": "09-15-2021",
+      "endDate": "",
+      "rating": "5",
+      "tags": "Fiction",
+      "blogContent": "A very good trilogy."
+    },
+    {
+      "id": "6",
+      "bookTitle": "6",
+      "author": "Ursula K. Le Guin",
+      "startDate": "09-15-2021",
+      "endDate": "",
+      "rating": "5",
+      "tags": "Fiction",
+      "blogContent": "A very good trilogy."
+    },
+    {
+      "id": "5",
+      "bookTitle": "5",
+      "author": "Ursula K. Le Guin",
+      "startDate": "09-15-2021",
+      "endDate": "",
+      "rating": "5",
+      "tags": "Fiction",
+      "blogContent": "A very good trilogy."
+    },
+    {
+      "id": "4",
+      "bookTitle": "4",
+      "author": "Ursula K. Le Guin",
+      "startDate": "09-15-2021",
+      "endDate": "",
+      "rating": "5",
+      "tags": "Fiction",
+      "blogContent": "A very good trilogy."
+    },
+    {
+      "id": "6f80a6d4-21b3-46be-a897-7801e4329f52",
+      "bookTitle": "3. The Farthest Shore",
+      "author": "Ursula K. Le Guin",
+      "startDate": "09-15-2021",
+      "endDate": "",
+      "rating": "5",
+      "tags": "Fiction",
+      "blogContent": "A very good trilogy."
     },
     {
       "id": "a9746254-2b27-4f7e-9f98-4cef2e9830e3",
-      "bookTitle": "The Tombs of Atuan",
+      "bookTitle": "2. The Tombs of Atuan",
       "author": "Ursula K. Le Guin",
       "startDate": "08-15-2021",
       "endDate": "09-15-2021",
@@ -152,80 +223,14 @@ app.js -
       "blogContent": "A very good sequel."
     },
     {
-      "id": "6f80a6d4-21b3-46be-a897-7801e4329f52",
-      "bookTitle": "The Farthest Shore",
+      "id": "1",
+      "bookTitle": "1. A Wizard of Earthsea",
       "author": "Ursula K. Le Guin",
-      "startDate": "09-15-2021",
-      "endDate": "",
+      "startDate": "07-15-2021",
+      "endDate": "08-15-2021",
       "rating": "5",
       "tags": "Fiction",
-      "blogContent": "A very good trilogy."
+      "blogContent": "A very good book."
     }
   ]
-}
-
-
-{
-    "blogs": [
-        {
-            "id": "6",
-            "bookTitle": "6",
-            "author": "Ursula K. Le Guin",
-            "startDate": "09-15-2021",
-            "endDate": "",
-            "rating": "5",
-            "tags": "Fiction",
-            "blogContent": "A very good trilogy."
-        },
-        {
-            "id": "5",
-            "bookTitle": "5",
-            "author": "Ursula K. Le Guin",
-            "startDate": "09-15-2021",
-            "endDate": "",
-            "rating": "5",
-            "tags": "Fiction",
-            "blogContent": "A very good trilogy."
-        },
-        {
-            "id": "4",
-            "bookTitle": "4",
-            "author": "Ursula K. Le Guin",
-            "startDate": "09-15-2021",
-            "endDate": "",
-            "rating": "5",
-            "tags": "Fiction",
-            "blogContent": "A very good trilogy."
-        },
-        {
-            "id": "6f80a6d4-21b3-46be-a897-7801e4329f52",
-            "bookTitle": "3. The Farthest Shore",
-            "author": "Ursula K. Le Guin",
-            "startDate": "09-15-2021",
-            "endDate": "",
-            "rating": "5",
-            "tags": "Fiction",
-            "blogContent": "A very good trilogy."
-        },
-        {
-            "id": "a9746254-2b27-4f7e-9f98-4cef2e9830e3",
-            "bookTitle": "2. The Tombs of Atuan",
-            "author": "Ursula K. Le Guin",
-            "startDate": "08-15-2021",
-            "endDate": "09-15-2021",
-            "rating": "5",
-            "tags": "Fiction",
-            "blogContent": "A very good sequel."
-        },
-        {
-            "id": "1",
-            "bookTitle": "1. A Wizard of Earthsea",
-            "author": "Ursula K. Le Guin",
-            "startDate": "07-15-2021",
-            "endDate": "08-15-2021",
-            "rating": "5",
-            "tags": "Fiction",
-            "blogContent": "A very good book."
-        }
-    ]
 }

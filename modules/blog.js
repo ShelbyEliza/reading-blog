@@ -34,38 +34,37 @@ class BlogList {
   readDataPromise(file) {
     return new Promise((resolve) => {
       fs.readFile(file, (err, data) => {
-        console.log("successful promise - read");
+        console.log("Success - readDataPromise.");
         resolve(data);
       });
     });
   }
 
-  convertJsonToObjectPromise(data) {
+  // readDataPromise(file) {
+  //   return new Promise((resolve, reject) => {
+  //     fs.readFile(file, (err, data) => {
+  //       if (err) {
+  //         reject(console.log(err));
+  //       } else {
+  //         console.log("Success - readDataPromise.");
+  //         resolve(data);
+  //       }
+  //     });
+  //   });
+  // }
+
+  convertJsonToObjectPromise(jsonData) {
     return new Promise((resolve) => {
-      console.log("successful promise - convert json to obj");
-      const objectsData = JSON.parse(data);
-      // console.log(objectsData);
+      console.log("Success - convertJsonToObjectPromise.");
+      const objectsData = JSON.parse(jsonData);
       resolve(objectsData);
     });
   }
 
-  createMultipleEntriesPromise(objectsData) {
-    return new Promise((resolve, reject) => {
-      if (objectsData != undefined) {
-        console.log("successful promise - createMulti");
-        this.blogEntries.blogs = objectsData.blogs.map(this.createEntry);
-        // console.log(this.blogEntries.blogs);
-        resolve(this.blogEntries.blogs);
-      } else {
-        reject("Error!!");
-      }
-    });
-  }
-
-  createEntry(blogData) {
+  createEntry(blogObject) {
     let uniqueID = uuidv4();
-    if (blogData.id == undefined) {
-      blogData.id = uniqueID;
+    if (blogObject.id == undefined) {
+      blogObject.id = uniqueID;
     }
 
     let {
@@ -77,7 +76,7 @@ class BlogList {
       rating,
       tags,
       blogContent,
-    } = blogData;
+    } = blogObject;
 
     let blog = new Blog(
       id,
@@ -92,15 +91,38 @@ class BlogList {
     return blog;
   }
 
+  createMultipleEntriesPromise(blogObjArray) {
+    return new Promise((resolve, reject) => {
+      if (blogObjArray != undefined) {
+        console.log("Success - createMultipleEntriesPromise.");
+        this.blogEntries.blogs = blogObjArray.blogs.map(this.createEntry);
+        resolve(this.blogEntries.blogs);
+      } else {
+        reject("Error.");
+      }
+    });
+  }
+
+  reverseOrder(blogObjArray) {
+    const lastBlog = blogObjArray.length - 1;
+
+    if (blogObjArray[lastBlog].id == 1) {
+      var reversedResults = blogObjArray;
+    } else {
+      reversedResults = blogObjArray.reverse();
+    }
+    return reversedResults;
+  }
+
   addToEntries(blogObject) {
-    console.log("successful - addToEntries");
+    console.log("Success - addToEntries.");
     this.blogEntries.blogs.unshift(blogObject);
     return this.blogEntries;
   }
 
-  convertObjectToJson(blogEntries) {
-    console.log("successful - convertObjectToJson");
-    const jsonString = JSON.stringify(blogEntries, null, 4);
+  convertObjectToJson(blogObjArray) {
+    console.log("Success - convertObjectToJson.");
+    const jsonString = JSON.stringify(blogObjArray, null, 4);
     return jsonString;
   }
 
@@ -116,8 +138,8 @@ class BlogList {
     });
   }
 
-  updateAfterDelete(updatedArray) {
-    this.blogEntries.blogs = updatedArray;
+  updateAfterDelete(updatedBlogObjArray) {
+    this.blogEntries.blogs = updatedBlogObjArray;
     return this.blogEntries;
   }
 }
@@ -125,54 +147,42 @@ class BlogList {
 const blogs = new BlogList();
 
 const startupPromise = new Promise((resolve) => {
-  console.log("successful promise - startup");
+  console.log("Success - startupPromise.");
   resolve(
     blogs
       .readDataPromise("data/blog-data.json")
       .then((data) => blogs.convertJsonToObjectPromise(data))
       .then((objectsData) => blogs.createMultipleEntriesPromise(objectsData))
-      .then((allEntriesArray) => reverseOrder(allEntriesArray))
-    // .then((allEntriesArray) => reverseOrder(allEntriesArray))
+      .then((allEntriesArray) => blogs.reverseOrder(allEntriesArray))
   );
 });
 
-const createNewPost = (createdData) => {
+const createNewPost = (createdBlogObject) => {
   console.log("Creating new post");
 
-  const allBlogEntries = blogs.addToEntries(blogs.createEntry(createdData));
+  const allBlogEntries = blogs.addToEntries(
+    blogs.createEntry(createdBlogObject)
+  );
   const jsonString = blogs.convertObjectToJson(allBlogEntries);
   blogs.writeEntry(jsonString).then((writenEntries) => {
     console.log("successfully written to json file");
   });
 };
 
-const reverseOrder = (array) => {
-  const lastBlog = array.length - 1;
-
-  if (array[lastBlog].id == 1) {
-    var reversedResults = array;
-  } else {
-    reversedResults = array.reverse();
-  }
-  return reversedResults;
-};
-
-const deletePost = (array, ID) => {
-  console.log("beginning of deletePost function");
-  array.forEach((blog) => {
+const deletePost = (blogObjArray, ID) => {
+  blogObjArray.forEach((blog) => {
     if (blog.id == ID) {
       this.blogToDelete = blog;
     }
   });
-  const indexOfBlog = array.indexOf(this.blogToDelete);
+  const indexOfBlog = blogObjArray.indexOf(this.blogToDelete);
 
   if (indexOfBlog > -1) {
-    array.splice(indexOfBlog, 1);
-    const updatedArray = blogs.updateAfterDelete(array);
+    blogObjArray.splice(indexOfBlog, 1);
+    const updatedArray = blogs.updateAfterDelete(blogObjArray);
     const updatedJsonString = blogs.convertObjectToJson(updatedArray);
 
     blogs.writeEntry(updatedJsonString);
-    console.log("end of deleteBlog function");
   } else {
     console.log("Error.");
   }
@@ -183,6 +193,5 @@ module.exports = {
   BlogList,
   startupPromise,
   createNewPost,
-  reverseOrder,
   deletePost,
 };

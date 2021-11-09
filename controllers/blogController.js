@@ -30,19 +30,23 @@ const loadDetailsPage = (req, res) => {
   });
 };
 
-const deleteBlog = (req, res) => {
-  blogModules.startupPromise.then((allBlogEntries) => {
-    const ID = req.params.id;
-    blogModules.deletePost(allBlogEntries, ID);
-    // return res.json({ redirect: "/blogs" });
-  });
-
-  // res.redirect("/blogs");
-};
-
 const createNewPost = (req, res) => {
   blogModules.createNewPost(req.body);
   res.redirect("/blogs");
+};
+
+const deleteBlog = (req, res) => {
+  blogModules.startupPromise
+    .then((allBlogEntries) => {
+      const ID = req.params.id;
+      blogModules.deletePost(allBlogEntries, ID);
+    })
+    .then((result) => {
+      res.json({ redirect: "/blogs" });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 module.exports = {
