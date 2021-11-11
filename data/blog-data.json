@@ -1,6 +1,33 @@
 {
     "blogs": [
         {
+            "id": "eebb3500-3963-45c5-8f3d-502618689214",
+            "bookTitle": "Books for the Bookless ",
+            "author": "Bookella Bookerton",
+            "startDate": "2021-10-15",
+            "endDate": "2021-10-15",
+            "tags": "on",
+            "blogContent": "     Boooooks.       "
+        },
+        {
+            "id": "9",
+            "bookTitle": "9",
+            "author": "Ursula K. Le Guin",
+            "startDate": "2021-10-15",
+            "endDate": "2021-10-15",
+            "tags": "on",
+            "blogContent": "         UPDATED!  "
+        },
+        {
+            "id": "72ebeec4-f324-4f87-9681-e6a2e7593f07",
+            "bookTitle": "8",
+            "author": "Ursula K. Le Guin",
+            "startDate": "2021-10-15",
+            "endDate": "2021-10-15",
+            "tags": "on",
+            "blogContent": "            UPDATED!"
+        },
+        {
             "id": "7",
             "bookTitle": "7",
             "author": "Ursula K. Le Guin",

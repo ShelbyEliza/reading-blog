@@ -15,6 +15,15 @@
               <h3 class="title"><%= blogs[i].bookTitle %></h3>
               </a>
             <h2 class="author"><%= blogs[i].author %></h2>
+            <div class="edit-button-container">
+              <a class="edit" href="/blogs/edit/<%= blogs[i].id %>">
+                <img 
+                  class="edit-button-image"
+                  src="../../images/edit-opt.svg"
+                  alt="An icon depicting a pencil, with directs to the edit blog page."
+                />
+              </a>
+            </div>
           </div>
           <div class="thumbnail">
             <img
@@ -24,6 +33,7 @@
             />
           </div>
         </div>
+
         <div class="blog-snippet"><%= blogs[i].blogContent %></div>
       </div>
       <% } } else { %>

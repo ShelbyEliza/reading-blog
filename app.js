@@ -33,13 +33,17 @@ app.get("/details", (req, res) => {
   res.redirect("/blogs");
 });
 
-app.get("/search", (req, res) => {
-  res.render("search", { title: "Search for a Post" });
+app.get("/edit", (req, res) => {
+  res.redirect("/blogs");
 });
 
-app.get("/view-quote", (req, res) => {
-  res.render("view-quote", { title: "View Quote" });
-});
+// app.get("/search", (req, res) => {
+//   res.render("search", { title: "Search for a Post" });
+// });
+
+// app.get("/view-quote", (req, res) => {
+//   res.render("view-quote", { title: "View Quote" });
+// });
 
 app.use("/blogs", blogRoutes);
 

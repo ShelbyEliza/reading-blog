@@ -32,26 +32,17 @@ class BlogList {
   }
 
   readDataPromise(file) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       fs.readFile(file, (err, data) => {
-        console.log("Success - readDataPromise.");
-        resolve(data);
+        if (err) {
+          reject(console.log(err));
+        } else {
+          console.log("Success - readDataPromise.");
+          resolve(data);
+        }
       });
     });
   }
-
-  // readDataPromise(file) {
-  //   return new Promise((resolve, reject) => {
-  //     fs.readFile(file, (err, data) => {
-  //       if (err) {
-  //         reject(console.log(err));
-  //       } else {
-  //         console.log("Success - readDataPromise.");
-  //         resolve(data);
-  //       }
-  //     });
-  //   });
-  // }
 
   convertJsonToObjectPromise(jsonData) {
     return new Promise((resolve) => {
@@ -138,7 +129,7 @@ class BlogList {
     });
   }
 
-  updateAfterDelete(updatedBlogObjArray) {
+  updateAfterModifying(updatedBlogObjArray) {
     this.blogEntries.blogs = updatedBlogObjArray;
     return this.blogEntries;
   }
@@ -157,7 +148,7 @@ const startupPromise = new Promise((resolve) => {
   );
 });
 
-const createNewPost = (createdBlogObject) => {
+const createNewBlog = (createdBlogObject) => {
   console.log("Creating new post");
 
   const allBlogEntries = blogs.addToEntries(
@@ -169,7 +160,7 @@ const createNewPost = (createdBlogObject) => {
   });
 };
 
-const deletePost = (blogObjArray, ID) => {
+const deleteBlog = (blogObjArray, ID) => {
   blogObjArray.forEach((blog) => {
     if (blog.id == ID) {
       this.blogToDelete = blog;
@@ -179,7 +170,7 @@ const deletePost = (blogObjArray, ID) => {
 
   if (indexOfBlog > -1) {
     blogObjArray.splice(indexOfBlog, 1);
-    const updatedArray = blogs.updateAfterDelete(blogObjArray);
+    const updatedArray = blogs.updateAfterModifying(blogObjArray);
     const updatedJsonString = blogs.convertObjectToJson(updatedArray);
 
     blogs.writeEntry(updatedJsonString);
@@ -188,10 +179,32 @@ const deletePost = (blogObjArray, ID) => {
   }
 };
 
+const updateBlog = (ID, updatedBlogObject, blogObjArray) => {
+  console.log("Updating post");
+
+  console.log(updatedBlogObject);
+
+  blogObjArray.forEach((blog) => {
+    if (ID == blog.id) {
+      console.log("blog found");
+
+      updatedBlogObject.id = blog.id;
+      const updatedBlog = blogs.createEntry(updatedBlogObject);
+      const blogToReplaceId = blogObjArray.indexOf(blog);
+      blogObjArray.splice(blogToReplaceId, 1, updatedBlog);
+    }
+  });
+
+  blogs.writeEntry(
+    blogs.convertObjectToJson(blogs.updateAfterModifying(blogObjArray))
+  );
+};
+
 module.exports = {
   Blog,
   BlogList,
   startupPromise,
-  createNewPost,
-  deletePost,
+  createNewBlog,
+  deleteBlog,
+  updateBlog,
 };

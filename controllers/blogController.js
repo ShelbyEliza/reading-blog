@@ -30,16 +30,34 @@ const loadDetailsPage = (req, res) => {
   });
 };
 
+const loadEditPage = (req, res) => {
+  blogModules.startupPromise.then((allBlogEntries) => {
+    allBlogEntries.forEach((blog) => {
+      const ID = req.params.id;
+      if (blog.id == ID) {
+        const matchingBlog = blog;
+        this.specifiedBlog = matchingBlog;
+        return matchingBlog;
+      }
+    });
+    res.render("blogs/edit", {
+      title: "Edit a Blog",
+      blog: this.specifiedBlog,
+      autoPopulate: blogModules.autoPopulate,
+    });
+  });
+};
+
 const createNewPost = (req, res) => {
-  blogModules.createNewPost(req.body);
+  blogModules.createNewBlog(req.body);
   res.redirect("/blogs");
 };
 
-const deleteBlog = (req, res) => {
+const deletePost = (req, res) => {
   blogModules.startupPromise
     .then((allBlogEntries) => {
       const ID = req.params.id;
-      blogModules.deletePost(allBlogEntries, ID);
+      blogModules.deleteBlog(allBlogEntries, ID);
     })
     .then((result) => {
       res.json({ redirect: "/blogs" });
@@ -49,10 +67,23 @@ const deleteBlog = (req, res) => {
     });
 };
 
+const updatePost = (req, res) => {
+  blogModules.startupPromise
+    .then((allBlogEntries) => {
+      const ID = req.params.id;
+      blogModules.updateBlog(ID, req.body, allBlogEntries);
+    })
+    .then((results) => {
+      res.redirect("/blogs");
+    });
+};
+
 module.exports = {
   loadHomepage,
   loadCreatePage,
   loadDetailsPage,
+  loadEditPage,
   createNewPost,
-  deleteBlog,
+  deletePost,
+  updatePost,
 };

@@ -23,7 +23,13 @@
         </div>
         <div class="blog-snippet"><%= blog.blogContent %></div>
         <div class="delete-button">
-          <a class="delete" data-doc="<%= blog.id %>"> DELETE BLOG! </a>
+          <a class="delete" data-doc="<%= blog.id %>"> 
+            <img
+            class="delete-button-image"
+            src="../images/garbage-final.svg"
+            alt="An image of a green trashcan with yellow crumbled up garbage in it."
+          />
+          </a>
         </div>
       </div>
     </div>  

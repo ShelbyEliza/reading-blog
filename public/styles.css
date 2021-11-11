@@ -180,7 +180,8 @@ a:hover {
   padding-top: 20px;
 }
 
-.form-container,
+/* ------------------------------------ End of Universal CSS ---------------------------------------*/
+/* .form-container,
 .content-box {
   background: #2e2525ff;
   color: #966533ff;
@@ -209,28 +210,8 @@ a:hover {
 .blog-snippet {
   background: #65292aff;
   border: 2px solid #473120ff;
-
-  margin: auto;
-  padding: 10px;
 }
 
-.form-column {
-  /*
-  display: flex;
-  flex-direction: column; 
-  justify-content: space-between; 
-  */
-}
-
-.form-row {
-  /* 
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: baseline;
-  margin-bottom: 20px;
-  */
-}
 
 .form-row label {
   display: flex;
@@ -248,4 +229,14 @@ a:hover {
 .form-row textarea {
   width: 100%;
   min-height: 200px;
+} */
+
+/* 
+.form-row {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: baseline;
+  margin-bottom: 20px;
 }
+*/
