@@ -7,14 +7,14 @@
 
     <div class="content">
       <h2 class="page-title">All Blogs</h2>
-      <% if (blogs.length > 0) { %> <% for (var i = 0; i < blogs.length; i++ ) { %>
+      <% if (blogs.length > 0) { for (var i = 0; i < blogs.length; i++ ) { %>
       <div class="content-box">
         <div class="content-box-top">
           <div class="content-box-heading">
             <a class="title" href="/blogs/<%= blogs[i].id %>">
-              <h3 class="title"><%= blogs[i].bookTitle %></h3>
+              <h1 class="title"><%= blogs[i].bookTitle %></h1>
               </a>
-            <h2 class="author"><%= blogs[i].author %></h2>
+            <h3 class="author">by <%= blogs[i].author %></h3>
             <div class="edit-button-container">
               <a class="edit" href="/blogs/edit/<%= blogs[i].id %>">
                 <img 

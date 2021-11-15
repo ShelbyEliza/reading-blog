@@ -9,6 +9,45 @@
   border: 5px solid #473120ff;
 }
 
+.form-container {
+  display: flex;
+  flex-flow: row wrap;
+  width: 900px;
+}
+
+.form-container > * {
+  border: 1px solid rgb(255, 255, 255);
+  flex: 0 0 30%;
+}
+
+.col-one {
+  margin: 0px 30px 0px 0px;
+}
+
+.col-two {
+  margin: 0px 0px 5px 90px;
+}
+
+/* .form-row label {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 5px 5px 0px;
+  padding: 0px 0px;
+}
+.form-row input {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 5px 5px 0px;
+  padding: 0px 0px;
+}
+
+.form-row textarea {
+  width: 100%;
+  min-height: 200px;
+} */
+
+/* ------------------------------------ End of form CSS ---------------------------------------*/
+
 .content-box-top {
   display: flex;
   justify-content: space-between;
@@ -37,22 +76,4 @@
 .blog-snippet {
   background: #65292aff;
   border: 2px solid #473120ff;
-}
-
-.form-row label {
-  display: flex;
-  flex-direction: column;
-  margin: 5px 5px 5px 0px;
-  padding: 0px 0px;
-}
-.form-row input {
-  display: flex;
-  flex-direction: column;
-  margin: 5px 5px 5px 0px;
-  padding: 0px 0px;
-}
-
-.form-row textarea {
-  width: 100%;
-  min-height: 200px;
 }

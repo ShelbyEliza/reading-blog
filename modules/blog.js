@@ -148,6 +148,19 @@ const startupPromise = new Promise((resolve) => {
   );
 });
 
+// const readDataPromise = (file) => {
+//   return new Promise((resolve, reject) => {
+//     fs.readFile(file, (err, data) => {
+//       if (err) {
+//         reject(console.log(err));
+//       } else {
+//         console.log("Success - readDataPromise.");
+//         resolve(data);
+//       }
+//     });
+//   });
+// }
+
 const createNewBlog = (createdBlogObject) => {
   console.log("Creating new post");
 
@@ -181,8 +194,6 @@ const deleteBlog = (blogObjArray, ID) => {
 
 const updateBlog = (ID, updatedBlogObject, blogObjArray) => {
   console.log("Updating post");
-
-  console.log(updatedBlogObject);
 
   blogObjArray.forEach((blog) => {
     if (ID == blog.id) {

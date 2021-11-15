@@ -9,9 +9,18 @@
       <div class="content-box">
         <div class="content-box-top">
           <div class="content-box-heading">
-              <h3 class="title"><%= blog.bookTitle %></h3>
+              <h1 class="title"><%= blog.bookTitle %></h1>
               </a>
             <h2 class="author"><%= blog.author %></h2>
+          </div>
+          <div class="edit-button-container">
+            <a class="edit" href="/blogs/edit/<%= blog.id %>">
+              <img 
+                class="edit-button-image"
+                src="../../images/edit-opt.svg"
+                alt="An icon depicting a pencil, with directs to the edit blog page."
+              />
+            </a>
           </div>
           <div class="thumbnail">
             <img

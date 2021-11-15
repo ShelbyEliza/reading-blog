@@ -6,92 +6,94 @@
     %>
     <div class="content">
       <h2 class="page-title">Add a new entry below!</h2>
-      <div class="form-container">
-        <form action="/blogs" method="POST">
-          <div class="form-column">
-            <div class="form-row">
-              <label for="bookTitle" class="label">Book Title</label>
-              <input
-                id="bookTitle"
-                name="bookTitle"
-                type="text"
-                placeholder="Books, books, books..."
-                required="required"
-              />
-            </div>
+      <form action="/blogs" method="POST">
+          <div class="form-container">
+
+          <div class="form-row col-one" >
+            <label for="bookTitle" class="label">Book Title</label>
           </div>
 
-          <div class="form-column">
-            <div class="form-row">
-              <label for="author" class="label">Author</label>
-              <input
-                id="author"
-                name="author"
-                type="text"
-                required="required"
-              />
-            </div>
+          <div class="form-row col-two">
+            <label for="author" class="label">Author</label>
           </div>
 
-          <!-- TO DO: change date input value to show current date -->
-
-          <div class="form-column">
-            <div class="form-row">
-              <label for="startDate" class="label">Started: </label>
-              <input
-                id="startDate"
-                name="startDate"
-                type="date"
-                value="2021-10-15"
-                min="1992-11-16"
-                max="2092-11-16"
-                required="required"
-              />
-            </div>
+          <div class="form-row col-one">
+            <input
+            id="bookTitle"
+            name="bookTitle"
+            type="text"
+            placeholder="Books, books, books..."
+            required="required"
+            />
           </div>
 
-          <div class="form-column">
-            <div class="form-row">
-              <label for="endDate" class="label">Finished: </label>
-              <input
-                id="endDate"
-                name="endDate"
-                type="date"
-                value="2021-10-15"
-                min="1992-11-16"
-                max="2092-11-16"
-                required="required"
-              />
-            </div>
+          <div class="form-row col-two">
+            <input
+              id="author"
+              name="author"
+              type="text"
+              required="required"
+            />
           </div>
-          <!-- TO DO: add boxes to select from-->
-          <div class="form-column">
-            <div class="form-row">
-              <label for="tag" class="label">Tags</label>
-              <input
-                id="tags"
-                name="tags"
-                type="checkbox"
-                required="required"
-              />
-            </div>
+<!-- TO DO: change date input value to show current date -->
+          <div class="form-row col-one">
+            <label for="startDate" class="label">Started: </label>
+          </div>
+          <div class="form-row col-two">
+            <label for="endDate" class="label">Finished: </label>
           </div>
 
-          <!-- <div class="form-column"> -->
+          <div class="form-row col-one">
+            <input
+            id="startDate"
+            name="startDate"
+            type="date"
+            value="2021-10-15"
+            min="1992-11-16"
+            max="2092-11-16"
+            required="required"
+            />
+          </div>
+
+          <div class="form-row col-two">
+            <input
+            id="endDate"
+            name="endDate"
+            type="date"
+            value="2021-10-15"
+            min="1992-11-16"
+            max="2092-11-16"
+            required="required"
+            />
+          </div>
+<!-- TO DO: add boxes to select from-->
+          <!-- <div class="form-row">
+            <label for="tag" class="label">Tags</label>
+          </div>
+          <div class="form-row">
+            <input
+            id="tags"
+            name="tags"
+            type="checkbox"
+            required="required"
+            />
+          </div>    -->
           <div class="form-row">
             <label for="blogContent" class="label"
-              >Your Thoughts on the Book:</label
-            >
+              >Your Thoughts on the Book:
+            </label>
+          </div>
+          <div class="form-row"></div>
+        </div>
+          <div class="blog-content">
             <textarea id="blogContent" name="blogContent" required="required">
             </textarea>
           </div>
-          <!-- </div> -->
-
-          <div class="form-row form-button">
+          <div class="form-button">
             <button id="post-new-blog-button">Post!</button>
           </div>
         </form>
-      </div>
+      
     </div>
   </body>
 </html>
