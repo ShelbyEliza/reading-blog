@@ -70,13 +70,14 @@ const startupPromise = new Promise((resolve) => {
   );
 });
 
-// const authorStartupPromise = new Promise((resolve) => {
-//   resolve(
-//     readDataPromise("data/blog-data.json")
-//       .then((data) => convertJsonToObjectPromise(data))
-//       .then((objectsData) => authors.createMultipleAuthorsPromise(objectsData))
-//   );
-// });
+const authorStartupPromise = new Promise((resolve) => {
+  resolve(
+    readDataPromise("data/blog-data.json")
+      .then((data) => convertJsonToObjectPromise(data))
+      .then((objectsData) => authors.createAuthorsArrayPromise(objectsData))
+      .then((authorArray) => authors.createMultipleAuthorsPromise(authorArray))
+  );
+});
 
 //////////// End of Universal functions ////////
 
@@ -128,11 +129,21 @@ const updateBlog = (ID, updatedBlogObject, blogObjArray) => {
   writeEntry(convertObjectToJson(blogs.updateAfterModifying(blogObjArray)));
 };
 
+///////////////////////////////// Authors ////////////////////////////////
+
+// const writeAuthorsToJson = () => {
+//   authorStartupPromise
+//     .then((allAuthorObjs) => {
+//       const json = convertObjectToJson(allAuthorObjs);
+
+//     })
+// }
+
 //////////////// End of blog functions //////////////////////////////
 
 module.exports = {
   startupPromise,
-  // authorStartupPromise,
+  authorStartupPromise,
   createNewBlog,
   deleteBlog,
   updateBlog,

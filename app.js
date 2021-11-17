@@ -37,9 +37,9 @@ app.get("/edit", (req, res) => {
   res.redirect("/blogs");
 });
 
-// app.get("/authors", (req, res) => {
-//   res.redirect("/categories");
-// });
+app.get("/authors", (req, res) => {
+  res.redirect("/categories");
+});
 
 // app.get("/quotes", (req, res) => {
 //   res.redirect("/categories");
@@ -50,6 +50,6 @@ app.get("/edit", (req, res) => {
 // });
 
 app.use("/blogs", blogRoutes);
-// app.use("/categories", categoriesRoutes);
+app.use("/categories", categoriesRoutes);
 
 app.listen(3000);

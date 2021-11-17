@@ -19,31 +19,60 @@ class AuthorList {
 
   createAuthor(authorObject) {
     let uniqueID = uuidv4();
+    // const includesAuthorObj =
+    //   this.authorDirectory.authors.includes(authorObject);
 
-    if (this.authorDirectory.authors.includes(authorObject) == false) {
-      if (authorObject.id == undefined) {
-        authorObject.id = uniqueID;
-      }
-
-      let { id, name, booksWritten, quotes, aboutAuthor } = authorObject;
-
-      let author = new Author(id, name, booksWritten, quotes, aboutAuthor);
-      return author;
+    // if (includesAuthorObj == false) {
+    if (authorObject.id == undefined) {
+      authorObject.id = uniqueID;
     }
+
+    let { id, name, booksWritten, quotes, aboutAuthor } = authorObject;
+
+    let author = new Author(id, name, booksWritten, quotes, aboutAuthor);
+    return author;
+    // }
   }
 
-  createMultipleAuthorsPromise(objectsData) {
+  createAuthorsArrayPromise(objectsData) {
     return new Promise((resolve, reject) => {
       if (objectsData != undefined) {
-        console.log("Success - createMultipleAuthorsPromise.");
-        const objArrayData = objectsData.blogs;
-        this.authorDirectory.authors = objArrayData.map(
-          ({ author }) => this.createAuthor
-        );
-        console.log(this.authorDirectory);
-        resolve(this.authorDirectory.authors);
+        const objArray = objectsData.blogs;
+        const authorArray = [];
+
+        objArray.forEach((element) => {
+          const includesAuthor = authorArray.includes(element.author);
+
+          if (includesAuthor == false) {
+            authorArray.push(element.author);
+          }
+        });
+
+        resolve(authorArray);
       } else {
         reject("Error.");
+      }
+    });
+  }
+
+  createMultipleAuthorsPromise(authorArray) {
+    return new Promise((resolve, reject) => {
+      if (authorArray != undefined) {
+        const arrayOfAuthorObjects = [];
+
+        authorArray.map((obj) => {
+          let authorObj = {};
+          authorObj["name"] = obj;
+          arrayOfAuthorObjects.push(authorObj);
+        });
+        // console.log(arrayOfAuthorObjects);
+        this.authorDirectory.authors = arrayOfAuthorObjects.map(
+          this.createAuthor
+        );
+        // console.log(this.authorDirectory);
+        resolve(this.authorDirectory);
+      } else {
+        reject("Error - createMultipleAuthorsPromise");
       }
     });
   }

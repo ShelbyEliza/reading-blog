@@ -68,7 +68,7 @@ class BlogList {
         console.log("Success - createMultipleEntriesPromise.");
         // console.log(blogObjArray);
         this.blogEntries.blogs = blogObjArray.blogs.map(this.createEntry);
-        console.log(this.blogEntries.blogs);
+        // console.log(this.blogEntries.blogs);
         resolve(this.blogEntries.blogs);
         // returns array of objects in the blogList
       } else {

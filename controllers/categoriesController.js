@@ -3,10 +3,11 @@ const blogModules = require("../modules/blog");
 const helper = require("../helper");
 
 const loadAuthors = (req, res) => {
-  helper.authorStartupPromise.then((allBlogEntries) => {
+  helper.authorStartupPromise.then((allAuthorObjArray) => {
+    console.log(allAuthorObjArray);
     res.render("categories/authors", {
       title: "All Authors",
-      // blogs: allBlogEntries,
+      authors: allAuthorObjArray.authors,
     });
   });
 };

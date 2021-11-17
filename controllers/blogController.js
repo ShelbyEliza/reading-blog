@@ -3,6 +3,7 @@ const helper = require("../helper");
 
 const loadHomepage = (req, res) => {
   helper.startupPromise.then((allBlogEntries) => {
+    console.log(allBlogEntries);
     res.render("blogs/index", {
       title: "Reading Blog",
       blogs: allBlogEntries,
