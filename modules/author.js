@@ -19,8 +19,8 @@ class AuthorList {
 
   createAuthor(authorObject) {
     let uniqueID = uuidv4();
-    // const includesAuthorObj =
-    //   this.authorDirectory.authors.includes(authorObject);
+    // console.log(this.authorDirectory);
+    // const includesAuthorObj = this.authorDirectory.authors.includes(authorObject);
 
     // if (includesAuthorObj == false) {
     if (authorObject.id == undefined) {
@@ -65,11 +65,11 @@ class AuthorList {
           authorObj["name"] = obj;
           arrayOfAuthorObjects.push(authorObj);
         });
-        // console.log(arrayOfAuthorObjects);
-        this.authorDirectory.authors = arrayOfAuthorObjects.map(
-          this.createAuthor
-        );
-        // console.log(this.authorDirectory);
+        const dumbieDirectory = {
+          authors: [],
+        };
+        dumbieDirectory.authors = arrayOfAuthorObjects.map(this.createAuthor);
+        this.authorDirectory.authors = dumbieDirectory.authors;
         resolve(this.authorDirectory);
       } else {
         reject("Error - createMultipleAuthorsPromise");

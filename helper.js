@@ -36,9 +36,9 @@ const convertObjectToJson = (blogObjArray) => {
   return jsonString;
 };
 
-const writeEntry = (jsonString) => {
+const writeEntry = (jsonString, file) => {
   return new Promise((resolve) => {
-    fs.writeFile("data/blog-data.json", jsonString, (err) => {
+    fs.writeFile(file, jsonString, (err) => {
       if (err) {
         console.log("ERROR writing to files");
       } else {
@@ -88,7 +88,7 @@ const createNewBlog = (createdBlogObject) => {
     blogs.createEntry(createdBlogObject)
   );
   const jsonString = convertObjectToJson(allBlogEntries);
-  writeEntry(jsonString).then((writenEntries) => {
+  writeEntry(jsonString, "data/blog-data.json").then((writenEntries) => {
     console.log("successfully written to json file");
   });
 };
@@ -106,7 +106,7 @@ const deleteBlog = (blogObjArray, ID) => {
     const updatedArray = blogs.updateAfterModifying(blogObjArray);
     const updatedJsonString = convertObjectToJson(updatedArray);
 
-    writeEntry(updatedJsonString);
+    writeEntry(updatedJsonString, "data/blog-data.json");
   } else {
     console.log("Error.");
   }
@@ -126,19 +126,22 @@ const updateBlog = (ID, updatedBlogObject, blogObjArray) => {
     }
   });
 
-  writeEntry(convertObjectToJson(blogs.updateAfterModifying(blogObjArray)));
+  writeEntry(
+    convertObjectToJson(blogs.updateAfterModifying(blogObjArray)),
+    "data/blog-data.json"
+  );
 };
 
 ///////////////////////////////// Authors ////////////////////////////////
 
-// const writeAuthorsToJson = () => {
-//   authorStartupPromise
-//     .then((allAuthorObjs) => {
-//       const json = convertObjectToJson(allAuthorObjs);
+const writeAuthors = () => {
+  authorStartupPromise.then((allAuthorObjs) => {
+    const json = convertObjectToJson(allAuthorObjs);
+    writeEntry(json, "data/author-data.json");
+  });
+};
 
-//     })
-// }
-
+// writeAuthors();
 //////////////// End of blog functions //////////////////////////////
 
 module.exports = {
