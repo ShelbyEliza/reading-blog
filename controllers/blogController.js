@@ -1,7 +1,8 @@
-const blogModules = require("../modules/blog");
+// const blogModules = require("../modules/blog");
+const helper = require("../helper");
 
 const loadHomepage = (req, res) => {
-  blogModules.startupPromise.then((allBlogEntries) => {
+  helper.startupPromise.then((allBlogEntries) => {
     res.render("blogs/index", {
       title: "Reading Blog",
       blogs: allBlogEntries,
@@ -14,7 +15,7 @@ const loadCreatePage = (req, res) => {
 };
 
 const loadDetailsPage = (req, res) => {
-  blogModules.startupPromise.then((allBlogEntries) => {
+  helper.startupPromise.then((allBlogEntries) => {
     allBlogEntries.forEach((blog) => {
       const ID = req.params.id;
       if (blog.id == ID) {
@@ -31,7 +32,7 @@ const loadDetailsPage = (req, res) => {
 };
 
 const loadEditPage = (req, res) => {
-  blogModules.startupPromise.then((allBlogEntries) => {
+  helper.startupPromise.then((allBlogEntries) => {
     allBlogEntries.forEach((blog) => {
       const ID = req.params.id;
       if (blog.id == ID) {
@@ -43,21 +44,20 @@ const loadEditPage = (req, res) => {
     res.render("blogs/edit", {
       title: "Edit a Blog",
       blog: this.specifiedBlog,
-      autoPopulate: blogModules.autoPopulate,
     });
   });
 };
 
 const createNewPost = (req, res) => {
-  blogModules.createNewBlog(req.body);
+  helper.createNewBlog(req.body);
   res.redirect("/blogs");
 };
 
 const deletePost = (req, res) => {
-  blogModules.startupPromise
+  helper.startupPromise
     .then((allBlogEntries) => {
       const ID = req.params.id;
-      blogModules.deleteBlog(allBlogEntries, ID);
+      helper.deleteBlog(allBlogEntries, ID);
     })
     .then((result) => {
       res.json({ redirect: "/blogs" });
@@ -68,10 +68,10 @@ const deletePost = (req, res) => {
 };
 
 const updatePost = (req, res) => {
-  blogModules.startupPromise
+  helper.startupPromise
     .then((allBlogEntries) => {
       const ID = req.params.id;
-      blogModules.updateBlog(ID, req.body, allBlogEntries);
+      helper.updateBlog(ID, req.body, allBlogEntries);
     })
     .then((results) => {
       res.redirect("/blogs");

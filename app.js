@@ -1,7 +1,6 @@
 const express = require("express");
 const { render } = require("ejs");
 const morgan = require("morgan");
-const blogModules = require("./modules/blog");
 
 const blogRoutes = require("./routes/blogRoutes");
 const categoriesRoutes = require("./routes/categoriesRoutes");
@@ -38,11 +37,19 @@ app.get("/edit", (req, res) => {
   res.redirect("/blogs");
 });
 
-app.get("/authors", (req, res) => {
-  res.redirect("/categories");
-});
+// app.get("/authors", (req, res) => {
+//   res.redirect("/categories");
+// });
+
+// app.get("/quotes", (req, res) => {
+//   res.redirect("/categories");
+// });
+
+// app.get("/vocabulary", (req, res) => {
+//   res.redirect("/categories");
+// });
 
 app.use("/blogs", blogRoutes);
-app.use("/categories", categoriesRoutes);
+// app.use("/categories", categoriesRoutes);
 
 app.listen(3000);

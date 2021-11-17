@@ -266,3 +266,28 @@ const updatePost = (req, res) => {
     }
   ]
 }
+
+-----------------------------------------------------------------------------------------------------------------------
+                                 authors.js extracted:
+-----------------------------------------------------------------------------------------------------------------------
+
+
+      // this.authorDirectory.authors = objArrayData.map(
+        //   ({ author }) => this.createAuthor
+        // );
+        // this.authorDirectory.authors = objArrayData.map((obj) => {
+        //   let authorObj = {};
+        //   authorObj["author"] = obj.author;
+        //   return authorObj;
+        // });
+        // console.log(this.authorDirectory);
+        // const authorArray = [];
+        // objArrayData.forEach((element) => {
+        //   if (authorArray.includes(element.author == false)) {
+        //     authorArray.push(element.author);
+        //   } else {
+        //     console.log("duplicate entries detected");
+        //   }
+        // });
+
+        // console.log(authorArray);
