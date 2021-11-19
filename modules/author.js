@@ -19,10 +19,7 @@ class AuthorList {
 
   createAuthor(authorObject) {
     let uniqueID = uuidv4();
-    // console.log(this.authorDirectory);
-    // const includesAuthorObj = this.authorDirectory.authors.includes(authorObject);
 
-    // if (includesAuthorObj == false) {
     if (authorObject.id == undefined) {
       authorObject.id = uniqueID;
     }
@@ -31,48 +28,19 @@ class AuthorList {
 
     let author = new Author(id, name, booksWritten, quotes, aboutAuthor);
     return author;
-    // }
   }
 
-  createAuthorsArrayPromise(objectsData) {
+  createMultipleAuthorsPromise(authorObjArray) {
     return new Promise((resolve, reject) => {
-      if (objectsData != undefined) {
-        const objArray = objectsData.blogs;
-        const authorArray = [];
-
-        objArray.forEach((element) => {
-          const includesAuthor = authorArray.includes(element.author);
-
-          if (includesAuthor == false) {
-            authorArray.push(element.author);
-          }
-        });
-
-        resolve(authorArray);
+      console.log("Success - createMultipleAuthorsPromise.");
+      if (authorObjArray != undefined) {
+        this.authorDirectory.authors = authorObjArray.authors.map(
+          this.createAuthor
+        );
+        console.log(this.authorDirectory.authors);
+        resolve(this.authorDirectory.authors);
       } else {
         reject("Error.");
-      }
-    });
-  }
-
-  createMultipleAuthorsPromise(authorArray) {
-    return new Promise((resolve, reject) => {
-      if (authorArray != undefined) {
-        const arrayOfAuthorObjects = [];
-
-        authorArray.map((obj) => {
-          let authorObj = {};
-          authorObj["name"] = obj;
-          arrayOfAuthorObjects.push(authorObj);
-        });
-        const dumbieDirectory = {
-          authors: [],
-        };
-        dumbieDirectory.authors = arrayOfAuthorObjects.map(this.createAuthor);
-        this.authorDirectory.authors = dumbieDirectory.authors;
-        resolve(this.authorDirectory);
-      } else {
-        reject("Error - createMultipleAuthorsPromise");
       }
     });
   }
@@ -86,6 +54,38 @@ class AuthorList {
   updateAfterModifyingAuthors(updatedAuthorObjArray) {
     this.authorDirectory.authors = updatedAuthorObjArray;
     return this.authorDirectory;
+  }
+
+  checkIfAuthorExists(createdBlogObject, authorArray) {
+    const createdAuthorObj = {
+      name: createdBlogObject.author,
+    };
+    console.log(authorArray);
+    console.log("createdAuthorObj:");
+    console.log(createdAuthorObj);
+
+    var results;
+
+    for (var i = 0; i < authorArray.length; i++) {
+      if (authorArray[i].name == createdAuthorObj.name) {
+        // console.log(`authorArray[i].name:`);
+        // console.log(authorArray[i].name);
+        // console.log(`createdAuthorObj.name: `);
+        // console.log(createdAuthorObj.name);
+        console.log("Author already exists.");
+        results = this.updateAfterModifyingAuthors(authorArray);
+        return results;
+      }
+    }
+
+    const created = this.createAuthor(createdAuthorObj);
+    console.log(`created: `);
+    console.log(created);
+    results = this.addToDirectory(created);
+
+    console.log(`results:`);
+    console.log(results);
+    return results;
   }
 }
 

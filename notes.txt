@@ -157,9 +157,36 @@ const updatePost = (req, res) => {
   //   });
 };
 
-
 -----------------------------------------------------------------------------------------------------------------------
-                                 json data backup:
+                                 Author data backup:
+-----------------------------------------------------------------------------------------------------------------------
+
+{
+    "authors": [
+        {
+            "id": "de394318-337e-4aa4-be41-9b6b326c637a",
+            "name": "Bookson Bookles"
+        },
+        {
+            "id": "e08c0458-7521-406a-b723-fa1a7f12c1f7",
+            "name": "Bookup"
+        }, 
+        {
+            "id": "756cb17b-9850-4ec2-9b61-ec3c3df02e40",
+            "name": "Nov Novellington"
+        },
+        {
+            "id": "db09b9b7-ae22-4d59-88fe-6b6621c7ac2e",
+            "name": "Novel Bookser"
+        },
+        {
+            "id": "45bbf0d2-e001-4df7-b229-af9d2293712b",
+            "name": "Novella Novelling"
+        }
+    ]
+}
+-----------------------------------------------------------------------------------------------------------------------
+                                 blog data backup:
 -----------------------------------------------------------------------------------------------------------------------
 
 {
@@ -270,24 +297,251 @@ const updatePost = (req, res) => {
 -----------------------------------------------------------------------------------------------------------------------
                                  authors.js extracted:
 -----------------------------------------------------------------------------------------------------------------------
+  createAuthor(authorObject) {
+    let uniqueID = uuidv4();
+    // console.log(this.authorDirectory);
+    // const includesAuthorObj = this.authorDirectory.authors.includes(authorObject);
+
+    // if (includesAuthorObj == false) {
+    if (authorObject.id == undefined) {
+      authorObject.id = uniqueID;
+    }
+
+    let { id, name, booksWritten, quotes, aboutAuthor } = authorObject;
+
+    let author = new Author(id, name, booksWritten, quotes, aboutAuthor);
+    return author;
+    // }
+  }
+
+  createAuthorsArrayPromise(objectsData) {
+    return new Promise((resolve, reject) => {
+      if (objectsData != undefined) {
+        const objArray = objectsData.blogs;
+        const authorArray = [];
+
+        objArray.forEach((element) => {
+          const includesAuthor = authorArray.includes(element.author);
+
+          if (includesAuthor == false) {
+            authorArray.push(element.author);
+          }
+        });
+
+        resolve(authorArray);
+      } else {
+        reject("Error.");
+      }
+    });
+  }
+
+  createMultipleAuthorsPromise(authorArray) {
+    return new Promise((resolve, reject) => {
+      if (authorArray != undefined) {
+        const arrayOfAuthorObjects = [];
+
+        authorArray.map((obj) => {
+          let authorObj = {};
+          authorObj["name"] = obj;
+          arrayOfAuthorObjects.push(authorObj);
+        });
+        const dumbieDirectory = {
+          authors: [],
+        };
+        dumbieDirectory.authors = arrayOfAuthorObjects.map(this.createAuthor);
+        this.authorDirectory.authors = dumbieDirectory.authors;
+        resolve(this.authorDirectory);
+      } else {
+        reject("Error - createMultipleAuthorsPromise");
+      }
+    });
+  }
 
 
-      // this.authorDirectory.authors = objArrayData.map(
-        //   ({ author }) => this.createAuthor
-        // );
-        // this.authorDirectory.authors = objArrayData.map((obj) => {
-        //   let authorObj = {};
-        //   authorObj["author"] = obj.author;
-        //   return authorObj;
-        // });
-        // console.log(this.authorDirectory);
-        // const authorArray = [];
-        // objArrayData.forEach((element) => {
-        //   if (authorArray.includes(element.author == false)) {
-        //     authorArray.push(element.author);
-        //   } else {
-        //     console.log("duplicate entries detected");
-        //   }
-        // });
+    createAuthorsArrayPromise(objectsData) {
+    return new Promise((resolve, reject) => {
+      if (objectsData != undefined) {
+        const objArray = objectsData.blogs;
+        const authorArray = [];
 
-        // console.log(authorArray);
+        objArray.forEach((element) => {
+          const includesAuthor = authorArray.includes(element.author);
+
+          if (includesAuthor == false) {
+            authorArray.push(element.author);
+          }
+        });
+
+        resolve(authorArray);
+      } else {
+        reject("Error.");
+      }
+    });
+  }
+
+
+  helper
+
+  const fs = require("fs");
+const { resolve } = require("path");
+const blogModules = require("./modules/blog");
+const authorModules = require("./modules/author");
+
+const blogs = new blogModules.BlogList();
+const authors = new authorModules.AuthorList();
+
+// Universal Functions:
+
+const readDataPromise = (file) => {
+  return new Promise((resolve, reject) => {
+    fs.readFile(file, (err, data) => {
+      if (err) {
+        reject(console.log(err));
+      } else {
+        console.log("Success - readDataPromise.");
+        resolve(data);
+      }
+    });
+  });
+};
+
+const convertJsonToObjectPromise = (jsonData) => {
+  return new Promise((resolve) => {
+    console.log("Success - convertJsonToObjectPromise.");
+    const objectsData = JSON.parse(jsonData);
+    // console.log(objectsData);
+    resolve(objectsData);
+  });
+};
+
+const convertObjectToJson = (blogObjArray) => {
+  console.log("Success - convertObjectToJson.");
+  const jsonString = JSON.stringify(blogObjArray, null, 4);
+  return jsonString;
+};
+
+const writeEntry = (jsonString, file) => {
+  return new Promise((resolve) => {
+    fs.writeFile(file, jsonString, (err) => {
+      if (err) {
+        console.log("ERROR writing to files");
+      } else {
+        resolve("Done writing files");
+      }
+    });
+  });
+};
+
+const reverseOrder = (blogObjArray) => {
+  const lastBlog = blogObjArray.length - 1;
+
+  if (blogObjArray[lastBlog].id == 1) {
+    var reversedResults = blogObjArray;
+  } else {
+    reversedResults = blogObjArray.reverse();
+  }
+  // console.log(reversedResults);
+  return reversedResults;
+};
+
+const startupPromise = new Promise((resolve) => {
+  console.log("Success - startupPromise.");
+  resolve(
+    readDataPromise("data/blog-data.json")
+      .then((data) => convertJsonToObjectPromise(data))
+      .then((objectsData) => blogs.createMultipleEntriesPromise(objectsData))
+      .then((allEntriesArray) => reverseOrder(allEntriesArray))
+  );
+});
+
+const authorStartupPromise = new Promise((resolve) => {
+  resolve(
+    readDataPromise("data/author-data.json")
+      .then((data) => convertJsonToObjectPromise(data))
+      .then((objectsData) => authors.createMultipleAuthorsPromise(objectsData))
+  );
+});
+
+//////////// End of Universal functions ////////
+
+const createNewBlog = (createdBlogObject) => {
+  console.log("Creating new post");
+  console.log(createdBlogObject);
+  const allBlogEntries = blogs.addToEntries(
+    blogs.createEntry(createdBlogObject)
+  );
+
+  const authorAdded = authors.checkIfAuthorExists(createdBlogObject);
+
+  console.log(authorAdded);
+  const jsonStringAuthor = convertObjectToJson(authorAdded);
+  console.log(jsonStringAuthor);
+  writeEntry(jsonStringAuthor, "data/author-data.json").then(
+    (writtenAuthors) => {
+      console.log("Success - writeEnry to Authors");
+      const jsonStringBlog = convertObjectToJson(allBlogEntries);
+      writeEntry(jsonStringBlog, "data/blog-data.json").then((writenBlogs) => {
+        console.log("Success - writeEntry to Blogs");
+      });
+    }
+  );
+};
+
+const deleteBlog = (blogObjArray, ID) => {
+  blogObjArray.forEach((blog) => {
+    if (blog.id == ID) {
+      this.blogToDelete = blog;
+    }
+  });
+  const indexOfBlog = blogObjArray.indexOf(this.blogToDelete);
+
+  if (indexOfBlog > -1) {
+    blogObjArray.splice(indexOfBlog, 1);
+    const updatedArray = blogs.updateAfterModifying(blogObjArray);
+    const updatedJsonString = convertObjectToJson(updatedArray);
+
+    writeEntry(updatedJsonString, "data/blog-data.json");
+  } else {
+    console.log("Error.");
+  }
+};
+
+const updateBlog = (ID, updatedBlogObject, blogObjArray) => {
+  console.log("Updating post");
+
+  blogObjArray.forEach((blog) => {
+    if (ID == blog.id) {
+      console.log("blog found");
+
+      updatedBlogObject.id = blog.id;
+      const updatedBlog = blogs.createEntry(updatedBlogObject);
+      const blogToReplaceId = blogObjArray.indexOf(blog);
+      blogObjArray.splice(blogToReplaceId, 1, updatedBlog);
+    }
+  });
+
+  writeEntry(
+    convertObjectToJson(blogs.updateAfterModifying(blogObjArray)),
+    "data/blog-data.json"
+  );
+};
+
+///////////////////////////////// Authors ////////////////////////////////
+
+// const writeAuthors = () => {
+//   authorStartupPromise.then((allAuthorObjs) => {
+//     const json = convertObjectToJson(allAuthorObjs);
+//     writeEntry(json, "data/author-data.json");
+//   });
+// };
+
+// writeAuthors();
+//////////////// End of blog functions //////////////////////////////
+
+module.exports = {
+  startupPromise,
+  authorStartupPromise,
+  createNewBlog,
+  deleteBlog,
+  updateBlog,
+};

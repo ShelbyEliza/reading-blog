@@ -3,7 +3,7 @@ const helper = require("../helper");
 
 const loadHomepage = (req, res) => {
   helper.startupPromise.then((allBlogEntries) => {
-    console.log(allBlogEntries);
+    // console.log(allBlogEntries);
     res.render("blogs/index", {
       title: "Reading Blog",
       blogs: allBlogEntries,
@@ -51,6 +51,7 @@ const loadEditPage = (req, res) => {
 
 const createNewPost = (req, res) => {
   helper.createNewBlog(req.body);
+  helper.createNewAuthor(req.body);
   res.redirect("/blogs");
 };
 

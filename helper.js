@@ -72,14 +72,36 @@ const startupPromise = new Promise((resolve) => {
 
 const authorStartupPromise = new Promise((resolve) => {
   resolve(
-    readDataPromise("data/blog-data.json")
+    readDataPromise("data/author-data.json")
       .then((data) => convertJsonToObjectPromise(data))
-      .then((objectsData) => authors.createAuthorsArrayPromise(objectsData))
-      .then((authorArray) => authors.createMultipleAuthorsPromise(authorArray))
+      .then((objectsData) => authors.createMultipleAuthorsPromise(objectsData))
   );
 });
 
-//////////// End of Universal functions ////////
+//////////// End of Universal functions ////////////////////////////////////////////////////////////
+
+// const createNewBlog = (createdBlogObject) => {
+//   console.log("Creating new post");
+
+//   const allBlogEntries = blogs.addToEntries(
+//     blogs.createEntry(createdBlogObject)
+//   );
+
+//   const authorAdded = authors.checkIfAuthorExists(createdBlogObject);
+
+//   console.log(authorAdded);
+//   const jsonStringAuthor = convertObjectToJson(authorAdded);
+//   console.log(jsonStringAuthor);
+//   writeEntry(jsonStringAuthor, "data/author-data.json").then(
+//     (writtenAuthors) => {
+//       console.log("Success - writeEnry to Authors");
+//       const jsonStringBlog = convertObjectToJson(allBlogEntries);
+//       writeEntry(jsonStringBlog, "data/blog-data.json").then((writenBlogs) => {
+//         console.log("Success - writeEntry to Blogs");
+//       });
+//     }
+//   );
+// };
 
 const createNewBlog = (createdBlogObject) => {
   console.log("Creating new post");
@@ -87,11 +109,33 @@ const createNewBlog = (createdBlogObject) => {
   const allBlogEntries = blogs.addToEntries(
     blogs.createEntry(createdBlogObject)
   );
-  const jsonString = convertObjectToJson(allBlogEntries);
-  writeEntry(jsonString, "data/blog-data.json").then((writenEntries) => {
-    console.log("successfully written to json file");
+
+  console.log("Success - writeEnry to Authors");
+  const jsonStringBlog = convertObjectToJson(allBlogEntries);
+  writeEntry(jsonStringBlog, "data/blog-data.json").then((writenBlogs) => {
+    console.log("Success - writeEntry to Blogs");
   });
 };
+
+const createNewAuthor = (createdBlogObject) => {
+  authorStartupPromise.then((authorArray) => {
+    const authorAdded = authors.checkIfAuthorExists(
+      createdBlogObject,
+      authorArray
+    );
+
+    console.log(authorAdded);
+    const jsonStringAuthor = convertObjectToJson(authorAdded);
+    console.log(jsonStringAuthor);
+    writeEntry(jsonStringAuthor, "data/author-data.json").then(
+      (writenAuthors) => {
+        console.log("Success - writeEntry to Authors");
+      }
+    );
+  });
+};
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const deleteBlog = (blogObjArray, ID) => {
   blogObjArray.forEach((blog) => {
@@ -132,22 +176,13 @@ const updateBlog = (ID, updatedBlogObject, blogObjArray) => {
   );
 };
 
-///////////////////////////////// Authors ////////////////////////////////
-
-const writeAuthors = () => {
-  authorStartupPromise.then((allAuthorObjs) => {
-    const json = convertObjectToJson(allAuthorObjs);
-    writeEntry(json, "data/author-data.json");
-  });
-};
-
-// writeAuthors();
 //////////////// End of blog functions //////////////////////////////
 
 module.exports = {
   startupPromise,
   authorStartupPromise,
   createNewBlog,
+  createNewAuthor,
   deleteBlog,
   updateBlog,
 };
