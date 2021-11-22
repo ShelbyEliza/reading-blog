@@ -1,8 +1,8 @@
 const { v4: uuidv4 } = require("uuid");
 
 class Author {
-  constructor(id, name, booksWritten, quotes, aboutAuthor) {
-    this.id = id;
+  constructor(name, booksWritten = [], quotes = [], aboutAuthor = "") {
+    this.id = uuidv4();
     this.name = name;
     this.booksWritten = booksWritten;
     this.quotes = quotes;
@@ -18,26 +18,19 @@ class AuthorList {
   }
 
   createAuthor(authorObject) {
-    let uniqueID = uuidv4();
+    let { name, booksWritten, quotes, aboutAuthor } = authorObject;
 
-    if (authorObject.id == undefined) {
-      authorObject.id = uniqueID;
-    }
-
-    let { id, name, booksWritten, quotes, aboutAuthor } = authorObject;
-
-    let author = new Author(id, name, booksWritten, quotes, aboutAuthor);
+    let author = new Author(name, booksWritten, quotes, aboutAuthor);
     return author;
   }
 
   createMultipleAuthorsPromise(authorObjArray) {
     return new Promise((resolve, reject) => {
-      console.log("Success - createMultipleAuthorsPromise.");
       if (authorObjArray != undefined) {
+        console.log("Success - Author List Created");
         this.authorDirectory.authors = authorObjArray.authors.map(
           this.createAuthor
         );
-        console.log(this.authorDirectory.authors);
         resolve(this.authorDirectory.authors);
       } else {
         reject("Error.");
@@ -56,36 +49,15 @@ class AuthorList {
     return this.authorDirectory;
   }
 
-  checkIfAuthorExists(createdBlogObject, authorArray) {
-    const createdAuthorObj = {
-      name: createdBlogObject.author,
-    };
-    console.log(authorArray);
-    console.log("createdAuthorObj:");
-    console.log(createdAuthorObj);
-
-    var results;
-
+  checkIfAuthorExists(authorName, authorArray) {
     for (var i = 0; i < authorArray.length; i++) {
-      if (authorArray[i].name == createdAuthorObj.name) {
-        // console.log(`authorArray[i].name:`);
-        // console.log(authorArray[i].name);
-        // console.log(`createdAuthorObj.name: `);
-        // console.log(createdAuthorObj.name);
+      if (authorArray[i].name == authorName) {
         console.log("Author already exists.");
-        results = this.updateAfterModifyingAuthors(authorArray);
-        return results;
+
+        return true;
       }
     }
-
-    const created = this.createAuthor(createdAuthorObj);
-    console.log(`created: `);
-    console.log(created);
-    results = this.addToDirectory(created);
-
-    console.log(`results:`);
-    console.log(results);
-    return results;
+    return false;
   }
 }
 

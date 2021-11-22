@@ -124,39 +124,6 @@ app.js -
                                  Removed from blogs.js:
 -----------------------------------------------------------------------------------------------------------------------
 
-  const updateBlog = (updatedBlogObject, blogObjArray) => {
-  // console.log("Updating post");
-  // const updatedBlogIndex = blogObjArray.indexOf(updatedBlogObject);
-  // const allBlogEntries = blogs.addToEntries(
-  //   blogs.createEntry(updatedBlogObject)
-  // );
-  // allBlogEntries.blogs.forEach((blog) => {
-  //   if (updatedBlogIndex == blog.id) {
-  //     console.log("blog found");
-  //     allBlogEntries.blogs.splice(blog);
-  //   }
-  // });
-  // console.log(allBlogEntries.blogs);
-  // const updatedJsonString = blogs.convertObjectToJson(allBlogEntries.blogs);
-  // blogs.writeEntry(updatedJsonString);
-};
-
-
-
-
-const updatePost = (req, res) => {
-  // blogModules.startupPromise
-  //   .then((allBlogEntries) => {
-  //     blogModules.updateBlog(req.body, allBlogEntries);
-  //   })
-  //   .then((result) => {
-  //     res.json({ redirect: "/blogs" });
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
-};
-
 -----------------------------------------------------------------------------------------------------------------------
                                  Author data backup:
 -----------------------------------------------------------------------------------------------------------------------

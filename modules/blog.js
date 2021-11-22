@@ -65,12 +65,9 @@ class BlogList {
   createMultipleEntriesPromise(blogObjArray) {
     return new Promise((resolve, reject) => {
       if (blogObjArray != undefined) {
-        console.log("Success - createMultipleEntriesPromise.");
-        // console.log(blogObjArray);
+        console.log("Success - Blog List Created");
         this.blogEntries.blogs = blogObjArray.blogs.map(this.createEntry);
-        // console.log(this.blogEntries.blogs);
         resolve(this.blogEntries.blogs);
-        // returns array of objects in the blogList
       } else {
         reject("Error.");
       }

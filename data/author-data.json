@@ -1,28 +1,81 @@
 {
     "authors": [
         {
-            "id": "2df9811d-83ac-441a-93ae-2f430f97f1c4",
-            "name": "Book-Choy"
+            "id": "cf9bc32b-4a53-425f-9e03-ea8721569fb6",
+            "name": "Seneca",
+            "booksWritten": [],
+            "quotes": [],
+            "aboutAuthor": ""
         },
         {
-            "id": "de394318-337e-4aa4-be41-9b6b326c637a",
-            "name": "Bookson Bookles"
+            "id": "69770708-f9a3-4e6e-b353-33dbc8276b82",
+            "name": "Boooooo",
+            "booksWritten": [],
+            "quotes": [],
+            "aboutAuthor": ""
         },
         {
-            "id": "e08c0458-7521-406a-b723-fa1a7f12c1f7",
-            "name": "Bookup"
+            "id": "584370c4-e193-4f59-ae43-9cd6d9a63150",
+            "name": "Bookonie Bookes",
+            "booksWritten": [],
+            "quotes": [],
+            "aboutAuthor": ""
         },
         {
-            "id": "756cb17b-9850-4ec2-9b61-ec3c3df02e40",
-            "name": "Nov Novellington"
+            "id": "6be3b3fe-9fd7-4b07-887c-475cfc325d11",
+            "name": "BoomBoomBooks",
+            "booksWritten": [],
+            "quotes": [],
+            "aboutAuthor": ""
         },
         {
-            "id": "db09b9b7-ae22-4d59-88fe-6b6621c7ac2e",
-            "name": "Novel Bookser"
+            "id": "cb17c43a-e358-45e3-add7-2f505b55c56d",
+            "name": "Bookbookoons",
+            "booksWritten": [],
+            "quotes": [],
+            "aboutAuthor": ""
         },
         {
-            "id": "45bbf0d2-e001-4df7-b229-af9d2293712b",
-            "name": "Novella Novelling"
+            "id": "004ad9d5-8823-454f-bdae-8e1d38beecbf",
+            "name": "Book-Choy",
+            "booksWritten": [],
+            "quotes": [],
+            "aboutAuthor": ""
+        },
+        {
+            "id": "3d08645f-98ee-47b6-bfde-51c2a083fe23",
+            "name": "Bookson Bookles",
+            "booksWritten": [],
+            "quotes": [],
+            "aboutAuthor": ""
+        },
+        {
+            "id": "65075714-aeb2-4ebc-9121-6fc663ad9c12",
+            "name": "Bookup",
+            "booksWritten": [],
+            "quotes": [],
+            "aboutAuthor": ""
+        },
+        {
+            "id": "7fedc4ac-9723-4bff-accd-b02ef550d853",
+            "name": "Nov Novellington",
+            "booksWritten": [],
+            "quotes": [],
+            "aboutAuthor": ""
+        },
+        {
+            "id": "c2ffde8f-44ee-4d75-b2d4-d95ea51dc4a2",
+            "name": "Novel Bookser",
+            "booksWritten": [],
+            "quotes": [],
+            "aboutAuthor": ""
+        },
+        {
+            "id": "d7f2fcfd-2c62-4955-8a81-34bf61a792a6",
+            "name": "Novella Novelling",
+            "booksWritten": [],
+            "quotes": [],
+            "aboutAuthor": ""
         }
     ]
 }

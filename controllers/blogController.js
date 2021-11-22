@@ -15,7 +15,7 @@ const loadCreatePage = (req, res) => {
   res.render("blogs/create", { title: "Create a New Blog" });
 };
 
-const loadDetailsPage = (req, res) => {
+const loadBlogDetails = (req, res) => {
   helper.startupPromise.then((allBlogEntries) => {
     allBlogEntries.forEach((blog) => {
       const ID = req.params.id;
@@ -83,7 +83,7 @@ const updatePost = (req, res) => {
 module.exports = {
   loadHomepage,
   loadCreatePage,
-  loadDetailsPage,
+  loadBlogDetails,
   loadEditPage,
   createNewPost,
   deletePost,

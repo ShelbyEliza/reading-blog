@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <%- include('../partials/header.ejs') %> <%- include('../partials/nav.ejs')
+    %>
+
+    <div class="content">
+      <div class="content-box">
+        <div class="content-box-top">
+          <div class="content-box-heading">
+              <h1 class="title"><%= author.name %></h1>
+          <!-- <div class="edit-button-container">
+            <a class="edit" href="/blogs/edit/<%# blog.id %>">
+              <img 
+                class="edit-button-image"
+                src="../../images/edit-opt.svg"
+                alt="An icon depicting a pencil, with directs to the edit blog page."
+              />
+            </a>
+          </div> -->
+
+        </div>
+      </div>
+    </div>  
+  </body>
+</html> 

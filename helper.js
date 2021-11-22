@@ -1,10 +1,10 @@
 const fs = require("fs");
 const { resolve } = require("path");
-const blogModules = require("./modules/blog");
-const authorModules = require("./modules/author");
+const { Blog, BlogList } = require("./modules/blog");
+const { Author, AuthorList } = require("./modules/author");
 
-const blogs = new blogModules.BlogList();
-const authors = new authorModules.AuthorList();
+const blogs = new BlogList();
+const authors = new AuthorList();
 
 // Universal Functions:
 
@@ -14,30 +14,16 @@ const readDataPromise = (file) => {
       if (err) {
         reject(console.log(err));
       } else {
-        console.log("Success - readDataPromise.");
-        resolve(data);
+        console.log("Success - Data Read");
+        resolve(JSON.parse(data));
       }
     });
   });
 };
 
-const convertJsonToObjectPromise = (jsonData) => {
+const writeEntry = (blogObjArray, file) => {
   return new Promise((resolve) => {
-    console.log("Success - convertJsonToObjectPromise.");
-    const objectsData = JSON.parse(jsonData);
-    // console.log(objectsData);
-    resolve(objectsData);
-  });
-};
-
-const convertObjectToJson = (blogObjArray) => {
-  console.log("Success - convertObjectToJson.");
-  const jsonString = JSON.stringify(blogObjArray, null, 4);
-  return jsonString;
-};
-
-const writeEntry = (jsonString, file) => {
-  return new Promise((resolve) => {
+    const jsonString = JSON.stringify(blogObjArray, null, 4);
     fs.writeFile(file, jsonString, (err) => {
       if (err) {
         console.log("ERROR writing to files");
@@ -56,52 +42,28 @@ const reverseOrder = (blogObjArray) => {
   } else {
     reversedResults = blogObjArray.reverse();
   }
-  // console.log(reversedResults);
   return reversedResults;
 };
 
 const startupPromise = new Promise((resolve) => {
-  console.log("Success - startupPromise.");
+  console.log("Success - Blogs Started Up");
   resolve(
     readDataPromise("data/blog-data.json")
-      .then((data) => convertJsonToObjectPromise(data))
       .then((objectsData) => blogs.createMultipleEntriesPromise(objectsData))
       .then((allEntriesArray) => reverseOrder(allEntriesArray))
   );
 });
 
 const authorStartupPromise = new Promise((resolve) => {
+  console.log("Success - Authors Started Up");
   resolve(
-    readDataPromise("data/author-data.json")
-      .then((data) => convertJsonToObjectPromise(data))
-      .then((objectsData) => authors.createMultipleAuthorsPromise(objectsData))
+    readDataPromise("data/author-data.json").then((objectsData) =>
+      authors.createMultipleAuthorsPromise(objectsData)
+    )
   );
 });
 
 //////////// End of Universal functions ////////////////////////////////////////////////////////////
-
-// const createNewBlog = (createdBlogObject) => {
-//   console.log("Creating new post");
-
-//   const allBlogEntries = blogs.addToEntries(
-//     blogs.createEntry(createdBlogObject)
-//   );
-
-//   const authorAdded = authors.checkIfAuthorExists(createdBlogObject);
-
-//   console.log(authorAdded);
-//   const jsonStringAuthor = convertObjectToJson(authorAdded);
-//   console.log(jsonStringAuthor);
-//   writeEntry(jsonStringAuthor, "data/author-data.json").then(
-//     (writtenAuthors) => {
-//       console.log("Success - writeEnry to Authors");
-//       const jsonStringBlog = convertObjectToJson(allBlogEntries);
-//       writeEntry(jsonStringBlog, "data/blog-data.json").then((writenBlogs) => {
-//         console.log("Success - writeEntry to Blogs");
-//       });
-//     }
-//   );
-// };
 
 const createNewBlog = (createdBlogObject) => {
   console.log("Creating new post");
@@ -110,28 +72,26 @@ const createNewBlog = (createdBlogObject) => {
     blogs.createEntry(createdBlogObject)
   );
 
-  console.log("Success - writeEnry to Authors");
-  const jsonStringBlog = convertObjectToJson(allBlogEntries);
-  writeEntry(jsonStringBlog, "data/blog-data.json").then((writenBlogs) => {
+  writeEntry(allBlogEntries, "data/blog-data.json").then((writenBlogs) => {
     console.log("Success - writeEntry to Blogs");
   });
 };
 
 const createNewAuthor = (createdBlogObject) => {
   authorStartupPromise.then((authorArray) => {
-    const authorAdded = authors.checkIfAuthorExists(
-      createdBlogObject,
-      authorArray
-    );
+    const authorName = createdBlogObject.author;
+    const authorExists = authors.checkIfAuthorExists(authorName, authorArray);
 
-    console.log(authorAdded);
-    const jsonStringAuthor = convertObjectToJson(authorAdded);
-    console.log(jsonStringAuthor);
-    writeEntry(jsonStringAuthor, "data/author-data.json").then(
-      (writenAuthors) => {
-        console.log("Success - writeEntry to Authors");
-      }
-    );
+    if (!authorExists) {
+      const createdAuthor = new Author(createdBlogObject.author);
+      const authorObjArray = authors.addToDirectory(createdAuthor);
+
+      writeEntry(authorObjArray, "data/author-data.json").then(
+        (writenAuthors) => {
+          console.log("Success - writeEntry to Authors");
+        }
+      );
+    }
   });
 };
 
@@ -148,9 +108,8 @@ const deleteBlog = (blogObjArray, ID) => {
   if (indexOfBlog > -1) {
     blogObjArray.splice(indexOfBlog, 1);
     const updatedArray = blogs.updateAfterModifying(blogObjArray);
-    const updatedJsonString = convertObjectToJson(updatedArray);
 
-    writeEntry(updatedJsonString, "data/blog-data.json");
+    writeEntry(updatedArray, "data/blog-data.json");
   } else {
     console.log("Error.");
   }
@@ -170,13 +129,8 @@ const updateBlog = (ID, updatedBlogObject, blogObjArray) => {
     }
   });
 
-  writeEntry(
-    convertObjectToJson(blogs.updateAfterModifying(blogObjArray)),
-    "data/blog-data.json"
-  );
+  writeEntry(blogs.updateAfterModifying(blogObjArray), "data/blog-data.json");
 };
-
-//////////////// End of blog functions //////////////////////////////
 
 module.exports = {
   startupPromise,
