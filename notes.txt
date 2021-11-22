@@ -512,3 +512,28 @@ module.exports = {
   deleteBlog,
   updateBlog,
 };
+
+
+/////////////
+const createNewAuthor = (createdBlogObject) => {
+  authorStartupPromise.then((authorArray) => {
+    const authorName = createdBlogObject.author;
+    const authorExists = authors.checkIfAuthorExists(authorName, authorArray);
+
+    if (authorExists) {
+      authorArray.forEach((author) => {
+        if (author.name == authorName) {
+          author.booksWritten.push(createdBlogObject.bookTitle);
+          authors.updateAfterModifyingAuthors(authorArray);
+        }
+      });
+    } else {
+      const createdAuthor = new Author(createdBlogObject.author);
+      createdAuthor.booksWritten.push(createdBlogObject.bookTitle);
+      authors.addToDirectory(createdAuthor);
+    }
+    writeEntry(authorArray, "data/author-data.json").then((writenAuthors) => {
+      console.log("Success - writeEntry to Authors");
+    });
+  });
+};

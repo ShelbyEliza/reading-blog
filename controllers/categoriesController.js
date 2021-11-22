@@ -14,8 +14,8 @@ const loadAuthors = (req, res) => {
 const loadAuthorDetails = (req, res) => {
   helper.authorStartupPromise.then((allAuthorsDirectory) => {
     allAuthorsDirectory.forEach((author) => {
-      const ID = req.params.id;
-      if (author.id == ID) {
+      const nameOfAuthor = req.params.name;
+      if (author.name == nameOfAuthor) {
         const matchingAuthor = author;
         this.specifiedAuthor = matchingAuthor;
         return matchingAuthor;

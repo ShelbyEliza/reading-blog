@@ -1,77 +1,123 @@
 {
     "authors": [
         {
-            "id": "cf9bc32b-4a53-425f-9e03-ea8721569fb6",
+            "id": "e3ffed37-33fa-4f0e-8f09-9397d0d58625",
+            "name": "Booking Bok",
+            "booksWritten": [
+                "The Adventures of Books"
+            ],
+            "quotes": [],
+            "aboutAuthor": ""
+        },
+        {
+            "id": "06af16b8-531d-4c59-a45c-f8641ff020c6",
+            "name": "Bookston",
+            "booksWritten": [
+                "The Adventures of Books"
+            ],
+            "quotes": [],
+            "aboutAuthor": ""
+        },
+        {
+            "id": "25f8bdd7-4a69-4774-b122-a76e1f685c00",
+            "name": "Boocka Booke",
+            "booksWritten": [
+                "Books for the Bookless "
+            ],
+            "quotes": [],
+            "aboutAuthor": ""
+        },
+        {
+            "id": "ef5e7009-32a2-458a-8053-c8540d439795",
+            "name": "Booka Booko",
+            "booksWritten": [
+                "Happy Boooookoween"
+            ],
+            "quotes": [],
+            "aboutAuthor": ""
+        },
+        {
+            "id": "977623d8-3322-4c15-a0cb-37d4c20ff778",
+            "name": "Blook Blokes",
+            "booksWritten": [],
+            "quotes": [],
+            "aboutAuthor": ""
+        },
+        {
+            "id": "00d3acc5-7762-4e5f-b9b7-71a433b26db3",
             "name": "Seneca",
             "booksWritten": [],
             "quotes": [],
             "aboutAuthor": ""
         },
         {
-            "id": "69770708-f9a3-4e6e-b353-33dbc8276b82",
+            "id": "cc95ea12-4a77-4a71-aebf-2d65ba83857b",
             "name": "Boooooo",
             "booksWritten": [],
             "quotes": [],
             "aboutAuthor": ""
         },
         {
-            "id": "584370c4-e193-4f59-ae43-9cd6d9a63150",
+            "id": "a9f3623b-6bda-4d35-a98e-f96c605a1278",
             "name": "Bookonie Bookes",
             "booksWritten": [],
             "quotes": [],
             "aboutAuthor": ""
         },
         {
-            "id": "6be3b3fe-9fd7-4b07-887c-475cfc325d11",
+            "id": "06fdffbc-0810-4b13-a64e-ff31fc49806a",
             "name": "BoomBoomBooks",
             "booksWritten": [],
             "quotes": [],
             "aboutAuthor": ""
         },
         {
-            "id": "cb17c43a-e358-45e3-add7-2f505b55c56d",
+            "id": "25694d04-c43c-479a-89ef-f3b8f2f05f6c",
             "name": "Bookbookoons",
             "booksWritten": [],
             "quotes": [],
             "aboutAuthor": ""
         },
         {
-            "id": "004ad9d5-8823-454f-bdae-8e1d38beecbf",
+            "id": "071511a5-4850-4d8e-ac4d-b8f59bdc2f77",
             "name": "Book-Choy",
             "booksWritten": [],
             "quotes": [],
             "aboutAuthor": ""
         },
         {
-            "id": "3d08645f-98ee-47b6-bfde-51c2a083fe23",
+            "id": "a9071441-852d-4751-a39b-ae225e7aaff3",
             "name": "Bookson Bookles",
-            "booksWritten": [],
+            "booksWritten": [
+                "Bookbin Busts",
+                "The Bookery"
+            ],
             "quotes": [],
             "aboutAuthor": ""
         },
         {
-            "id": "65075714-aeb2-4ebc-9121-6fc663ad9c12",
+            "id": "3d83a30c-7347-401e-85e6-9e610ed6a27c",
             "name": "Bookup",
             "booksWritten": [],
             "quotes": [],
             "aboutAuthor": ""
         },
         {
-            "id": "7fedc4ac-9723-4bff-accd-b02ef550d853",
+            "id": "f6674051-236c-443e-940c-91db81a5f152",
             "name": "Nov Novellington",
             "booksWritten": [],
             "quotes": [],
             "aboutAuthor": ""
         },
         {
-            "id": "c2ffde8f-44ee-4d75-b2d4-d95ea51dc4a2",
+            "id": "899f12ee-8dc3-42df-af63-775c93c18ef6",
             "name": "Novel Bookser",
             "booksWritten": [],
             "quotes": [],
             "aboutAuthor": ""
         },
         {
-            "id": "d7f2fcfd-2c62-4955-8a81-34bf61a792a6",
+            "id": "9a58be78-6c08-4f4f-a430-d9e4247504d8",
             "name": "Novella Novelling",
             "booksWritten": [],
             "quotes": [],

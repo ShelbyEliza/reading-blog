@@ -77,21 +77,45 @@ const createNewBlog = (createdBlogObject) => {
   });
 };
 
+// const createNewAuthor = (createdBlogObject) => {
+//   authorStartupPromise.then((authorArray) => {
+//     const authorName = createdBlogObject.author;
+//     const authorExists = authors.checkIfAuthorExists(authorName, authorArray);
+
+//     if (!authorExists) {
+//       const createdAuthor = new Author(createdBlogObject.author);
+//       const authorObjArray = authors.addToDirectory(createdAuthor);
+//       createdAuthor.booksWritten.push(createdBlogObject.bookTitle);
+
+//       writeEntry(authorObjArray, "data/author-data.json").then(
+//         (writenAuthors) => {
+//           console.log("Success - writeEntry to Authors");
+//         }
+//       );
+//     }
+//   });
+// };
+
 const createNewAuthor = (createdBlogObject) => {
   authorStartupPromise.then((authorArray) => {
     const authorName = createdBlogObject.author;
     const authorExists = authors.checkIfAuthorExists(authorName, authorArray);
 
-    if (!authorExists) {
-      const createdAuthor = new Author(createdBlogObject.author);
-      const authorObjArray = authors.addToDirectory(createdAuthor);
-
-      writeEntry(authorObjArray, "data/author-data.json").then(
-        (writenAuthors) => {
-          console.log("Success - writeEntry to Authors");
+    if (authorExists) {
+      authorArray.forEach((author) => {
+        if (author.name == authorName) {
+          author.booksWritten.push(createdBlogObject.bookTitle);
         }
-      );
+      });
+    } else {
+      const createdAuthor = new Author(createdBlogObject.author);
+      createdAuthor.booksWritten.push(createdBlogObject.bookTitle);
+      authors.addToDirectory(createdAuthor);
     }
+    const authorObjs = authors.updateAfterModifyingAuthors(authorArray);
+    writeEntry(authorObjs, "data/author-data.json").then((writenAuthors) => {
+      console.log("Success - writeEntry to Authors");
+    });
   });
 };
 

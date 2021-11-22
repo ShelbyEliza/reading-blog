@@ -53,7 +53,6 @@ class AuthorList {
     for (var i = 0; i < authorArray.length; i++) {
       if (authorArray[i].name == authorName) {
         console.log("Author already exists.");
-
         return true;
       }
     }
