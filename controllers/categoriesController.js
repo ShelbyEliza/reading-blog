@@ -11,19 +11,37 @@ const loadAuthors = (req, res) => {
   });
 };
 
+// const loadAuthorDetails = (req, res) => {
+//   helper.authorStartupPromise.then((allAuthorsDirectory) => {
+//     allAuthorsDirectory.forEach((author) => {
+//       const nameOfAuthor = req.params.name;
+//       if (author.name == nameOfAuthor) {
+//         const matchingAuthor = author;
+//         this.specifiedAuthor = matchingAuthor;
+//         return matchingAuthor;
+//       }
+//     });
+//     res.render("categories/authorDetails", {
+//       title: "Author Details",
+//       author: this.specifiedAuthor,
+//     });
+//   });
+// };
+
 const loadAuthorDetails = (req, res) => {
-  helper.authorStartupPromise.then((allAuthorsDirectory) => {
-    allAuthorsDirectory.forEach((author) => {
+  helper.allPurposeStartUp.then((siteData) => {
+    siteData.allAuthorData.forEach((author) => {
       const nameOfAuthor = req.params.name;
       if (author.name == nameOfAuthor) {
         const matchingAuthor = author;
         this.specifiedAuthor = matchingAuthor;
-        return matchingAuthor;
       }
     });
+    const allBlogData = siteData.allBlogData;
     res.render("categories/authorDetails", {
       title: "Author Details",
       author: this.specifiedAuthor,
+      blogs: allBlogData,
     });
   });
 };

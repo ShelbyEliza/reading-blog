@@ -1,397 +1,52 @@
 {
-    "blogs": [
-        {
-            "id": "4fc9d344-a140-42b6-9a13-b2a96ae47d5b",
-            "bookTitle": "The Adventures of Books",
-            "author": "Booking Bok",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            dsf"
-        },
-        {
-            "id": "1f2ade62-2aee-4ca7-ab56-83e748d85622",
-            "bookTitle": "The Bookery",
-            "author": "Bookson Bookles",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            dsfs"
-        },
-        {
-            "id": "b06aa704-b135-4606-a1b7-65a8f3f34fc8",
-            "bookTitle": "The Adventures of Books",
-            "author": "Bookston",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "           dd "
-        },
-        {
-            "id": "b0252497-c763-45c1-9a53-77905b67e35b",
-            "bookTitle": "Bookbin Busts",
-            "author": "Bookson Bookles",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            dfd"
-        },
-        {
-            "id": "bcf18a84-a554-4155-8816-33e3192541af",
-            "bookTitle": "Books for the Bookless ",
-            "author": "Boocka Booke",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            dsf"
-        },
-        {
-            "id": "c3cc47ca-d797-4c81-bf6e-2eda2a1d7fe0",
-            "bookTitle": "Happy Boooookoween",
-            "author": "Booka Booko",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            dds"
-        },
-        {
-            "id": "160cf70a-d62e-4973-ba6d-09dd1ed96464",
-            "bookTitle": "Books and the Bookend",
-            "author": "Brooks Brokes",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            ds"
-        },
-        {
-            "id": "5c2ffc1b-d93f-4d5c-9d6e-6a470c4074f5",
-            "bookTitle": "The Adventures of Books",
-            "author": "Blook Blokes",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            fd"
-        },
-        {
-            "id": "c2f098b3-b4f3-492c-8624-99c47bc12491",
-            "bookTitle": "The Adventures of Books",
-            "author": "Bookson Bookles",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "           dfd "
-        },
-        {
-            "id": "35a4451f-3658-4c2c-8e06-bad452556c9f",
-            "bookTitle": "Booooks",
-            "author": "Boooooo",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            fs"
-        },
-        {
-            "id": "0a7521c6-b893-433d-97f4-4ff30c9246ec",
-            "bookTitle": "The Adventures of Books",
-            "author": "Booooooo",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "         d   "
-        },
-        {
-            "id": "b8991ea5-ebe1-435b-8bc8-c1a14dd27728",
-            "bookTitle": "The Adventures of Books",
-            "author": "Bookonie Bookes",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            ffd"
-        },
-        {
-            "id": "cc765fe9-2cb8-41aa-8e4b-e4bc7572dfac",
-            "bookTitle": "The Adventures of Books",
-            "author": "Bookson Bookles",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "       s     "
-        },
-        {
-            "id": "a27d36f4-1a8c-46d2-a5c1-c38b052da13a",
-            "bookTitle": "The Adventures of Books",
-            "author": "Bookson Bookles",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "           d "
-        },
-        {
-            "id": "6c257f4a-3630-4e49-86a7-46254f6a87bf",
-            "bookTitle": "The Bookery",
-            "author": "BoomBoomBooks",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            dd"
-        },
-        {
-            "id": "440670c2-10b8-4b9a-9c3e-851b58e98680",
-            "bookTitle": "Happy Boooookoween",
-            "author": "Bookbookoons",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            ss"
-        },
-        {
-            "id": "ec5bf058-6c5e-46af-9135-c4aca47b099f",
-            "bookTitle": "Books and the Bookend",
-            "author": "Bookson Bookles",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            dd"
-        },
-        {
-            "id": "6f0bff93-c57a-4802-afab-ee58963f31bc",
-            "bookTitle": "Booktopia",
-            "author": "Bookup",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "          ff  "
-        },
-        {
-            "id": "0c9ee932-c691-44db-b5bb-c4d91287292d",
-            "bookTitle": "Bookloving",
-            "author": "Book-Choy",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            ss"
-        },
-        {
-            "id": "14580acd-cce9-434a-af8d-74dcefe1733e",
-            "bookTitle": "The Adventures of Books",
-            "author": "Bookson Bookles",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "          dd  "
-        },
-        {
-            "id": "09cf5cfd-05af-4a72-a03e-e255f69b2ac7",
-            "bookTitle": "fd",
-            "author": "Bookson Bookles",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "        fd    "
-        },
-        {
-            "id": "ccf8fde8-c1cc-4b5f-97e9-fef7a622c5d5",
-            "bookTitle": "Books and the Bookend",
-            "author": "Boookssss",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            ddd"
-        },
-        {
-            "id": "e8ba4c02-e017-4ce2-97a0-ce927a691188",
-            "bookTitle": "The Adventures of Books",
-            "author": "Bookson Bookles",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            dd"
-        },
-        {
-            "id": "ba139a41-9bc8-40ca-bca4-5c4bc662356c",
-            "bookTitle": "Boooobooobooks",
-            "author": "Bookson Bookles",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "         dfd   "
-        },
-        {
-            "id": "ec3ae228-75fb-4c27-841e-bb2629fbcc21",
-            "bookTitle": "The Adventures of Books",
-            "author": "Bookson Bookles",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "          ss  "
-        },
-        {
-            "id": "a10eaefd-3fab-4b7e-bdb0-8d39f90bf810",
-            "bookTitle": "Books Books",
-            "author": "Bookup",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "      dd      "
-        },
-        {
-            "id": "e9b991d6-eb68-49a4-b75d-bfbf931843fc",
-            "bookTitle": "Bookrella",
-            "author": "Nov Novellington",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            sdf"
-        },
-        {
-            "id": "0029cf25-44fa-436f-8388-d7e7a70dce40",
-            "bookTitle": "BookTime",
-            "author": "Novel Bookser",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            dd"
-        },
-        {
-            "id": "2c9709f8-e1e5-464c-b48e-66228533ebad",
-            "bookTitle": "Bookon",
-            "author": "Novella Novelling",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "         ddds   "
-        },
-        {
-            "id": "5a28f6e1-f800-4117-8ea9-e48b401882fe",
-            "bookTitle": "The Trials of Pages",
-            "author": "Novella Novelling",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            dd"
-        },
-        {
-            "id": "1e4bb1db-ba75-4bd8-bd71-c592522df1c0",
-            "bookTitle": "Booookonda",
-            "author": "Book Novella",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            dd"
-        },
-        {
-            "id": "971c414d-6a38-4f2e-99b9-ea24efc61ffe",
-            "bookTitle": "Mags and Novels",
-            "author": "Book Novella",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            "
-        },
-        {
-            "id": "bba9bf9d-f3d2-4082-bed3-78905df564ed",
-            "bookTitle": "Novella",
-            "author": "Novel Novelity",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "           sddd "
-        },
-        {
-            "id": "0e3da96d-a918-405c-9a11-0ef5b2536401",
-            "bookTitle": "Bookone Booky",
-            "author": "Book Bookingson",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "         sdfd   "
-        },
-        {
-            "id": "f7b48112-33aa-43e4-9601-ca8400a84e58",
-            "bookTitle": "Happy Boooookoween",
-            "author": "Bookson Bookles",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "         dfds   "
-        },
-        {
-            "id": "1255062f-7455-4a08-9fcb-6b40fef61675",
-            "bookTitle": "Bookin the Bookus",
-            "author": "Bookrenton Books",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            fdddddd"
-        },
-        {
-            "id": "d197a28d-03ff-4ebf-8868-995d718836c1",
-            "bookTitle": "Booked Up The Booker",
-            "author": "Bookeen Bookoco",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "tags": "on",
-            "blogContent": "            UPDATED."
-        },
-        {
-            "id": "fcb1e8ce-209c-4e77-8b9a-2c8360752d93",
-            "bookTitle": "The Books and their Pages",
-            "author": "Bookelly Bookonda",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "tags": "on",
-            "blogContent": "       sfd     "
-        },
-        {
-            "id": "2d1b30cb-fe52-4633-8714-7e050cf0e078",
-            "bookTitle": "Bookole Bokes",
-            "author": "Book-Book Bookington",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "blogContent": "            sdfds"
-        },
-        {
-            "id": "eebb3500-3963-45c5-8f3d-502618689214",
-            "bookTitle": "Books for the Bookless ",
-            "author": "Bookella Bookerton",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "tags": "on",
-            "blogContent": "        sfssss    "
-        },
-        {
-            "id": "7",
-            "bookTitle": "7",
-            "author": "Ursula K. Le Guin",
-            "startDate": "09-15-2021",
-            "endDate": "",
-            "rating": "5",
-            "tags": "Fiction",
-            "blogContent": "A very good trilogy."
-        },
-        {
-            "id": "6",
-            "bookTitle": "6",
-            "author": "Ursula K. Le Guin",
-            "startDate": "09-15-2021",
-            "endDate": "",
-            "rating": "5",
-            "tags": "Fiction",
-            "blogContent": "A very good trilogy."
-        },
-        {
-            "id": "5",
-            "bookTitle": "5",
-            "author": "Ursula K. Le Guin",
-            "startDate": "09-15-2021",
-            "endDate": "",
-            "rating": "5",
-            "tags": "Fiction",
-            "blogContent": "A very good trilogy."
-        },
-        {
-            "id": "4",
-            "bookTitle": "4",
-            "author": "Ursula K. Le Guin",
-            "startDate": "09-15-2021",
-            "endDate": "",
-            "rating": "5",
-            "tags": "Fiction",
-            "blogContent": "A very good trilogy."
-        },
-        {
-            "id": "6f80a6d4-21b3-46be-a897-7801e4329f52",
-            "bookTitle": "3. The Farthest Shore",
-            "author": "Ursula K. Le Guin",
-            "startDate": "09-15-2021",
-            "endDate": "",
-            "rating": "5",
-            "tags": "Fiction",
-            "blogContent": "A very good trilogy."
-        },
-        {
-            "id": "a9746254-2b27-4f7e-9f98-4cef2e9830e3",
-            "bookTitle": "2. The Tombs of Atuan",
-            "author": "Ursula K. Le Guin",
-            "startDate": "08-15-2021",
-            "endDate": "09-15-2021",
-            "rating": "5",
-            "tags": "Fiction",
-            "blogContent": "A very good sequel."
-        },
-        {
-            "id": "1",
-            "bookTitle": "1. A Wizard of Earthsea",
-            "author": "Ursula K. Le Guin",
-            "startDate": "07-15-2021",
-            "endDate": "08-15-2021",
-            "rating": "5",
-            "tags": "Fiction",
-            "blogContent": "A very good book."
-        }
-    ]
+  "blogs": [
+    {
+      "id": "4fc9d344-a140-42b6-9a13-b2a96ae47d5b",
+      "bookTitle": "The Adventures of Books",
+      "author": "Booking Bok",
+      "startDate": "2021-10-15",
+      "endDate": "2021-10-15",
+      "blogContent": "            dsf"
+    },
+    {
+      "id": "4",
+      "bookTitle": "4",
+      "author": "Ursula K. Le Guin",
+      "startDate": "09-15-2021",
+      "endDate": "",
+      "rating": "5",
+      "tags": "Fiction",
+      "blogContent": "A very good trilogy."
+    },
+    {
+      "id": "6f80a6d4-21b3-46be-a897-7801e4329f52",
+      "bookTitle": "3. The Farthest Shore",
+      "author": "Ursula K. Le Guin",
+      "startDate": "09-15-2021",
+      "endDate": "",
+      "rating": "5",
+      "tags": "Fiction",
+      "blogContent": "A very good trilogy."
+    },
+    {
+      "id": "a9746254-2b27-4f7e-9f98-4cef2e9830e3",
+      "bookTitle": "2. The Tombs of Atuan",
+      "author": "Ursula K. Le Guin",
+      "startDate": "08-15-2021",
+      "endDate": "09-15-2021",
+      "rating": "5",
+      "tags": "Fiction",
+      "blogContent": "A very good sequel."
+    },
+    {
+      "id": "1",
+      "bookTitle": "1. A Wizard of Earthsea",
+      "author": "Ursula K. Le Guin",
+      "startDate": "07-15-2021",
+      "endDate": "08-15-2021",
+      "rating": "5",
+      "tags": "Fiction",
+      "blogContent": "A very good book."
+    }
+  ]
 }

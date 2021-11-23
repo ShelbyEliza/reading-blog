@@ -6,6 +6,7 @@ const { Author, AuthorList } = require("./modules/author");
 const blogs = new BlogList();
 const authors = new AuthorList();
 
+const dataArray = new Object();
 // Universal Functions:
 
 const readDataPromise = (file) => {
@@ -63,6 +64,23 @@ const authorStartupPromise = new Promise((resolve) => {
   );
 });
 
+const allPurposeStartUp = new Promise((resolve) => {
+  const promiseArray = [startupPromise, authorStartupPromise];
+  const startupObj = {
+    allBlogData: {},
+    allAuthorData: {},
+  };
+
+  Promise.all(promiseArray).then((values) => {
+    // const allBlogData = blogs.updateAfterModifying(values[0]);
+    // const allAuthorData = authors.updateAfterModifyingAuthors(values[1]);
+    startupObj.allBlogData = values[0];
+    startupObj.allAuthorData = values[1];
+    resolve(startupObj);
+  });
+});
+
+// allPurposeStartUp();
 //////////// End of Universal functions ////////////////////////////////////////////////////////////
 
 const createNewBlog = (createdBlogObject) => {
@@ -76,25 +94,6 @@ const createNewBlog = (createdBlogObject) => {
     console.log("Success - writeEntry to Blogs");
   });
 };
-
-// const createNewAuthor = (createdBlogObject) => {
-//   authorStartupPromise.then((authorArray) => {
-//     const authorName = createdBlogObject.author;
-//     const authorExists = authors.checkIfAuthorExists(authorName, authorArray);
-
-//     if (!authorExists) {
-//       const createdAuthor = new Author(createdBlogObject.author);
-//       const authorObjArray = authors.addToDirectory(createdAuthor);
-//       createdAuthor.booksWritten.push(createdBlogObject.bookTitle);
-
-//       writeEntry(authorObjArray, "data/author-data.json").then(
-//         (writenAuthors) => {
-//           console.log("Success - writeEntry to Authors");
-//         }
-//       );
-//     }
-//   });
-// };
 
 const createNewAuthor = (createdBlogObject) => {
   authorStartupPromise.then((authorArray) => {
@@ -159,6 +158,7 @@ const updateBlog = (ID, updatedBlogObject, blogObjArray) => {
 module.exports = {
   startupPromise,
   authorStartupPromise,
+  allPurposeStartUp,
   createNewBlog,
   createNewAuthor,
   deleteBlog,
