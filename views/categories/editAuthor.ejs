@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <%- include('../partials/header.ejs') %> <%- include('../partials/nav.ejs') %> 
+    <div class="content">
+      <h2 class="page-title">Edit author here!</h2>
+      <div class="form-container">
+        <form action="/categories/edit/<%= author.id %>" method="POST"> 
+          <form action="#" method="POST"> 
+            <div class="form-row">
+              <label for="name" class="label">Author Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required="required" 
+                value= "<%= author.name %>"
+              />
+            </div>
+
+          <div class="form-row">
+            <label for="booksWritten" class="label">Books by Author</label>
+            <input
+              id="booksWritten"
+              name="booksWritten"
+              type="text"
+              value= "<%= author.booksWritten %>"
+              required="required"
+            />
+          </div>
+
+
+          <div class="form-row">
+            <label for="quotes" class="label">Quotes</label>
+            <input
+              id="quotes"
+              name="quotes"
+              type="text"
+              required="required"
+            />
+          </div>
+
+
+          <div class="form-row">
+            <label for="aboutAuthor" class="label"
+              >Your Thoughts on the Author:</label
+            >
+            <textarea 
+            id="aboutAuthor" 
+            name="aboutAuthor"   
+            value= "<%= author.aboutAuthor %>" 
+            required="required">
+            </textarea>
+          </div>
+
+          <div class="form-row form-button">
+            <button id="update-author-button">Update!</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <%- include('../partials/footer.ejs')%>
+  </body>
+</html>

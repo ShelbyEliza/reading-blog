@@ -107,7 +107,7 @@ const createNewAuthor = (createdBlogObject) => {
         }
       });
     } else {
-      const createdAuthor = new Author(createdBlogObject.author);
+      const createdAuthor = authors.createAuthor(createdBlogObject.author);
       createdAuthor.booksWritten.push(createdBlogObject.bookTitle);
       authors.addToDirectory(createdAuthor);
     }

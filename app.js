@@ -45,6 +45,10 @@ app.get("/authorDetails", (req, res) => {
   res.redirect("/categories");
 });
 
+app.get("/editAuthor", (req, res) => {
+  res.redirect("/categories");
+});
+
 // app.get("/quotes", (req, res) => {
 //   res.redirect("/categories");
 // });

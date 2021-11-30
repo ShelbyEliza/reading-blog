@@ -10,15 +10,16 @@
         <div class="content-box-top">
           <div class="content-box-heading">
               <h1 class="title"><%= author.name %></h1>
-          <!-- <div class="edit-button-container">
-            <a class="edit" href="/blogs/edit/<%# blog.id %>">
-              <img 
-                class="edit-button-image"
-                src="../../images/edit-opt.svg"
-                alt="An icon depicting a pencil, with directs to the edit blog page."
-              />
-            </a>
-          </div> -->
+              <h1 class="title"><%= author.id %></h1>
+              <div class="edit-button-container">
+                <a class="edit" href="/categories/editAuthor/<%= author.id %>">
+                  <img 
+                    class="edit-button-image"
+                    src="../../images/edit-opt.svg"
+                    alt="An icon depicting a pencil, with directs to the edit author page."
+                  />
+                </a>
+              </div>
         </div>
         <div>
           <h3>Books Written: </h3>

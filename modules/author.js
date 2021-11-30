@@ -1,12 +1,12 @@
 const { v4: uuidv4 } = require("uuid");
 
 class Author {
-  constructor(name, booksWritten = [], quotes = [], aboutAuthor = "") {
-    this.id = uuidv4();
+  constructor(name, booksWritten = [], quotes = [], aboutAuthor = "", id) {
     this.name = name;
     this.booksWritten = booksWritten;
     this.quotes = quotes;
     this.aboutAuthor = aboutAuthor;
+    this.id = id;
   }
 }
 
@@ -18,9 +18,14 @@ class AuthorList {
   }
 
   createAuthor(authorObject) {
-    let { name, booksWritten, quotes, aboutAuthor } = authorObject;
+    let uniqueID = uuidv4();
+    if (authorObject.id == undefined) {
+      authorObject.id = uniqueID;
+    }
 
-    let author = new Author(name, booksWritten, quotes, aboutAuthor);
+    let { name, booksWritten, quotes, aboutAuthor, id } = authorObject;
+
+    let author = new Author(name, booksWritten, quotes, aboutAuthor, id);
     return author;
   }
 
