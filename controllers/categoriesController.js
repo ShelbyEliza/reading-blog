@@ -21,6 +21,7 @@ const loadAuthorDetails = (req, res) => {
       }
     });
     const allBlogData = siteData.allBlogData;
+    console.log(allBlogData);
     res.render("categories/authorDetails", {
       title: "Author Details",
       author: this.specifiedAuthor,
@@ -46,20 +47,20 @@ const loadEditAuthor = (req, res) => {
   });
 };
 
-// const updateAuthor = (req, res) => {
-//   helper.allPurposeStartUp
-//     .then((siteData) => {
-//       const ID = req.params.id;
-//       helper.updateBlog(ID, req.body, siteData.allAuthorData);
-//     })
-//     .then((results) => {
-//       res.redirect("/blogs");
-//     });
-// };
+const updateAuthor = (req, res) => {
+  helper.allPurposeStartUp
+    .then((siteData) => {
+      const ID = req.params.id;
+      helper.modifyAuthor(ID, req.body, siteData);
+    })
+    .then((results) => {
+      res.redirect("/blogs");
+    });
+};
 
 module.exports = {
   loadAuthors,
   loadAuthorDetails,
   loadEditAuthor,
-  // updateAuthor,
+  updateAuthor,
 };

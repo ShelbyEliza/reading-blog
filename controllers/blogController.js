@@ -49,6 +49,12 @@ const loadEditPage = (req, res) => {
   });
 };
 
+// const createNewPost = (req, res) => {
+//   helper.createNewBlog(req.body);
+//   helper.createNewAuthor(req.body);
+//   res.redirect("/blogs");
+// };
+
 const createNewPost = (req, res) => {
   helper.createNewBlog(req.body);
   helper.createNewAuthor(req.body);

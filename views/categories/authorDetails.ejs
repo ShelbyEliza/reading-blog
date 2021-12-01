@@ -22,25 +22,42 @@
               </div>
         </div>
         <div>
+
+
           <h3>Books Written: </h3>
 
-            <% const booksArray = author.booksWritten; %>
-
+            <% const booksArray = author.booksWritten %>
+            <!-- <p>
+              <%# booksArray %> 
+            </p> -->
             <% if (booksArray.length > 0) { %>
+
               <% for (var i = 0; i < booksArray.length; i++ ) { %> 
-              <p> 
-                <% blogs.forEach(blog => { %>
-                  <% if ( blog.bookTitle == booksArray[i]) { %>
-                    <a class="bookLink" href="/blogs/<%= blog.id %>  ">
-                      <%= booksArray[i] %> 
-                    </a>
+
+
+                  <p>
+                     blogs = <%= blogs %>
+                     <% console.log(blogs) %>
+                  </p>
+
+                  <% if ( true == true) { %>
+
+                    <p> 
+                      blog =
+                      <a class="bookLink" href="/blogs/<%# blog.id %>  ">
+                          <%= booksArray[i] %> 
+                      </a>
+                    </p>
+
                   <% } %>
-                <% }) %>
-            </p>
+
+
             <% }%>
             <% } else { %>
               <p>There are no blogs to display.</p>
             <% } %>
+
+
         </div>
       </div>
     </div> 

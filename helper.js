@@ -72,10 +72,9 @@ const allPurposeStartUp = new Promise((resolve) => {
   };
 
   Promise.all(promiseArray).then((values) => {
-    // const allBlogData = blogs.updateAfterModifying(values[0]);
-    // const allAuthorData = authors.updateAfterModifyingAuthors(values[1]);
     startupObj.allBlogData = values[0];
     startupObj.allAuthorData = values[1];
+    // returns arrays of data
     resolve(startupObj);
   });
 });
@@ -155,6 +154,26 @@ const updateBlog = (ID, updatedBlogObject, blogObjArray) => {
   writeEntry(blogs.updateAfterModifying(blogObjArray), "data/blog-data.json");
 };
 
+const modifyAuthor = (ID, updatedAuthorObject, siteData) => {
+  console.log("Modifying Author");
+
+  siteData.allAuthorData.forEach((author) => {
+    if (ID == author.id) {
+      console.log("Author Found");
+
+      updatedAuthorObject.id = author.id;
+      const updatedAuthor = authors.createAuthor(updatedAuthorObject);
+      const authorToReplaceId = siteData.allAuthorData.indexOf(author);
+      siteData.allAuthorData.splice(authorToReplaceId, 1, updatedAuthor);
+    }
+  });
+
+  writeEntry(
+    authors.updateAfterModifyingAuthors(siteData.allAuthorData),
+    "data/author-data.json"
+  );
+};
+
 module.exports = {
   startupPromise,
   authorStartupPromise,
@@ -163,4 +182,5 @@ module.exports = {
   createNewAuthor,
   deleteBlog,
   updateBlog,
+  modifyAuthor,
 };

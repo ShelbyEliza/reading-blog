@@ -36,6 +36,7 @@ class AuthorList {
         this.authorDirectory.authors = authorObjArray.authors.map(
           this.createAuthor
         );
+        // returns array of data
         resolve(this.authorDirectory.authors);
       } else {
         reject("Error.");
