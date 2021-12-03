@@ -1,23 +1,46 @@
 {
     "blogs": [
         {
-            "id": "98446436-ea01-41b5-bb6f-80216bba7b0d",
+            "id": "5f4015d6-df49-4b3c-ae3c-d3ee8d443653",
+            "bookTitle": "Bookshire",
+            "author": "Bookson Bookles",
+            "authorID": "15f65ae6-0b7a-4d97-b75f-de156d5eba08",
+            "blogContent": "        ddss    "
+        },
+        {
+            "id": "7a17e99e-0c24-4dec-bdb4-d254bc04563b",
+            "bookTitle": "Books",
+            "author": "Seneca",
+            "authorID": "5cfbd024-b533-41d6-bb96-3476220a8b68",
+            "blogContent": "         dd   "
+        },
+        {
+            "id": "b5e2e2ba-1d79-46b9-b607-31d8929f7653",
+            "bookTitle": "Books",
+            "author": "Ursula K. Le Guin",
+            "authorID": "1A",
+            "blogContent": "            dd"
+        },
+        {
+            "id": "3",
+            "bookTitle": "3. The Farthest Shore",
+            "author": "Ursula K. Le Guin",
+            "authorID": "1A",
+            "blogContent": "    Trilogy is good.   "
+        },
+        {
+            "id": "2",
             "bookTitle": "2. The Tombs of Atuan",
             "author": "Ursula K. Le Guin",
-            "startDate": "2021-10-15",
-            "endDate": "2021-10-15",
-            "tags": "on",
-            "blogContent": "    sfds        "
+            "authorID": "1A",
+            "blogContent": " A good book. "
         },
         {
             "id": "1",
             "bookTitle": "1. A Wizard of Earthsea",
             "author": "Ursula K. Le Guin",
-            "startDate": "07-15-2021",
-            "endDate": "08-15-2021",
-            "rating": "5",
-            "tags": "Fiction",
-            "blogContent": "A very good book."
+            "authorID": "1A",
+            "blogContent": "   Book is Good.   "
         }
     ]
 }

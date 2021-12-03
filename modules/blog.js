@@ -1,26 +1,13 @@
 const fs = require("fs");
 const { resolve } = require("path");
 const { v4: uuidv4 } = require("uuid");
-// const authorModules = require("./author");
 
 class Blog {
-  constructor(
-    id,
-    bookTitle,
-    author,
-    startDate,
-    endDate,
-    rating,
-    tags,
-    blogContent
-  ) {
+  constructor(id, bookTitle, author, authorID, blogContent) {
     this.id = id;
     this.bookTitle = bookTitle;
     this.author = author;
-    this.startDate = startDate;
-    this.endDate = endDate;
-    this.rating = rating;
-    this.tags = tags;
+    this.authorID = authorID;
     this.blogContent = blogContent;
   }
 }
@@ -33,45 +20,10 @@ class BlogList {
   }
 
   createEntry(blogObject) {
-    let uniqueID = uuidv4();
-    if (blogObject.id == undefined) {
-      blogObject.id = uniqueID;
-    }
+    let { id, bookTitle, author, authorID, blogContent } = blogObject;
 
-    let {
-      id,
-      bookTitle,
-      author,
-      startDate,
-      endDate,
-      rating,
-      tags,
-      blogContent,
-    } = blogObject;
-
-    let blog = new Blog(
-      id,
-      bookTitle,
-      author,
-      startDate,
-      endDate,
-      rating,
-      tags,
-      blogContent
-    );
+    let blog = new Blog(id, bookTitle, author, authorID, blogContent);
     return blog;
-  }
-
-  createMultipleEntriesPromise(blogObjArray) {
-    return new Promise((resolve, reject) => {
-      if (blogObjArray != undefined) {
-        console.log("Success - Blog List Created");
-        this.blogEntries.blogs = blogObjArray.blogs.map(this.createEntry);
-        resolve(this.blogEntries.blogs);
-      } else {
-        reject("Error.");
-      }
-    });
   }
 
   addToEntries(blogObject) {

@@ -2,122 +2,132 @@ const fs = require("fs");
 const { resolve } = require("path");
 const { Blog, BlogList } = require("./modules/blog");
 const { Author, AuthorList } = require("./modules/author");
+const { v4: uuidv4 } = require("uuid");
 
 const blogs = new BlogList();
 const authors = new AuthorList();
 
-const dataArray = new Object();
 // Universal Functions:
 
-const readDataPromise = (file) => {
+/**
+ * reads file data,
+ * parses data to an object
+ * @param {string} file
+ * @param {string} message identifies what is being read
+ * @returns {promise} reject: error msg || resolve: objectOfArrays data
+ */
+const readData = (file, message) => {
   return new Promise((resolve, reject) => {
     fs.readFile(file, (err, data) => {
       if (err) {
         reject(console.log(err));
       } else {
-        console.log("Success - Data Read");
+        console.log(`Reading: ${message}`);
         resolve(JSON.parse(data));
       }
     });
   });
 };
 
-const writeEntry = (blogObjArray, file) => {
-  return new Promise((resolve) => {
-    const jsonString = JSON.stringify(blogObjArray, null, 4);
+/**
+ * takes an array of objects and a file,
+ * converts object data to json,
+ * writes data to the file
+ * @param {object} objectOfArrays - object containing array data
+ * @param {string} file - to be read
+ * @returns {promise} reject: error msg || resolve: success msg
+ */
+const writeEntry = (objectOfArrays, file, message) => {
+  return new Promise((resolve, reject) => {
+    const jsonString = JSON.stringify(objectOfArrays, null, 4);
     fs.writeFile(file, jsonString, (err) => {
       if (err) {
-        console.log("ERROR writing to files");
+        reject("ERROR writing to files");
       } else {
-        resolve("Done writing files");
+        resolve(`Writing: ${message}`);
       }
     });
   });
 };
 
-const reverseOrder = (blogObjArray) => {
-  const lastBlog = blogObjArray.length - 1;
-
-  if (blogObjArray[lastBlog].id == 1) {
-    var reversedResults = blogObjArray;
+/**
+ * reverses an array's order
+ * @param {array} arrayData
+ * @returns {array} the given array in reversed order
+ */
+const reverseOrder = (arrayData) => {
+  const lastBlog = arrayData.length - 1;
+  if (arrayData[lastBlog].id == 1) {
+    var reversedResults = arrayData;
   } else {
-    reversedResults = blogObjArray.reverse();
+    reversedResults = arrayData.reverse();
   }
   return reversedResults;
 };
 
-const startupPromise = new Promise((resolve) => {
-  console.log("Success - Blogs Started Up");
-  resolve(
-    readDataPromise("data/blog-data.json")
-      .then((objectsData) => blogs.createMultipleEntriesPromise(objectsData))
-      .then((allEntriesArray) => reverseOrder(allEntriesArray))
-  );
-});
-
-const authorStartupPromise = new Promise((resolve) => {
-  console.log("Success - Authors Started Up");
-  resolve(
-    readDataPromise("data/author-data.json").then((objectsData) =>
-      authors.createMultipleAuthorsPromise(objectsData)
-    )
-  );
-});
-
-const allPurposeStartUp = new Promise((resolve) => {
-  const promiseArray = [startupPromise, authorStartupPromise];
-  const startupObj = {
-    allBlogData: {},
-    allAuthorData: {},
+/**
+ * creates a siteData object,
+ * reads data from all json files,
+ * saves that data to the specified siteData property
+ * @returns {object} siteData
+ */
+const startup = new Promise((resolve) => {
+  const siteData = {
+    blogsDataObject: {},
+    authorsDataObject: {},
   };
-
-  Promise.all(promiseArray).then((values) => {
-    startupObj.allBlogData = values[0];
-    startupObj.allAuthorData = values[1];
-    // returns arrays of data
-    resolve(startupObj);
-  });
+  console.log("Success -  All Purpose Startup");
+  resolve(
+    readData("data/blog-data.json", "blog-data")
+      .then((blogsDataObject) => {
+        siteData.blogsDataObject = blogsDataObject;
+        return siteData;
+      })
+      .then((siteData) => readData("data/author-data.json", "author-data"))
+      .then((authorsDataObject) => {
+        siteData.authorsDataObject = authorsDataObject;
+        return siteData;
+      })
+  );
 });
 
-// allPurposeStartUp();
-//////////// End of Universal functions ////////////////////////////////////////////////////////////
-
-const createNewBlog = (createdBlogObject) => {
+const buildNewPost = (createdBlogObject, siteData) => {
   console.log("Creating new post");
+  const uuidBlog = uuidv4();
+  const uuidAuthor = uuidv4();
 
-  const allBlogEntries = blogs.addToEntries(
-    blogs.createEntry(createdBlogObject)
-  );
+  const authorsArray = siteData.authorsDataObject.authors;
+  const blogsArray = siteData.blogsDataObject.blogs;
 
-  writeEntry(allBlogEntries, "data/blog-data.json").then((writenBlogs) => {
-    console.log("Success - writeEntry to Blogs");
-  });
-};
+  let blogData = blogs.createEntry(createdBlogObject);
+  blogData.id = uuidBlog;
 
-const createNewAuthor = (createdBlogObject) => {
-  authorStartupPromise.then((authorArray) => {
-    const authorName = createdBlogObject.author;
-    const authorExists = authors.checkIfAuthorExists(authorName, authorArray);
-
-    if (authorExists) {
-      authorArray.forEach((author) => {
-        if (author.name == authorName) {
-          author.booksWritten.push(createdBlogObject.bookTitle);
-        }
-      });
+  for (var i = 0; i < authorsArray.length; i++) {
+    if (authorsArray[i].name == blogData.author) {
+      blogData.authorID = authorsArray[i].authorID;
+      authorsArray[i].booksWritten.push(blogData.bookTitle);
     } else {
-      const createdAuthor = authors.createAuthor(createdBlogObject.author);
-      createdAuthor.booksWritten.push(createdBlogObject.bookTitle);
-      authors.addToDirectory(createdAuthor);
+      blogData.authorID = uuidAuthor;
+      let authorData = new Author(blogData.author, uuidAuthor, [], "");
+      authorData.booksWritten.push(blogData.bookTitle);
+      authorsArray.push(authorData);
     }
-    const authorObjs = authors.updateAfterModifyingAuthors(authorArray);
-    writeEntry(authorObjs, "data/author-data.json").then((writenAuthors) => {
-      console.log("Success - writeEntry to Authors");
-    });
-  });
+    break;
+  }
+
+  blogsArray.unshift(blogData);
+
+  writeEntry(siteData.blogsDataObject, "data/blog-data.json", "blog-data").then(
+    (writenBlogs) =>
+      writeEntry(
+        siteData.authorsDataObject,
+        "data/author-data.json",
+        "author-data"
+      )
+  );
 };
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////// STILL BROKEN BELOW /////////////////////////
 
 const deleteBlog = (blogObjArray, ID) => {
   blogObjArray.forEach((blog) => {
@@ -154,6 +164,7 @@ const updateBlog = (ID, updatedBlogObject, blogObjArray) => {
   writeEntry(blogs.updateAfterModifying(blogObjArray), "data/blog-data.json");
 };
 
+// COULD BE BROKEN - check typeOf(siteData)
 const modifyAuthor = (ID, updatedAuthorObject, siteData) => {
   console.log("Modifying Author");
 
@@ -175,11 +186,8 @@ const modifyAuthor = (ID, updatedAuthorObject, siteData) => {
 };
 
 module.exports = {
-  startupPromise,
-  authorStartupPromise,
-  allPurposeStartUp,
-  createNewBlog,
-  createNewAuthor,
+  startup,
+  buildNewPost,
   deleteBlog,
   updateBlog,
   modifyAuthor,

@@ -1,11 +1,31 @@
 {
-  "authors": [
-    {
-      "name": "Ursula K. Le Guin",
-      "booksWritten": ["1. A Wizard of Earthsea"],
-      "quotes": [],
-      "aboutAuthor": "",
-      "id": "1"
-    }
-  ]
+    "authors": [
+        {
+            "name": "Ursula K. Le Guin",
+            "authorID": "1A",
+            "booksWritten": [
+                "1. A Wizard of Earthsea",
+                "2. The Tombs of Atuan",
+                "3. The Farthest Shore",
+                "Books"
+            ],
+            "aboutAuthor": ""
+        },
+        {
+            "name": "Seneca",
+            "authorID": "5cfbd024-b533-41d6-bb96-3476220a8b68",
+            "booksWritten": [
+                "Books"
+            ],
+            "aboutAuthor": ""
+        },
+        {
+            "name": "Bookson Bookles",
+            "authorID": "15f65ae6-0b7a-4d97-b75f-de156d5eba08",
+            "booksWritten": [
+                "Bookshire"
+            ],
+            "aboutAuthor": ""
+        }
+    ]
 }

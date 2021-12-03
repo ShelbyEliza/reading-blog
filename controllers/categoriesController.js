@@ -1,26 +1,25 @@
-const authorModules = require("../modules/author");
-const blogModules = require("../modules/blog");
 const helper = require("../helper");
 
 const loadAuthors = (req, res) => {
-  helper.authorStartupPromise.then((allAuthorObjArray) => {
+  helper.startup.then((siteData) => {
     res.render("categories/authors", {
       title: "All Authors",
-      authors: allAuthorObjArray,
+      authors: siteData.allAuthorData.authors,
     });
   });
 };
 
+// BROKEN - no name property on author class!!!
 const loadAuthorDetails = (req, res) => {
-  helper.allPurposeStartUp.then((siteData) => {
-    siteData.allAuthorData.forEach((author) => {
+  helper.startup.then((siteData) => {
+    siteData.allAuthorData.authors.forEach((author) => {
       const nameOfAuthor = req.params.name;
       if (author.name == nameOfAuthor) {
         const matchingAuthor = author;
         this.specifiedAuthor = matchingAuthor;
       }
     });
-    const allBlogData = siteData.allBlogData;
+    const allBlogData = siteData.allBlogData.blogs;
     console.log(allBlogData);
     res.render("categories/authorDetails", {
       title: "Author Details",
@@ -31,9 +30,9 @@ const loadAuthorDetails = (req, res) => {
 };
 
 const loadEditAuthor = (req, res) => {
-  helper.allPurposeStartUp.then((siteData) => {
+  helper.startup.then((siteData) => {
     const ID = req.params.id;
-    siteData.allAuthorData.forEach((author) => {
+    siteData.allAuthorData.authors.forEach((author) => {
       if (author.id == ID) {
         const matchingAuthor = author;
         this.specifiedAuthor = matchingAuthor;
@@ -48,7 +47,7 @@ const loadEditAuthor = (req, res) => {
 };
 
 const updateAuthor = (req, res) => {
-  helper.allPurposeStartUp
+  helper.startup
     .then((siteData) => {
       const ID = req.params.id;
       helper.modifyAuthor(ID, req.body, siteData);

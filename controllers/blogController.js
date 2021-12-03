@@ -1,12 +1,17 @@
-// const blogModules = require("../modules/blog");
 const helper = require("../helper");
 
+/**
+ * loads index.ejs
+ * receives all siteData from startup
+ * provides blog data to index.ejs
+ * @param {object} req
+ * @param {object} res
+ */
 const loadHomepage = (req, res) => {
-  helper.startupPromise.then((allBlogEntries) => {
-    // console.log(allBlogEntries);
+  helper.startup.then((siteData) => {
     res.render("blogs/index", {
       title: "Reading Blog",
-      blogs: allBlogEntries,
+      blogs: siteData.blogsDataObject.blogs,
     });
   });
 };
@@ -16,8 +21,8 @@ const loadCreatePage = (req, res) => {
 };
 
 const loadBlogDetails = (req, res) => {
-  helper.startupPromise.then((allBlogEntries) => {
-    allBlogEntries.forEach((blog) => {
+  helper.startup.then((siteData) => {
+    siteData.blogsDataObject.blogs.forEach((blog) => {
       const ID = req.params.id;
       if (blog.id == ID) {
         const matchingBlog = blog;
@@ -33,8 +38,8 @@ const loadBlogDetails = (req, res) => {
 };
 
 const loadEditPage = (req, res) => {
-  helper.startupPromise.then((allBlogEntries) => {
-    allBlogEntries.forEach((blog) => {
+  helper.startup.then((siteData) => {
+    siteData.blogsDataObject.blogs.forEach((blog) => {
       const ID = req.params.id;
       if (blog.id == ID) {
         const matchingBlog = blog;
@@ -49,23 +54,18 @@ const loadEditPage = (req, res) => {
   });
 };
 
-// const createNewPost = (req, res) => {
-//   helper.createNewBlog(req.body);
-//   helper.createNewAuthor(req.body);
-//   res.redirect("/blogs");
-// };
-
 const createNewPost = (req, res) => {
-  helper.createNewBlog(req.body);
-  helper.createNewAuthor(req.body);
-  res.redirect("/blogs");
+  helper.startup.then((siteData) => {
+    helper.buildNewPost(req.body, siteData);
+    res.redirect("/blogs");
+  });
 };
 
 const deletePost = (req, res) => {
-  helper.startupPromise
-    .then((allBlogEntries) => {
+  helper.startup
+    .then((siteData) => {
       const ID = req.params.id;
-      helper.deleteBlog(allBlogEntries, ID);
+      helper.deleteBlog(siteData.blogsDataObject.blogs, ID);
     })
     .then((result) => {
       res.json({ redirect: "/blogs" });
@@ -76,10 +76,10 @@ const deletePost = (req, res) => {
 };
 
 const updatePost = (req, res) => {
-  helper.startupPromise
-    .then((allBlogEntries) => {
+  helper.startup
+    .then((siteData) => {
       const ID = req.params.id;
-      helper.updateBlog(ID, req.body, allBlogEntries);
+      helper.updateBlog(ID, req.body, siteData.blogsDataObject.blogs);
     })
     .then((results) => {
       res.redirect("/blogs");
