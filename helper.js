@@ -91,11 +91,18 @@ const startup = new Promise((resolve) => {
   );
 });
 
+/**
+ * creates blog entry with a unique id,
+ * if author already exists, author object's booksWritten property is updated,
+ * else, a new author object is generated,
+ * writes updated blog & author data to json files
+ * @param {object} createdBlogObject
+ * @param {object} siteData - object with a blogDataObject & an authorDataObject property
+ */
 const buildNewPost = (createdBlogObject, siteData) => {
   console.log("Creating new post");
   const uuidBlog = uuidv4();
   const uuidAuthor = uuidv4();
-
   const authorsArray = siteData.authorsDataObject.authors;
   const blogsArray = siteData.blogsDataObject.blogs;
 
@@ -129,6 +136,85 @@ const buildNewPost = (createdBlogObject, siteData) => {
 
 ////////////////////// STILL BROKEN BELOW /////////////////////////
 
+const updateBlog = (previousBlogObject, updatedBlogObject, siteData) => {
+  console.log("Updating post");
+  const authorsDataObject = siteData.authorsDataObject.authors;
+  const blogsDataObject = siteData.blogsDataObject.blogs;
+  const uuidAuthor = uuidv4();
+  const indexOfPreviousBlog = blogsDataObject.indexOf(previousBlogObject);
+  const previousAuthorObject = authorsDataObject.find((authorObject) => {
+    if (authorObject.authorID == previousBlogObject.authorID) {
+      return authorObject;
+    }
+  });
+
+  updatedBlogObject.id = previousBlogObject.id;
+  const updatedBlog = blogs.createEntry(updatedBlogObject);
+
+  blogsDataObject.forEach((blog) => {
+    if (blog.author == updatedBlog.author) {
+      updatedBlog.authorID = blog.authorID;
+    }
+  });
+
+  // Author changes:
+  if (updatedBlog.author !== previousBlogObject.author) {
+    updatedBlog.authorID = uuidAuthor;
+    var newAuthorObject = new Author(updatedBlog.author, uuidAuthor, [], "");
+    newAuthorObject.booksWritten.push(updatedBlog.bookTitle);
+    authorsDataObject.push(newAuthorObject);
+    if (previousAuthorObject.booksWritten.length == 1) {
+      const indexOfPreviousAuthor =
+        authorsDataObject.indexOf(previousAuthorObject);
+      authorsDataObject.splice(indexOfPreviousAuthor, 1);
+    }
+  } else {
+    // Author does not change:
+    updatedBlog.authorID = previousBlogObject.authorID;
+  }
+
+  // bookTitle changes:
+  if (
+    updatedBlog.bookTitle !== previousBlogObject.bookTitle ||
+    previousAuthorObject.booksWritten.length != 1
+  ) {
+    previousAuthorObject.booksWritten.forEach((book) => {
+      if (book == previousBlogObject.bookTitle) {
+        let indexOfBook = previousAuthorObject.booksWritten.indexOf(book);
+        // & author changes:
+        if (updatedBlog.author !== previousBlogObject.author) {
+          previousAuthorObject.booksWritten.splice(indexOfBook, 1);
+        } else {
+          previousAuthorObject.booksWritten.splice(
+            indexOfBook,
+            1,
+            updatedBlog.bookTitle
+          );
+        }
+        // console.log(indexOfBook);
+      }
+    });
+  }
+
+  blogsDataObject.splice(indexOfPreviousBlog, 1, updatedBlog);
+  console.log(blogsDataObject);
+  console.log(authorsDataObject);
+
+  writeEntry(
+    siteData.blogsDataObject,
+    "data/blog-data.json",
+    "updated blog-data"
+  ).then((writtenData) => {
+    writeEntry(
+      siteData.authorsDataObject,
+      "data/author-data.json",
+      "updated author-data"
+    );
+  });
+};
+
+const doesAuthorChange = () => {};
+
 const deleteBlog = (blogObjArray, ID) => {
   blogObjArray.forEach((blog) => {
     if (blog.id == ID) {
@@ -145,23 +231,6 @@ const deleteBlog = (blogObjArray, ID) => {
   } else {
     console.log("Error.");
   }
-};
-
-const updateBlog = (ID, updatedBlogObject, blogObjArray) => {
-  console.log("Updating post");
-
-  blogObjArray.forEach((blog) => {
-    if (ID == blog.id) {
-      console.log("blog found");
-
-      updatedBlogObject.id = blog.id;
-      const updatedBlog = blogs.createEntry(updatedBlogObject);
-      const blogToReplaceId = blogObjArray.indexOf(blog);
-      blogObjArray.splice(blogToReplaceId, 1, updatedBlog);
-    }
-  });
-
-  writeEntry(blogs.updateAfterModifying(blogObjArray), "data/blog-data.json");
 };
 
 // COULD BE BROKEN - check typeOf(siteData)

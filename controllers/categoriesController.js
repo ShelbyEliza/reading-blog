@@ -4,23 +4,21 @@ const loadAuthors = (req, res) => {
   helper.startup.then((siteData) => {
     res.render("categories/authors", {
       title: "All Authors",
-      authors: siteData.allAuthorData.authors,
+      authors: siteData.authorsDataObject.authors,
     });
   });
 };
 
-// BROKEN - no name property on author class!!!
 const loadAuthorDetails = (req, res) => {
   helper.startup.then((siteData) => {
-    siteData.allAuthorData.authors.forEach((author) => {
-      const nameOfAuthor = req.params.name;
-      if (author.name == nameOfAuthor) {
+    siteData.authorsDataObject.authors.forEach((author) => {
+      const idOfAuthor = req.params.authorID;
+      if (author.authorID == idOfAuthor) {
         const matchingAuthor = author;
         this.specifiedAuthor = matchingAuthor;
       }
     });
-    const allBlogData = siteData.allBlogData.blogs;
-    console.log(allBlogData);
+    const allBlogData = siteData.blogsDataObject.blogs;
     res.render("categories/authorDetails", {
       title: "Author Details",
       author: this.specifiedAuthor,
@@ -32,7 +30,7 @@ const loadAuthorDetails = (req, res) => {
 const loadEditAuthor = (req, res) => {
   helper.startup.then((siteData) => {
     const ID = req.params.id;
-    siteData.allAuthorData.authors.forEach((author) => {
+    siteData.authorsDataObject.authors.forEach((author) => {
       if (author.id == ID) {
         const matchingAuthor = author;
         this.specifiedAuthor = matchingAuthor;

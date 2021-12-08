@@ -10,9 +10,8 @@
         <div class="content-box-top">
           <div class="content-box-heading">
               <h1 class="title"><%= author.name %></h1>
-              <h1 class="title"><%= author.id %></h1>
               <div class="edit-button-container">
-                <a class="edit" href="/categories/editAuthor/<%= author.id %>">
+                <a class="edit" href="/categories/editAuthor/<%= author.authorID %>">
                   <img 
                     class="edit-button-image"
                     src="../../images/edit-opt.svg"
@@ -22,40 +21,21 @@
               </div>
         </div>
         <div>
-
-
           <h3>Books Written: </h3>
 
             <% const booksArray = author.booksWritten %>
-            <!-- <p>
-              <%# booksArray %> 
-            </p> -->
-            <% if (booksArray.length > 0) { %>
 
-              <% for (var i = 0; i < booksArray.length; i++ ) { %> 
+              <% for (var i = 0; i < blogs.length; i++ ) { %> 
+                <% if ( blogs[i].author == author.name) { %>
+                  <%= console.log(blogs[i].author, author.name);  %> 
 
-
-                  <p>
-                     blogs = <%= blogs %>
-                     <% console.log(blogs) %>
-                  </p>
-
-                  <% if ( true == true) { %>
-
-                    <p> 
-                      blog =
-                      <a class="bookLink" href="/blogs/<%# blog.id %>  ">
-                          <%= booksArray[i] %> 
-                      </a>
-                    </p>
-
-                  <% } %>
-
-
-            <% }%>
-            <% } else { %>
-              <p>There are no blogs to display.</p>
-            <% } %>
+                <a class="bookLink" href="/blogs/<%= blogs[i].id %>  ">
+                  <h3>
+                    <%= blogs[i].bookTitle %>
+                      </h3>
+                    </a>
+                    <% } %> 
+              <% } %> 
 
 
         </div>

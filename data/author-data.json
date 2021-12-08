@@ -5,9 +5,7 @@
             "authorID": "1A",
             "booksWritten": [
                 "1. A Wizard of Earthsea",
-                "2. The Tombs of Atuan",
-                "3. The Farthest Shore",
-                "Books"
+                "2. The Tombs of Atuan"
             ],
             "aboutAuthor": ""
         },
@@ -20,10 +18,26 @@
             "aboutAuthor": ""
         },
         {
-            "name": "Bookson Bookles",
-            "authorID": "15f65ae6-0b7a-4d97-b75f-de156d5eba08",
+            "name": "Bookson Bookl",
+            "authorID": "77cc8a2e-03a2-4811-9712-a49a82f3de3c",
             "booksWritten": [
-                "Bookshire"
+                "Bookshiree"
+            ],
+            "aboutAuthor": ""
+        },
+        {
+            "name": "Ursula K. Le Gui",
+            "authorID": "6741b380-c22d-4591-ae11-4ab719e4d86a",
+            "booksWritten": [
+                " The Farthest Shore"
+            ],
+            "aboutAuthor": ""
+        },
+        {
+            "name": "Ursula K. Le Guin",
+            "authorID": "ece71c72-7560-442d-a92a-193e498aaafa",
+            "booksWritten": [
+                "Boo"
             ],
             "aboutAuthor": ""
         }

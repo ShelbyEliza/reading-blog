@@ -78,8 +78,12 @@ const deletePost = (req, res) => {
 const updatePost = (req, res) => {
   helper.startup
     .then((siteData) => {
-      const ID = req.params.id;
-      helper.updateBlog(ID, req.body, siteData.blogsDataObject.blogs);
+      const previousBlogObject = siteData.blogsDataObject.blogs.find((blog) => {
+        if (blog.id == req.params.id) {
+          return blog;
+        }
+      });
+      helper.updateBlog(previousBlogObject, req.body, siteData);
     })
     .then((results) => {
       res.redirect("/blogs");

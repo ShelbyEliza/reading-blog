@@ -2,10 +2,10 @@
     "blogs": [
         {
             "id": "5f4015d6-df49-4b3c-ae3c-d3ee8d443653",
-            "bookTitle": "Bookshire",
-            "author": "Bookson Bookles",
-            "authorID": "15f65ae6-0b7a-4d97-b75f-de156d5eba08",
-            "blogContent": "        ddss    "
+            "bookTitle": "Bookshiree",
+            "author": "Bookson Bookl",
+            "authorID": "77cc8a2e-03a2-4811-9712-a49a82f3de3c",
+            "blogContent": "            "
         },
         {
             "id": "7a17e99e-0c24-4dec-bdb4-d254bc04563b",
@@ -16,17 +16,17 @@
         },
         {
             "id": "b5e2e2ba-1d79-46b9-b607-31d8929f7653",
-            "bookTitle": "Books",
+            "bookTitle": "Boo",
             "author": "Ursula K. Le Guin",
-            "authorID": "1A",
-            "blogContent": "            dd"
+            "authorID": "ece71c72-7560-442d-a92a-193e498aaafa",
+            "blogContent": "            "
         },
         {
             "id": "3",
-            "bookTitle": "3. The Farthest Shore",
-            "author": "Ursula K. Le Guin",
-            "authorID": "1A",
-            "blogContent": "    Trilogy is good.   "
+            "bookTitle": " The Farthest Shore",
+            "author": "Ursula K. Le Gui",
+            "authorID": "6741b380-c22d-4591-ae11-4ab719e4d86a",
+            "blogContent": "            "
         },
         {
             "id": "2",
