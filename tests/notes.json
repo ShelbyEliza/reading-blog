@@ -1,0 +1,119 @@
+{
+  "blogs": [
+    {
+      "id": "12",
+      "bookTitle": "Game of Thrones",
+      "author": "George RR. Martin",
+      "authorID": "5A",
+      "blogContent": ""
+    },
+    {
+      "id": "11",
+      "bookTitle": "Prophet",
+      "author": "Kahlil Gibran",
+      "authorID": "4A",
+      "blogContent": ""
+    },
+    {
+      "id": "10",
+      "bookTitle": "The Hello-ship of the Ring** Change author & title",
+      "author": "Tolkoin",
+      "authorID": "3A",
+      "blogContent": ""
+    },
+    {
+      "id": "9",
+      "bookTitle": "The Hobbit** Change author",
+      "author": "Tolkoin",
+      "authorID": "3A",
+      "blogContent": ""
+    },
+    {
+      "id": "8",
+      "bookTitle": "Castle in the Air",
+      "author": "Diana Wynne Jones",
+      "authorID": "2A",
+      "blogContent": ""
+    },
+    {
+      "id": "7",
+      "bookTitle": "Howl's Moving Castle",
+      "author": "Diana Wynne Jones",
+      "authorID": "2A",
+      "blogContent": ""
+    },
+    {
+      "id": "6",
+      "bookTitle": "**Change Author to Diana",
+      "author": "Ursula K. Le Guin",
+      "authorID": "1A",
+      "blogContent": ""
+    },
+    {
+      "id": "5",
+      "bookTitle": "**Change Title",
+      "author": "Ursula K. Le Guin",
+      "authorID": "1A",
+      "blogContent": ""
+    },
+    {
+      "id": "4",
+      "bookTitle": "The Nearest Shore",
+      "author": "Ursula K. Le Guin",
+      "authorID": "1A",
+      "blogContent": ""
+    },
+    {
+      "id": "3",
+      "bookTitle": "The Farthest Shore",
+      "author": "Ursula K. Le Guin",
+      "authorID": "1A",
+      "blogContent": ""
+    },
+    {
+      "id": "2",
+      "bookTitle": "The Tombs of Atuan",
+      "author": "Ursula K. Le Guin",
+      "authorID": "1A",
+      "blogContent": ""
+    },
+    {
+      "id": "1",
+      "bookTitle": "A Wizard of Earthsea",
+      "author": "Ursula K. Le Guin",
+      "authorID": "1A",
+      "blogContent": ""
+    }
+  ],
+
+  "updateTitleOnly": [
+    {
+      "id": "",
+      "bookTitle": "",
+      "author": "",
+      "authorID": "",
+      "blogContent": ""
+    },
+    {
+      "id": "",
+      "bookTitle": "",
+      "author": "",
+      "authorID": "",
+      "blogContent": ""
+    },
+    {
+      "id": "",
+      "bookTitle": "",
+      "author": "",
+      "authorID": "",
+      "blogContent": ""
+    },
+    {
+      "id": "",
+      "bookTitle": "",
+      "author": "",
+      "authorID": "",
+      "blogContent": ""
+    }
+  ]
+}

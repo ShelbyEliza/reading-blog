@@ -1,43 +1,49 @@
 {
     "authors": [
         {
+            "name": "George RR. Martin",
+            "authorID": "5A",
+            "booksWritten": [
+                "The Winds of Winter"
+            ],
+            "aboutAuthor": ""
+        },
+        {
+            "name": "Kahlil Gibran",
+            "authorID": "4A",
+            "booksWritten": [
+                "The Prophet"
+            ],
+            "aboutAuthor": ""
+        },
+        {
+            "name": "Tolkein",
+            "authorID": "72243e95-f041-4524-9c85-050ffb7a7ba1",
+            "booksWritten": [
+                "The Fellowship of the Ring",
+                "The Hobbit"
+            ],
+            "aboutAuthor": ""
+        },
+        {
+            "name": "Diana Wynne Jones",
+            "authorID": "2A",
+            "booksWritten": [
+                "Castle in the Air",
+                "Howl's Moving Castle"
+            ],
+            "aboutAuthor": ""
+        },
+        {
             "name": "Ursula K. Le Guin",
             "authorID": "1A",
             "booksWritten": [
-                "1. A Wizard of Earthsea",
-                "2. The Tombs of Atuan"
-            ],
-            "aboutAuthor": ""
-        },
-        {
-            "name": "Seneca",
-            "authorID": "5cfbd024-b533-41d6-bb96-3476220a8b68",
-            "booksWritten": [
-                "Books"
-            ],
-            "aboutAuthor": ""
-        },
-        {
-            "name": "Bookson Bookl",
-            "authorID": "77cc8a2e-03a2-4811-9712-a49a82f3de3c",
-            "booksWritten": [
-                "Bookshiree"
-            ],
-            "aboutAuthor": ""
-        },
-        {
-            "name": "Ursula K. Le Gui",
-            "authorID": "6741b380-c22d-4591-ae11-4ab719e4d86a",
-            "booksWritten": [
-                " The Farthest Shore"
-            ],
-            "aboutAuthor": ""
-        },
-        {
-            "name": "Ursula K. Le Guin",
-            "authorID": "ece71c72-7560-442d-a92a-193e498aaafa",
-            "booksWritten": [
-                "Boo"
+                "**Change Author to Diana",
+                "**Change Title",
+                "The Nearest Shore",
+                "The Farthest Shore",
+                "The Tombs of Atuan",
+                "A Wizard of Earthsea"
             ],
             "aboutAuthor": ""
         }

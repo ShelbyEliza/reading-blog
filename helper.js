@@ -134,71 +134,88 @@ const buildNewPost = (createdBlogObject, siteData) => {
   );
 };
 
-////////////////////// STILL BROKEN BELOW /////////////////////////
-
-const updateBlog = (previousBlogObject, updatedBlogObject, siteData) => {
-  console.log("Updating post");
-  const authorsDataObject = siteData.authorsDataObject.authors;
-  const blogsDataObject = siteData.blogsDataObject.blogs;
-  const uuidAuthor = uuidv4();
-  const indexOfPreviousBlog = blogsDataObject.indexOf(previousBlogObject);
-  const previousAuthorObject = authorsDataObject.find((authorObject) => {
-    if (authorObject.authorID == previousBlogObject.authorID) {
-      return authorObject;
+const getPreviousPost = (previousData, dataArray, type) => {
+  var previousItem;
+  // console.log(previousData, dataArray, type);
+  dataArray.forEach((element) => {
+    if (element[type] == previousData[type]) {
+      previousItem = element;
     }
   });
+  return previousItem;
+};
 
+/**
+ *
+ * @param {object} previousBlogObject - blog being updated.
+ * @param {object} updatedBlogObject  - updated blog.
+ * @param {object} siteData           - stored blog & author data
+ */
+const updateBlog = (previousBlogObject, updatedBlogObject, siteData) => {
+  console.log("Updating Blog");
+  const blogsDataArray = siteData.blogsDataObject.blogs;
+  const uuidAuthor = uuidv4();
+  const indexOfPreviousBlog = blogsDataArray.indexOf(previousBlogObject);
+  var authorsTestArray = [];
+  var authorsBuildArray = [];
+
+  // gives updated blog the previous blog id:
   updatedBlogObject.id = previousBlogObject.id;
+  // creates a Blog object with the updated blog info:
   const updatedBlog = blogs.createEntry(updatedBlogObject);
 
-  blogsDataObject.forEach((blog) => {
-    if (blog.author == updatedBlog.author) {
-      updatedBlog.authorID = blog.authorID;
+  // counter discloses how many occurences previous author has in blogsDataArray:
+  var counter = 0;
+  // if updated author equals any author in blogs data, its authorID is set to match:
+  for (var i = 0; i < blogsDataArray.length; i++) {
+    if (blogsDataArray[i].author === updatedBlog.author) {
+      updatedBlog.authorID = blogsDataArray[i].authorID;
+    } // counts how many times previous author exists in blog data:
+    if (blogsDataArray[i].author === previousBlogObject.author) {
+      counter++;
     }
-  });
+  }
 
-  // Author changes:
-  if (updatedBlog.author !== previousBlogObject.author) {
-    updatedBlog.authorID = uuidAuthor;
-    var newAuthorObject = new Author(updatedBlog.author, uuidAuthor, [], "");
-    newAuthorObject.booksWritten.push(updatedBlog.bookTitle);
-    authorsDataObject.push(newAuthorObject);
-    if (previousAuthorObject.booksWritten.length == 1) {
-      const indexOfPreviousAuthor =
-        authorsDataObject.indexOf(previousAuthorObject);
-      authorsDataObject.splice(indexOfPreviousAuthor, 1);
-    }
-  } else {
-    // Author does not change:
+  // if author was changed to a new author,
+  // counter === 1 means the previous author only occured once in blog data,
+  // if updated author is not the same as previous author,
+  // give updated author the same authorID as the previous one since:
+  // it was overwritten and had a unique authorID
+  if (
+    updatedBlog.authorID === undefined &&
+    previousBlogObject.author !== updatedBlog.author &&
+    counter == 1
+  ) {
     updatedBlog.authorID = previousBlogObject.authorID;
   }
 
-  // bookTitle changes:
-  if (
-    updatedBlog.bookTitle !== previousBlogObject.bookTitle ||
-    previousAuthorObject.booksWritten.length != 1
-  ) {
-    previousAuthorObject.booksWritten.forEach((book) => {
-      if (book == previousBlogObject.bookTitle) {
-        let indexOfBook = previousAuthorObject.booksWritten.indexOf(book);
-        // & author changes:
-        if (updatedBlog.author !== previousBlogObject.author) {
-          previousAuthorObject.booksWritten.splice(indexOfBook, 1);
-        } else {
-          previousAuthorObject.booksWritten.splice(
-            indexOfBook,
-            1,
-            updatedBlog.bookTitle
-          );
-        }
-        // console.log(indexOfBook);
-      }
-    });
+  if (updatedBlog.authorID === undefined) {
+    updatedBlog.authorID = uuidAuthor;
   }
 
-  blogsDataObject.splice(indexOfPreviousBlog, 1, updatedBlog);
-  console.log(blogsDataObject);
-  console.log(authorsDataObject);
+  blogsDataArray.splice(indexOfPreviousBlog, 1, updatedBlog);
+
+  console.log("Updating Author Data");
+
+  blogsDataArray.forEach((element) => {
+    const includesAuthor = authorsTestArray.includes(element.author);
+
+    if (includesAuthor == false) {
+      authorsTestArray.push(element.author);
+
+      authorsBuildArray.push(
+        new Author(element.author, element.authorID, [element.bookTitle], "")
+      );
+    } else {
+      const foundAuthor = authorsBuildArray.find(
+        (author) => author.name == element.author
+      );
+      foundAuthor.booksWritten.push(element.bookTitle);
+    }
+  });
+
+  siteData.authorsDataObject.authors = authorsBuildArray;
+  siteData.blogsDataObject.blogs = blogsDataArray;
 
   writeEntry(
     siteData.blogsDataObject,
@@ -213,8 +230,7 @@ const updateBlog = (previousBlogObject, updatedBlogObject, siteData) => {
   });
 };
 
-const doesAuthorChange = () => {};
-
+// //////////////////////// COULD BE BROKEN - check typeOf(siteData)
 const deleteBlog = (blogObjArray, ID) => {
   blogObjArray.forEach((blog) => {
     if (blog.id == ID) {
@@ -233,7 +249,6 @@ const deleteBlog = (blogObjArray, ID) => {
   }
 };
 
-// COULD BE BROKEN - check typeOf(siteData)
 const modifyAuthor = (ID, updatedAuthorObject, siteData) => {
   console.log("Modifying Author");
 
@@ -257,6 +272,7 @@ const modifyAuthor = (ID, updatedAuthorObject, siteData) => {
 module.exports = {
   startup,
   buildNewPost,
+  getPreviousPost,
   deleteBlog,
   updateBlog,
   modifyAuthor,
