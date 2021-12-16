@@ -31,6 +31,9 @@ a:hover {
   padding: 0px 40px;
   background: #966533ff;
   color: #8e6032ff;
+
+  margin: auto;
+  max-width: 900px;
 }
 
 .menu {
@@ -173,6 +176,9 @@ a:hover {
 
   margin: 0px 60px;
   padding: 0px 40px 100px 40px;
+
+  margin: auto;
+  max-width: 900px;
 }
 
 .page-title {
@@ -180,6 +186,15 @@ a:hover {
   padding-top: 20px;
 }
 
+/* mobile use */
+
+/* @media only screen and (min-width: 700px) {
+  .content,
+  .nav {
+    width: 600px;
+    color: rgb(92, 38, 22);
+  }
+} */
 /* ------------------------------------ End of Universal CSS ---------------------------------------*/
 /* .form-container,
 .content-box {

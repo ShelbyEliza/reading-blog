@@ -5,29 +5,24 @@
     <%- include('../partials/header.ejs') %> <%- include('../partials/nav.ejs')
     %>
     <div class="content">
-      <h2 class="page-title">Add a new entry below!</h2>
-      <form action="/blogs" method="POST">
-          <div class="form-container">
+      <h2 class="page-title">Create a new post!</h2>
+      <div class="content-box">
+        <form action="/blogs" method="POST" id="create-form">
+          <div class="form-row">
+            <label for="bookTitle">Title:</label>
 
-          <div class="form-row col-one" >
-            <label for="bookTitle" class="label">Book Title</label>
-          </div>
-
-          <div class="form-row col-two">
-            <label for="author" class="label">Author</label>
-          </div>
-<!-- change value back to placeholder below! -->
-          <div class="form-row col-one">
             <input
             id="bookTitle"
             name="bookTitle"
             type="text"
-            placeholder="Books, books, book..."
             required="required"
             />
+
           </div>
 
-          <div class="form-row col-two">
+          <div class="form-row">
+            <label for="author">Author:</label>
+            
             <input
               id="author"
               name="author"
@@ -35,15 +30,11 @@
               required="required"
             />
           </div>
-<!-- TO DO: change date input value to show current date -->
-          <!-- <div class="form-row col-one">
-            <label for="startDate" class="label">Started: </label>
-          </div>
-          <div class="form-row col-two">
-            <label for="endDate" class="label">Finished: </label>
-          </div>
 
-          <div class="form-row col-one">
+
+<!-- TO DO: change date input value to show current date -->
+          <div class="form-row">
+            <label for="startDate">Started:</label>
             <input
             id="startDate"
             name="startDate"
@@ -51,11 +42,11 @@
             value="2021-10-15"
             min="1992-11-16"
             max="2092-11-16"
-            required="required"
             />
           </div>
 
-          <div class="form-row col-two">
+          <div class="form-row">
+            <label for="endDate">Finished:</label>
             <input
             id="endDate"
             name="endDate"
@@ -63,37 +54,74 @@
             value="2021-10-15"
             min="1992-11-16"
             max="2092-11-16"
-            required="required"
             />
-          </div> -->
+          </div>
 <!-- TO DO: add boxes to select from-->
-          <!-- <div class="form-row">
-            <label for="tag" class="label">Tags</label>
-          </div>
-          <div class="form-row">
-            <input
-            id="tags"
-            name="tags"
-            type="checkbox"
-            required="required"
-            />
+          <!-- <div class="form-row-full">
+            <label for="tag" class="label">Tags:</label>
+
+            <select id="tags" name="tags" form="create-form" multiple>
+              <option value="sci-fi-fantasy">Sci-fi / Fantasy</option>
+              <option value="fiction">Fiction</option>
+              <option value="short-story">Short Story</option>
+              <option value="nonfiction">Non-Fiction</option>
+              <option value="biography">Biography</option>
+              <option value="classical">Classical</option>
+
+            </select>
           </div>    -->
-          <div class="form-row">
-            <label for="blogContent" class="label"
-              >Your Thoughts on the Book:
-            </label>
+
+          <div class="form-row-full">
+            <fieldset>
+                <legend>Tags:</legend>
+              <div class="tag-option">
+                <input type="checkbox" id="sci-fi-fantasy" name="tags" value="sci-fi-fantasy">
+                <label for="sci-fi-fantasy">Sci-fi / Fantasy</label>
+              </div>
+              <div class="tag-option">
+                <input type="checkbox" id="informative" name="tags" value="informative">
+                <label for="informative">Informative</label>
+              </div>
+              <div class="tag-option">
+                <input type="checkbox" id="fiction" name="tags" value="fiction">
+                <label for="fiction">Fiction</label>
+              </div>
+              <div class="tag-option">
+                <input type="checkbox" id="short-story" name="tags" value="short-story">
+                <label for="short-story">Short Story</label>
+              </div>
+              <div class="tag-option">
+                <input type="checkbox" id="non-fiction" name="tags" value="non-fiction">
+                <label for="non-fiction">Non-Fiction</label>
+              </div>
+              <div class="tag-option">
+                <input type="checkbox" id="biography" name="tags" value="biography">
+                <label for="biography">Biography</label>
+              </div>
+              <div class="tag-option">
+                <input type="checkbox" id="classical" name="tags" value="classical">
+                <label for="classical">Classical</label>
+              </div>
+            </fieldset>
+          </div> 
+
+          <div class="form-row-full">
+            <label for="blogContent">Thoughts on the Book:</label>
+
           </div>
-          <div class="form-row"></div>
-        </div>
-          <div class="blog-content">
-            <textarea id="blogContent" name="blogContent" >
-            </textarea>
-          </div>
-          <div class="form-button">
-            <button id="post-new-blog-button">Post!</button>
-          </div>
+
+          <textarea id="blogContent" name="blogContent" ></textarea>
+
         </form>
+
+        <button id="post-new-blog-button">Post!</button>
       
+    </div>
+
     </div>
   </body>
 </html>
+
+
+
+
