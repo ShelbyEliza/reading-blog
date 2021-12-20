@@ -5,11 +5,12 @@
     <%- include('../partials/header.ejs') %> <%- include('../partials/nav.ejs') %> 
     <div class="content">
       <h2 class="page-title">Edit post here!</h2>
-      <div class="form-container">
-        <form action="/blogs/edit/<%= blog.id %>" method="POST">
+      <div class="content-box">
+        <form action="/blogs/edit/<%= blog.id %>" method="POST" id="edit-blog">
 
             <div class="form-row">
               <label for="bookTitle" class="label">Book Title</label>
+
               <input
                 id="bookTitle"
                 name="bookTitle"
@@ -21,6 +22,7 @@
 
           <div class="form-row">
             <label for="author" class="label">Author</label>
+
             <input
               id="author"
               name="author"
@@ -30,63 +32,80 @@
             />
           </div>
   
-          <!-- <div class="form-row">
-            <label for="startDate" class="label">Started: </label>
-            <input
-              id="startDate"
-              name="startDate"
-              type="date"
-              value="2021-10-15"
-              min="1992-11-16"
-              max="2092-11-16"
-              value= "<%# blog.startDate %>"
-              required="required"
-            />
-          </div>
-
-
+<!-- TO DO: change date input value to show current date -->
           <div class="form-row">
-            <label for="endDate" class="label">Finished: </label>
+            <label for="startDate">Started:</label>
             <input
-              id="endDate"
-              name="endDate"
-              type="date"
-              value="2021-10-15"
-              min="1992-11-16"
-              max="2092-11-16"
-              value= "<%# blog.endDate %>"
-              required="required"
+            id="startDate"
+            name="startDate"
+            type="date"
+            value="2021-10-15"
+            min="1992-11-16"
+            max="2092-11-16"
             />
           </div>
 
           <div class="form-row">
-            <label for="tag" class="label">Tags</label>
+            <label for="endDate">Finished:</label>
             <input
-              id="tags"
-              name="tags"
-              type="checkbox"
-              required="required"
+            id="endDate"
+            name="endDate"
+            type="date"
+            value="2021-10-15"
+            min="1992-11-16"
+            max="2092-11-16"
             />
-          </div> -->
+          </div>
+
+          <div class="form-row-full">
+            <fieldset>
+                <legend>Tags:</legend>
+              <div class="tag-option">
+                <input type="checkbox" id="sci-fi-fantasy" name="tags" value="sci-fi-fantasy">
+                <label for="sci-fi-fantasy">Sci-fi / Fantasy</label>
+              </div>
+              <div class="tag-option">
+                <input type="checkbox" id="informative" name="tags" value="informative">
+                <label for="informative">Informative</label>
+              </div>
+              <div class="tag-option">
+                <input type="checkbox" id="fiction" name="tags" value="fiction">
+                <label for="fiction">Fiction</label>
+              </div>
+              <div class="tag-option">
+                <input type="checkbox" id="short-story" name="tags" value="short-story">
+                <label for="short-story">Short Story</label>
+              </div>
+              <div class="tag-option">
+                <input type="checkbox" id="non-fiction" name="tags" value="non-fiction">
+                <label for="non-fiction">Non-Fiction</label>
+              </div>
+              <div class="tag-option">
+                <input type="checkbox" id="biography" name="tags" value="biography">
+                <label for="biography">Biography</label>
+              </div>
+              <div class="tag-option">
+                <input type="checkbox" id="classical" name="tags" value="classical">
+                <label for="classical">Classical</label>
+              </div>
+            </fieldset>
+          </div> 
 
 
-          <div class="form-row">
+          <div class="form-row-full">
             <label for="blogContent" class="label"
               >Your Thoughts on the Book:</label
             >
+            </div>
+
             <textarea 
             id="blogContent" 
-            name="blogContent"   
-            value= "<%= blog.blogContent %>" 
-            required="required">
-            </textarea>
-          </div>
+            name="blogContent"
+            spellcheck="true"
+            required="required"><%= blog.blogContent %></textarea>
 
-          <div class="form-row form-button">
-            <button id="update-blog-button">Update!</button>
-          </div>
-
-        </form>
+          </form>
+          <button form="edit-blog">Update!</button>
       </div>
     </div>
     <%- include('../partials/footer.ejs')%>

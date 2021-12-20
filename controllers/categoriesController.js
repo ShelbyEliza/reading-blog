@@ -47,8 +47,13 @@ const loadEditAuthor = (req, res) => {
 const updateAuthor = (req, res) => {
   helper.startup
     .then((siteData) => {
-      const ID = req.params.id;
-      helper.modifyAuthor(ID, req.body, siteData);
+      const previousAuthor = helper.getPreviousPost(
+        req.params,
+        siteData.authorsDataObject.authors,
+        "name"
+      );
+      console.log(req.params);
+      helper.modifyAuthor(previousAuthor, req.body, siteData);
     })
     .then((results) => {
       res.redirect("/blogs");

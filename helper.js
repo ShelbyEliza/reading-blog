@@ -110,16 +110,17 @@ const buildNewPost = (createdBlogObject, siteData) => {
   blogData.id = uuidBlog;
 
   for (var i = 0; i < authorsArray.length; i++) {
-    if (authorsArray[i].name == blogData.author) {
+    if (authorsArray[i].name === blogData.author) {
       blogData.authorID = authorsArray[i].authorID;
       authorsArray[i].booksWritten.push(blogData.bookTitle);
-    } else {
-      blogData.authorID = uuidAuthor;
-      let authorData = new Author(blogData.author, uuidAuthor, [], "");
-      authorData.booksWritten.push(blogData.bookTitle);
-      authorsArray.push(authorData);
+      break;
     }
-    break;
+  }
+  if (blogData.authorID === undefined) {
+    blogData.authorID = uuidAuthor;
+    let authorData = new Author(blogData.author, uuidAuthor, [], "");
+    authorData.booksWritten.push(blogData.bookTitle);
+    authorsArray.unshift(authorData);
   }
 
   blogsArray.unshift(blogData);
@@ -134,11 +135,18 @@ const buildNewPost = (createdBlogObject, siteData) => {
   );
 };
 
+/**
+ * searches an array for an entry matching an object with a particular property type
+ * @param {object} previousData
+ * @param {array} dataArray
+ * @param {string} type
+ * @returns
+ */
 const getPreviousPost = (previousData, dataArray, type) => {
   var previousItem;
   // console.log(previousData, dataArray, type);
   dataArray.forEach((element) => {
-    if (element[type] == previousData[type]) {
+    if (element[type] === previousData[type]) {
       previousItem = element;
     }
   });
@@ -146,7 +154,60 @@ const getPreviousPost = (previousData, dataArray, type) => {
 };
 
 /**
- *
+ * deletes a post from the blogs data
+ * &
+ * removes bookTitle from booksWritten in authors data
+ * @param {object} previousPost
+ * @param {object} siteData
+ */
+const deleteBlog = (previousPost, siteData) => {
+  console.log("Deleting Blog");
+  const blogsDataArray = siteData.blogsDataObject.blogs;
+  const authorsDataArray = siteData.authorsDataObject.authors;
+  var indexOfAuthor;
+
+  const authorOfDelete = authorsDataArray.filter((author) => {
+    if (author.name === previousPost.author) {
+      indexOfAuthor = authorsDataArray.indexOf(author);
+      return author;
+    }
+  });
+
+  const indexOfBook = authorOfDelete[0].booksWritten.indexOf(
+    previousPost.bookTitle
+  );
+  authorOfDelete[0].booksWritten.splice(indexOfBook, 1);
+
+  try {
+    authorsDataArray.splice(indexOfAuthor, 1, authorOfDelete[0]);
+  } catch (error) {
+    console.error(error);
+  }
+
+  let indexOfPost = blogsDataArray.indexOf(previousPost);
+
+  blogsDataArray.splice(indexOfPost, 1);
+
+  siteData.authorsDataObject.authors = authorsDataArray;
+  siteData.blogsDataObject.blogs = blogsDataArray;
+
+  writeEntry(
+    siteData.blogsDataObject,
+    "data/blog-data.json",
+    "Deleted Blog from blog-data"
+  ).then((writtenData) => {
+    writeEntry(
+      siteData.authorsDataObject,
+      "data/author-data.json",
+      "Deleted Book from author-data"
+    );
+  });
+};
+
+/**
+ * modifies blog and author data with new information.
+ * counter discloses how many occurences previous author has in blogsDataArray.
+ * if updated author equals any author in blogs data, its authorID is set to match.
  * @param {object} previousBlogObject - blog being updated.
  * @param {object} updatedBlogObject  - updated blog.
  * @param {object} siteData           - stored blog & author data
@@ -154,67 +215,108 @@ const getPreviousPost = (previousData, dataArray, type) => {
 const updateBlog = (previousBlogObject, updatedBlogObject, siteData) => {
   console.log("Updating Blog");
   const blogsDataArray = siteData.blogsDataObject.blogs;
+  const authorsDataArray = siteData.authorsDataObject.authors;
   const uuidAuthor = uuidv4();
   const indexOfPreviousBlog = blogsDataArray.indexOf(previousBlogObject);
-  var authorsTestArray = [];
-  var authorsBuildArray = [];
+  var counter = 0;
 
-  // gives updated blog the previous blog id:
   updatedBlogObject.id = previousBlogObject.id;
-  // creates a Blog object with the updated blog info:
   const updatedBlog = blogs.createEntry(updatedBlogObject);
 
-  // counter discloses how many occurences previous author has in blogsDataArray:
-  var counter = 0;
-  // if updated author equals any author in blogs data, its authorID is set to match:
+  if (previousBlogObject.bookTitle !== updatedBlog.bookTitle) {
+    var titleModified = true;
+  } else {
+    var titleModified = false;
+  }
+  // not sure if following code in necessary.
+  // leaving in in case function needs reworking again.
+  if (previousBlogObject.author !== updatedBlog.author) {
+    var authorModified = true;
+  } else {
+    var authorModified = false;
+  }
+
   for (var i = 0; i < blogsDataArray.length; i++) {
     if (blogsDataArray[i].author === updatedBlog.author) {
       updatedBlog.authorID = blogsDataArray[i].authorID;
-    } // counts how many times previous author exists in blog data:
+      var newAuthorCreated = false;
+      break;
+    } else {
+      var newAuthorCreated = true;
+    }
     if (blogsDataArray[i].author === previousBlogObject.author) {
       counter++;
     }
   }
 
-  // if author was changed to a new author,
-  // counter === 1 means the previous author only occured once in blog data,
-  // if updated author is not the same as previous author,
-  // give updated author the same authorID as the previous one since:
-  // it was overwritten and had a unique authorID
+  // update:
+  // updated author does not equal any other authors in data,
+  // author has been modified,
+  // previousBlog author changed & did not write any other books,
+  //
   if (
     updatedBlog.authorID === undefined &&
     previousBlogObject.author !== updatedBlog.author &&
     counter == 1
   ) {
     updatedBlog.authorID = previousBlogObject.authorID;
+    newAuthorCreated = true;
   }
 
   if (updatedBlog.authorID === undefined) {
     updatedBlog.authorID = uuidAuthor;
+    newAuthorCreated = true;
   }
 
   blogsDataArray.splice(indexOfPreviousBlog, 1, updatedBlog);
 
   console.log("Updating Author Data");
 
-  blogsDataArray.forEach((element) => {
-    const includesAuthor = authorsTestArray.includes(element.author);
+  // either bookTitle changes or author changes or both:
 
-    if (includesAuthor == false) {
-      authorsTestArray.push(element.author);
+  for (var i = 0; i < authorsDataArray.length; i++) {
+    let authorWrotePreviousBook = authorsDataArray[i].booksWritten.includes(
+      previousBlogObject.bookTitle
+    );
 
-      authorsBuildArray.push(
-        new Author(element.author, element.authorID, [element.bookTitle], "")
+    // author in array is the author in the updatedBlog:
+    if (authorsDataArray[i].name === updatedBlog.author) {
+      // if author in array wrote the book originally & title changed:
+      if (authorWrotePreviousBook === true && titleModified === true) {
+        let indexOfChangedBook = authorsDataArray[i].booksWritten.indexOf(
+          previousBlogObject.bookTitle
+        );
+        authorsDataArray[i].booksWritten.splice(
+          indexOfChangedBook,
+          1,
+          updatedBlog.bookTitle
+        );
+        // if author in array did not write the book originally:
+      }
+      if (authorWrotePreviousBook === false) {
+        authorsDataArray[i].booksWritten.push(updatedBlog.bookTitle);
+      }
+      // if author in array is not the updated Author:
+      // if author in array originally wrote the book:
+    } else if (authorWrotePreviousBook === true) {
+      let indexOfChangedBook = authorsDataArray[i].booksWritten.indexOf(
+        previousBlogObject.bookTitle
       );
-    } else {
-      const foundAuthor = authorsBuildArray.find(
-        (author) => author.name == element.author
-      );
-      foundAuthor.booksWritten.push(element.bookTitle);
+      authorsDataArray[i].booksWritten.splice(indexOfChangedBook, 1);
     }
-  });
+  }
 
-  siteData.authorsDataObject.authors = authorsBuildArray;
+  if (newAuthorCreated === true) {
+    let generatedAuthor = new Author(
+      updatedBlog.author,
+      updatedBlog.authorID,
+      [updatedBlog.bookTitle],
+      ""
+    );
+    authorsDataArray.push(generatedAuthor);
+  }
+
+  siteData.authorsDataObject.authors = authorsDataArray;
   siteData.blogsDataObject.blogs = blogsDataArray;
 
   writeEntry(
@@ -230,42 +332,26 @@ const updateBlog = (previousBlogObject, updatedBlogObject, siteData) => {
   });
 };
 
-// //////////////////////// COULD BE BROKEN - check typeOf(siteData)
-const deleteBlog = (blogObjArray, ID) => {
-  blogObjArray.forEach((blog) => {
-    if (blog.id == ID) {
-      this.blogToDelete = blog;
-    }
-  });
-  const indexOfBlog = blogObjArray.indexOf(this.blogToDelete);
+///////////////////////// IS BROKEN /////////////////
 
-  if (indexOfBlog > -1) {
-    blogObjArray.splice(indexOfBlog, 1);
-    const updatedArray = blogs.updateAfterModifying(blogObjArray);
-
-    writeEntry(updatedArray, "data/blog-data.json");
-  } else {
-    console.log("Error.");
-  }
-};
-
-const modifyAuthor = (ID, updatedAuthorObject, siteData) => {
+const modifyAuthor = (previousAuthor, updatedAuthor, siteData) => {
   console.log("Modifying Author");
+  const authorsDataArray = siteData.authorsDataObject.authors;
+  const indexOfPrevious = authorsDataArray.indexOf(previousAuthor);
 
-  siteData.allAuthorData.forEach((author) => {
-    if (ID == author.id) {
-      console.log("Author Found");
+  // console.log(previousAuthor, updatedAuthor);
 
-      updatedAuthorObject.id = author.id;
-      const updatedAuthor = authors.createAuthor(updatedAuthorObject);
-      const authorToReplaceId = siteData.allAuthorData.indexOf(author);
-      siteData.allAuthorData.splice(authorToReplaceId, 1, updatedAuthor);
-    }
-  });
+  previousAuthor.aboutAuthor = updatedAuthor.aboutAuthor;
+  authorsDataArray.splice(indexOfPrevious, 1, previousAuthor);
+
+  // console.log(authorsDataArray);
+
+  siteData.authorsDataObject.authors = authorsDataArray;
 
   writeEntry(
-    authors.updateAfterModifyingAuthors(siteData.allAuthorData),
-    "data/author-data.json"
+    siteData.authorsDataObject,
+    "data/author-data.json",
+    "updated author-data"
   );
 };
 

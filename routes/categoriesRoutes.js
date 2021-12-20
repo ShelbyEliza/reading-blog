@@ -8,6 +8,6 @@ router.get("/:authorID", categoriesController.loadAuthorDetails);
 
 router.get("/editAuthor/:id", categoriesController.loadEditAuthor);
 
-router.post("/edit/:id", categoriesController.updateAuthor);
+router.post("/edit/:name", categoriesController.updateAuthor);
 
 module.exports = router;

@@ -64,8 +64,12 @@ const createNewPost = (req, res) => {
 const deletePost = (req, res) => {
   helper.startup
     .then((siteData) => {
-      const ID = req.params.id;
-      helper.deleteBlog(siteData.blogsDataObject.blogs, ID);
+      const previousPost = helper.getPreviousPost(
+        req.params,
+        siteData.blogsDataObject.blogs,
+        "id"
+      );
+      helper.deleteBlog(previousPost, siteData);
     })
     .then((result) => {
       res.json({ redirect: "/blogs" });

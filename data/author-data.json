@@ -1,10 +1,10 @@
 {
     "authors": [
         {
-            "name": "George RR. Martin",
-            "authorID": "5A",
+            "name": "Freya",
+            "authorID": "6e169266-48af-4d1b-b194-d465f28d187c",
             "booksWritten": [
-                "The Winds of Winter"
+                "Bookshire"
             ],
             "aboutAuthor": ""
         },
@@ -14,38 +14,43 @@
             "booksWritten": [
                 "The Prophet"
             ],
-            "aboutAuthor": ""
+            "aboutAuthor": "Philosophy!!!!"
         },
         {
             "name": "Tolkein",
             "authorID": "72243e95-f041-4524-9c85-050ffb7a7ba1",
             "booksWritten": [
-                "The Fellowship of the Ring",
-                "The Hobbit"
+                "The Hobbit",
+                "The Fellowship of the Ring"
             ],
-            "aboutAuthor": ""
+            "aboutAuthor": "Dynamic Fantasy!!"
         },
         {
             "name": "Diana Wynne Jones",
             "authorID": "2A",
             "booksWritten": [
-                "Castle in the Air",
-                "Howl's Moving Castle"
+                "Howl's Moving Castle",
+                "Castle in the Air"
             ],
-            "aboutAuthor": ""
+            "aboutAuthor": "Sad Children!!"
         },
         {
             "name": "Ursula K. Le Guin",
             "authorID": "1A",
             "booksWritten": [
-                "**Change Author to Diana",
-                "**Change Title",
-                "The Nearest Shore",
                 "The Farthest Shore",
                 "The Tombs of Atuan",
                 "A Wizard of Earthsea"
             ],
-            "aboutAuthor": ""
+            "aboutAuthor": "Intense Atmosphere!!"
+        },
+        {
+            "name": "Seneca",
+            "authorID": "a4ad504b-75b4-4165-a678-a73d23d4152a",
+            "booksWritten": [
+                "The Adventures of Books"
+            ],
+            "aboutAuthor": "Seneca the Great!"
         }
     ]
 }

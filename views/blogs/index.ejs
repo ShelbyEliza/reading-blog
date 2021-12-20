@@ -9,36 +9,59 @@
       <h2 class="page-title">All Blogs</h2>
       <% if (blogs.length > 0) { for (var i = 0; i < blogs.length; i++ ) { %>
       <div class="content-box">
-        <div class="content-box-top">
-          <div class="content-box-heading">
-            <a class="title" href="/blogs/<%= blogs[i].id %>">
-              <h1 class="title"><%= blogs[i].bookTitle %></h1>
-            </a>
-            <h3 class="author">by
-              <a class="authorLink" href="/categories/<%= blogs[i].authorID %>">
-                <%= blogs[i].author %>
-              </a>
-              </h3>
-            <div class="edit-button-container">
-              <a class="edit" href="/blogs/edit/<%= blogs[i].id %>">
-                <img 
-                  class="edit-button-image"
-                  src="../../images/edit-opt.svg"
-                  alt="An icon depicting a pencil, with directs to the edit blog page."
-                />
-              </a>
+        <div class="blog-card">
+ 
+          <div class="top-container">
+            <div class="card-col card-col-1">
+              <div class="card-line">
+                <a class="title" href="/blogs/<%= blogs[i].id %>">
+                  <h1 class="title"><%= blogs[i].bookTitle %></h1>
+                </a>
+
+                <a class="edit" href="/blogs/edit/<%= blogs[i].id %>">
+                  <img 
+                    class="edit-button-image"
+                    src="../../images/edit-opt.svg"
+                    alt="An icon depicting a pencil, with directs to the edit blog page."
+                  />
+                </a>
+
+              </div>
+
+              <div class="card-line">
+                <h3 class="author">by
+
+                  
+                  <a class="authorLink" href="/categories/<%= blogs[i].authorID %>">
+                    <%= blogs[i].author %>
+                  </a>
+                </h3>
+                
+                <a class="edit" href="/categories/editAuthor/<%= blogs[i].authorID %>">
+                  <img 
+                    class="edit-button-image"
+                    src="../../images/edit-opt.svg"
+                    alt="An icon depicting a pencil, with directs to the edit blog page."
+                  />
+                </a>
+
+              </div>
+
+            </div>
+            <div class="card-col card-col-2">
+              <img
+                class="title-banner-image"
+                src="./images/test-image-opt.svg"
+                alt="An image of some stylized purple outlined trees on a dark landscape."
+              />
             </div>
           </div>
-          <div class="thumbnail">
-            <img
-              class="title-banner-image"
-              src="./images/test-image-opt.svg"
-              alt="An image of some stylized purple outlined trees on a dark landscape."
-            />
-          </div>
-        </div>
 
-        <div class="blog-snippet"><%= blogs[i].blogContent %></div>
+          <div class="card-line-full">
+            <div class="blog-snippet"><%= blogs[i].blogContent %></div>
+          </div>
+          
+        </div>
       </div>
       <% } } else { %>
       <p>There are no blogs to display.</p>

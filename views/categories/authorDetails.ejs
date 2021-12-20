@@ -7,39 +7,37 @@
 
     <div class="content">
       <div class="content-box">
-        <div class="content-box-top">
-          <div class="content-box-heading">
+          <div class="top-container">
+
               <h1 class="title"><%= author.name %></h1>
-              <div class="edit-button-container">
-                <a class="edit" href="/categories/editAuthor/<%= author.authorID %>">
-                  <img 
-                    class="edit-button-image"
-                    src="../../images/edit-opt.svg"
-                    alt="An icon depicting a pencil, with directs to the edit author page."
-                  />
-                </a>
-              </div>
+              <a class="edit" href="/categories/editAuthor/<%= author.authorID %>">
+                <img 
+                  class="edit-button-image"
+                  src="../../images/edit-opt.svg"
+                  alt="An icon depicting a pencil, with directs to the edit author page."
+                />
+              </a>
+          </div>
+
+          <div class="bottom-box">
+            <h2 class="book-list-title">Books Written: </h2>
+            <div class="book-list">
+              <% const booksArray = author.booksWritten %>
+                <% for (var i = 0; i < blogs.length; i++ ) { %> 
+                  <% if ( blogs[i].author == author.name) { %>
+                    <div class="book-list-item">
+                      <a class="bookLink" href="/blogs/<%= blogs[i].id %>  ">
+                        <%= blogs[i].bookTitle %>
+                      </a>
+                    </div>
+                  <% } %> 
+                <% } %> 
+            </div>
         </div>
-        <div>
-          <h3>Books Written: </h3>
-
-            <% const booksArray = author.booksWritten %>
-
-              <% for (var i = 0; i < blogs.length; i++ ) { %> 
-                <% if ( blogs[i].author == author.name) { %>
-                  <%= console.log(blogs[i].author, author.name);  %> 
-
-                <a class="bookLink" href="/blogs/<%= blogs[i].id %>  ">
-                  <h3>
-                    <%= blogs[i].bookTitle %>
-                      </h3>
-                    </a>
-                    <% } %> 
-              <% } %> 
-
-
+        <div class="card-line-full">
+          <div class="about-author"><%= author.aboutAuthor %></div>
         </div>
-      </div>
+
     </div> 
   </body>
 </html> 
