@@ -1,40 +1,49 @@
-const fs = require("fs");
-const { resolve } = require("path");
-const { v4: uuidv4 } = require("uuid");
-
 class Blog {
-  constructor(id, bookTitle, author, authorID, blogContent) {
+  constructor(
+    id,
+    bookTitle,
+    author,
+    authorID,
+    dateStarted,
+    dateFinished,
+    tags = [],
+    blogContent
+  ) {
     this.id = id;
     this.bookTitle = bookTitle;
     this.author = author;
     this.authorID = authorID;
+    this.dateStarted = dateStarted;
+    this.dateFinished = dateFinished;
+    this.tags = tags;
     this.blogContent = blogContent;
   }
 }
 
 class BlogList {
-  constructor() {
-    this.blogEntries = {
-      blogs: [],
-    };
-  }
-
   createEntry(blogObject) {
-    let { id, bookTitle, author, authorID, blogContent } = blogObject;
+    let {
+      id,
+      bookTitle,
+      author,
+      authorID,
+      dateStarted,
+      dateFinished,
+      tags,
+      blogContent,
+    } = blogObject;
 
-    let blog = new Blog(id, bookTitle, author, authorID, blogContent);
+    let blog = new Blog(
+      id,
+      bookTitle,
+      author,
+      authorID,
+      dateStarted,
+      dateFinished,
+      tags,
+      blogContent
+    );
     return blog;
-  }
-
-  addToEntries(blogObject) {
-    console.log("Success - addToEntries.");
-    this.blogEntries.blogs.unshift(blogObject);
-    return this.blogEntries;
-  }
-
-  updateAfterModifying(updatedBlogObjArray) {
-    this.blogEntries.blogs = updatedBlogObjArray;
-    return this.blogEntries;
   }
 }
 

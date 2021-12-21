@@ -31,7 +31,7 @@ const loadEditAuthor = (req, res) => {
   helper.startup.then((siteData) => {
     const ID = req.params.id;
     siteData.authorsDataObject.authors.forEach((author) => {
-      if (author.id == ID) {
+      if (author.authorID === ID) {
         const matchingAuthor = author;
         this.specifiedAuthor = matchingAuthor;
         return matchingAuthor;

@@ -8,9 +8,7 @@
     <div class="content">
       <h2 class="page-title">All Blogs</h2>
       <% if (blogs.length > 0) { for (var i = 0; i < blogs.length; i++ ) { %>
-      <div class="content-box">
-        <div class="blog-card">
- 
+        <div class="content-box">
           <div class="top-container">
             <div class="card-col card-col-1">
               <div class="card-line">
@@ -30,13 +28,10 @@
 
               <div class="card-line">
                 <h3 class="author">by
-
-                  
                   <a class="authorLink" href="/categories/<%= blogs[i].authorID %>">
                     <%= blogs[i].author %>
                   </a>
                 </h3>
-                
                 <a class="edit" href="/categories/editAuthor/<%= blogs[i].authorID %>">
                   <img 
                     class="edit-button-image"
@@ -44,7 +39,38 @@
                     alt="An icon depicting a pencil, with directs to the edit blog page."
                   />
                 </a>
+              </div>
+  
+              <div class="card-line">
+                <p class="dateStarted">Date Started:
+                  <%= blogs[i].dateStarted %>
+                </p>
+              </div>
 
+              <div class="card-line">
+                <p class="dateFinished">Date Finished:
+                  <% if (blogs[i].dateFinished === "") { %> 
+                    <%= "Currently Reading" %> 
+                    <%# console.log(blogs[i].dateFinished) %> 
+                  <% } else { %> 
+                    <%= blogs[i].dateFinished %>
+                  <% } %> 
+                </p>
+              </div>
+
+              <div class="card-line">
+                <p class="tags">Tags:
+                  <% if (blogs[i].tags.length === 0) { %> 
+                    <%= "No Tags" %> 
+                  <% } else { %> 
+                    <% let tagsObject = blogs[i].tags %>
+                    <% let tagsArray = [] %>
+                    <% for (const tag in tagsObject) { %>
+                      <% tagsArray.push(tagsObject[tag]) %>
+                      <% } %>
+                      <%= tagsArray.join(', ') %>
+                  <% } %> 
+                </p>
               </div>
 
             </div>
@@ -56,13 +82,10 @@
               />
             </div>
           </div>
-
           <div class="card-line-full">
             <div class="blog-snippet"><%= blogs[i].blogContent %></div>
           </div>
-          
         </div>
-      </div>
       <% } } else { %>
       <p>There are no blogs to display.</p>
       <% } %>

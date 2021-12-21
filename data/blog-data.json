@@ -1,30 +1,61 @@
 {
     "blogs": [
         {
-            "id": "8cc74be2-0e9c-4037-b837-66344922b9f5",
-            "bookTitle": "Bookshire",
-            "author": "Freya",
-            "authorID": "6e169266-48af-4d1b-b194-d465f28d187c",
-            "blogContent": "Freya writes!"
+            "id": "b1fc334c-dd28-42ec-9b6c-7fadffc18d31",
+            "bookTitle": "Out Of Time's Abyss",
+            "author": "Edgar Rice Burroughs",
+            "authorID": "9171c6b9-15ec-44d0-8c83-4d8162a615f7",
+            "dateStarted": "2021-10-12",
+            "dateFinished": "2021-09-26",
+            "tags": [
+                "sci-fi-fantasy",
+                "short-story",
+                "classical"
+            ],
+            "blogContent": "The Third book in The Caspak Trilogy."
         },
         {
-            "id": "bc677b8a-55c1-48fa-b9b6-d45756bb3dda",
-            "bookTitle": "The Adventures of Books",
-            "author": "Seneca",
-            "authorID": "a4ad504b-75b4-4165-a678-a73d23d4152a",
-            "blogContent": "Seneca is a good writer."
+            "id": "a742fb2e-dc0d-48d4-81f4-d4a6f0662096",
+            "bookTitle": "The People That Time Forgot",
+            "author": "Edgar Rice Burroughs",
+            "authorID": "9171c6b9-15ec-44d0-8c83-4d8162a615f7",
+            "dateStarted": "2022-01-20",
+            "dateFinished": "",
+            "tags": [
+                "sci-fi-fantasy",
+                "fiction"
+            ],
+            "blogContent": "The second book in the Caspak Trilogy."
+        },
+        {
+            "id": "d5d79ee9-58a0-42e2-bb70-22f0297aa8fc",
+            "bookTitle": "The Land That Time Forgot",
+            "author": "Edgar Rice Burroughs",
+            "authorID": "9171c6b9-15ec-44d0-8c83-4d8162a615f7",
+            "dateStarted": "2020-01-20",
+            "dateFinished": "2020-05-09",
+            "tags": [
+                "sci-fi-fantasy"
+            ],
+            "blogContent": "First book in the Caspak Trilogy."
         },
         {
             "id": "11",
             "bookTitle": "The Prophet",
             "author": "Kahlil Gibran",
             "authorID": "4A",
+            "dateStarted": "2020-01-20",
+            "dateFinished": "2020-05-09",
+            "tags": [],
             "blogContent": "Prophet Man!!"
         },
         {
             "id": "10",
             "bookTitle": "The Fellowship of the Ring",
             "author": "Tolkein",
+            "dateStarted": "2020-01-20",
+            "dateFinished": "2020-05-09",
+            "tags": [],
             "authorID": "72243e95-f041-4524-9c85-050ffb7a7ba1",
             "blogContent": "Pippin!!"
         },
@@ -32,6 +63,9 @@
             "id": "9",
             "bookTitle": "The Hobbit",
             "author": "Tolkein",
+            "dateStarted": "2020-01-20",
+            "dateFinished": "2020-05-09",
+            "tags": [],
             "authorID": "72243e95-f041-4524-9c85-050ffb7a7ba1",
             "blogContent": "Bilbo!!"
         },
@@ -40,6 +74,9 @@
             "bookTitle": "Castle in the Air",
             "author": "Diana Wynne Jones",
             "authorID": "2A",
+            "dateStarted": "2020-01-20",
+            "dateFinished": "2020-05-09",
+            "tags": [],
             "blogContent": "Sophie!!"
         },
         {
@@ -47,6 +84,9 @@
             "bookTitle": "Howl's Moving Castle",
             "author": "Diana Wynne Jones",
             "authorID": "2A",
+            "dateStarted": "2020-01-20",
+            "dateFinished": "2020-05-09",
+            "tags": [],
             "blogContent": "Lettie!!"
         },
         {
@@ -54,6 +94,9 @@
             "bookTitle": "The Farthest Shore",
             "author": "Ursula K. Le Guin",
             "authorID": "1A",
+            "dateStarted": "2020-01-20",
+            "dateFinished": "2020-05-09",
+            "tags": [],
             "blogContent": "Arren!!"
         },
         {
@@ -61,6 +104,9 @@
             "bookTitle": "The Tombs of Atuan",
             "author": "Ursula K. Le Guin",
             "authorID": "1A",
+            "dateStarted": "2020-01-20",
+            "dateFinished": "2020-05-09",
+            "tags": [],
             "blogContent": "Tenar!!"
         },
         {
@@ -68,6 +114,9 @@
             "bookTitle": "A Wizard of Earthsea",
             "author": "Ursula K. Le Guin",
             "authorID": "1A",
+            "dateStarted": "2020-01-20",
+            "dateFinished": "2020-05-09",
+            "tags": [],
             "blogContent": "Ged!!"
         }
     ]

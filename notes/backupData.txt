@@ -1,62 +1,125 @@
------------------------------------------------------------------------------------------------------------------------
-                                 blog data backup:
------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------
+                     blog data backup:
+-----------------------------------------------------------------
 {
-  "blogs": [
-    {
-      "id": "6f80a6d4-21b3-46be-a897-7801e4329f52",
-      "bookTitle": "3. The Farthest Shore",
-      "author": "Ursula K. Le Guin",
-      "startDate": "09-15-2021",
-      "endDate": "",
-      "rating": "5",
-      "tags": "Fiction",
-      "blogContent": "A very good trilogy."
-    },
-    {
-      "id": "a9746254-2b27-4f7e-9f98-4cef2e9830e3",
-      "bookTitle": "2. The Tombs of Atuan",
-      "author": "Ursula K. Le Guin",
-      "startDate": "08-15-2021",
-      "endDate": "09-15-2021",
-      "rating": "5",
-      "tags": "Fiction",
-      "blogContent": "A very good sequel."
-    },
-    {
-      "id": "1",
-      "bookTitle": "1. A Wizard of Earthsea",
-      "author": "Ursula K. Le Guin",
-      "startDate": "07-15-2021",
-      "endDate": "08-15-2021",
-      "rating": "5",
-      "tags": "Fiction",
-      "blogContent": "A very good book."
-    }
-  ]
+    "blogs": [
+        {
+            "id": "11",
+            "bookTitle": "The Prophet",
+            "author": "Kahlil Gibran",
+            "authorID": "4A",
+            "blogContent": "Prophet Man!!"
+        },
+        {
+            "id": "10",
+            "bookTitle": "The Fellowship of the Ring",
+            "author": "Tolkein",
+            "authorID": "72243e95-f041-4524-9c85-050ffb7a7ba1",
+            "blogContent": "Pippin!!"
+        },
+        {
+            "id": "9",
+            "bookTitle": "The Hobbit",
+            "author": "Tolkein",
+            "authorID": "72243e95-f041-4524-9c85-050ffb7a7ba1",
+            "blogContent": "Bilbo!!"
+        },
+        {
+            "id": "8",
+            "bookTitle": "Castle in the Air",
+            "author": "Diana Wynne Jones",
+            "authorID": "2A",
+            "blogContent": "Sophie!!"
+        },
+        {
+            "id": "7",
+            "bookTitle": "Howl's Moving Castle",
+            "author": "Diana Wynne Jones",
+            "authorID": "2A",
+            "blogContent": "Lettie!!"
+        },
+        {
+            "id": "3",
+            "bookTitle": "The Farthest Shore",
+            "author": "Ursula K. Le Guin",
+            "authorID": "1A",
+            "blogContent": "Arren!!"
+        },
+        {
+            "id": "2",
+            "bookTitle": "The Tombs of Atuan",
+            "author": "Ursula K. Le Guin",
+            "authorID": "1A",
+            "blogContent": "Tenar!!"
+        },
+        {
+            "id": "1",
+            "bookTitle": "A Wizard of Earthsea",
+            "author": "Ursula K. Le Guin",
+            "authorID": "1A",
+            "blogContent": "Ged!!"
+        }
+    ]
 }
------------------------------------------------------------------------------------------------------------------------
-                                 author data backup:
------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------
+                     author data backup:
+-----------------------------------------------------------------
 {
     "authors": [
         {
-            "name": "Booking Bokk",
+            "name": "Kahlil Gibran",
+            "authorID": "4A",
             "booksWritten": [
-              "The Adventures of Books"
+                "The Prophet"
             ],
-            "quotes": "Books are Booking",
-            "aboutAuthor": "            Good author.",
-            "id": "e3ffed37-33fa-4f0e-8f09-9397d0d58625"
+            "aboutAuthor": "Philosophy!!!!"
         },
         {
-            "name": "Bookston",
+            "name": "Tolkein",
+            "authorID": "72243e95-f041-4524-9c85-050ffb7a7ba1",
             "booksWritten": [
-                "The Adventures of Books"
+                "The Hobbit",
+                "The Fellowship of the Ring"
             ],
-            "quotes": [],
-            "aboutAuthor": "",
-            "id": "06af16b8-531d-4c59-a45c-f8641ff020c6"
+            "aboutAuthor": "Dynamic Fantasy!!"
         },
+        {
+            "name": "Diana Wynne Jones",
+            "authorID": "2A",
+            "booksWritten": [
+                "Howl's Moving Castle",
+                "Castle in the Air"
+            ],
+            "aboutAuthor": "Sad Children!!"
+        },
+        {
+            "name": "Ursula K. Le Guin",
+            "authorID": "1A",
+            "booksWritten": [
+                "The Farthest Shore",
+                "The Tombs of Atuan",
+                "A Wizard of Earthsea"
+            ],
+            "aboutAuthor": "Intense Atmosphere!!"
+        }
     ]
 }
+
+-----------------------------------------------------------------
+                     old functions backup:
+-----------------------------------------------------------------
+
+/**
+ * reverses an array's order
+ * @param {array} arrayData
+ * @returns {array} the given array in reversed order
+ */
+const reverseOrder = (arrayData) => {
+  const lastBlog = arrayData.length - 1;
+  if (arrayData[lastBlog].id == 1) {
+    var reversedResults = arrayData;
+  } else {
+    reversedResults = arrayData.reverse();
+  }
+  return reversedResults;
+};

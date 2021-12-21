@@ -10,28 +10,11 @@ class Author {
 }
 
 class AuthorList {
-  constructor() {
-    this.authorDirectory = {
-      authors: [],
-    };
-  }
-
   createAuthor(createdAuthorObject) {
     let { name, authorID, booksWritten, aboutAuthor } = createdAuthorObject;
 
     let author = new Author(name, authorID, booksWritten, aboutAuthor);
     return author;
-  }
-
-  addToDirectory(authorObject) {
-    console.log("Success - addToDirectory.");
-    this.authorDirectory.authors.unshift(authorObject);
-    return this.authorDirectory;
-  }
-
-  updateAfterModifyingAuthors(updatedAuthorObjArray) {
-    this.authorDirectory.authors = updatedAuthorObjArray;
-    return this.authorDirectory;
   }
 }
 

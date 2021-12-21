@@ -1,5 +1,4 @@
 const fs = require("fs");
-const { resolve } = require("path");
 const { Blog, BlogList } = require("./modules/blog");
 const { Author, AuthorList } = require("./modules/author");
 const { v4: uuidv4 } = require("uuid");
@@ -48,21 +47,6 @@ const writeEntry = (objectOfArrays, file, message) => {
       }
     });
   });
-};
-
-/**
- * reverses an array's order
- * @param {array} arrayData
- * @returns {array} the given array in reversed order
- */
-const reverseOrder = (arrayData) => {
-  const lastBlog = arrayData.length - 1;
-  if (arrayData[lastBlog].id == 1) {
-    var reversedResults = arrayData;
-  } else {
-    reversedResults = arrayData.reverse();
-  }
-  return reversedResults;
 };
 
 /**
@@ -331,8 +315,6 @@ const updateBlog = (previousBlogObject, updatedBlogObject, siteData) => {
     );
   });
 };
-
-///////////////////////// IS BROKEN /////////////////
 
 const modifyAuthor = (previousAuthor, updatedAuthor, siteData) => {
   console.log("Modifying Author");

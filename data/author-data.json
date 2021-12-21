@@ -1,12 +1,14 @@
 {
     "authors": [
         {
-            "name": "Freya",
-            "authorID": "6e169266-48af-4d1b-b194-d465f28d187c",
+            "name": "Edgar Rice Burroughs",
+            "authorID": "9171c6b9-15ec-44d0-8c83-4d8162a615f7",
             "booksWritten": [
-                "Bookshire"
+                "The Land That Time Forgot",
+                "The People That Time Forgot",
+                "Out Of Time's Abyss"
             ],
-            "aboutAuthor": ""
+            "aboutAuthor": "He is an old Sci-fi author!"
         },
         {
             "name": "Kahlil Gibran",
@@ -43,14 +45,6 @@
                 "A Wizard of Earthsea"
             ],
             "aboutAuthor": "Intense Atmosphere!!"
-        },
-        {
-            "name": "Seneca",
-            "authorID": "a4ad504b-75b4-4165-a678-a73d23d4152a",
-            "booksWritten": [
-                "The Adventures of Books"
-            ],
-            "aboutAuthor": "Seneca the Great!"
         }
     ]
 }
