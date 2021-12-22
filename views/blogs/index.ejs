@@ -12,11 +12,11 @@
           <div class="top-container">
             <div class="card-col card-col-1">
               <div class="card-line">
-                <a class="title" href="/blogs/<%= blogs[i].id %>">
+                <a class="title" href="/blogs/blogDetails/<%= blogs[i].id %>">
                   <h1 class="title"><%= blogs[i].bookTitle %></h1>
                 </a>
 
-                <a class="edit" href="/blogs/edit/<%= blogs[i].id %>">
+                <a class="edit" href="/blogs/editBlog/<%= blogs[i].id %>">
                   <img 
                     class="edit-button-image"
                     src="../../images/edit-opt.svg"
@@ -28,7 +28,7 @@
 
               <div class="card-line">
                 <h3 class="author">by
-                  <a class="authorLink" href="/categories/<%= blogs[i].authorID %>">
+                  <a class="authorLink" href="/categories/author/<%= blogs[i].authorID %>">
                     <%= blogs[i].author %>
                   </a>
                 </h3>
@@ -42,13 +42,13 @@
               </div>
   
               <div class="card-line">
-                <p class="dateStarted">Date Started:
+                <p class="dateStarted">Started:
                   <%= blogs[i].dateStarted %>
                 </p>
               </div>
 
               <div class="card-line">
-                <p class="dateFinished">Date Finished:
+                <p class="dateFinished">Finished:
                   <% if (blogs[i].dateFinished === "") { %> 
                     <%= "Currently Reading" %> 
                     <%# console.log(blogs[i].dateFinished) %> 

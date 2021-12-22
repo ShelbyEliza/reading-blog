@@ -26,38 +26,6 @@ app.get("/", (req, res) => {
   res.redirect("/blogs");
 });
 
-app.get("/create", (req, res) => {
-  res.redirect("/blogs");
-});
-
-app.get("/details", (req, res) => {
-  res.redirect("/blogs");
-});
-
-app.get("/edit", (req, res) => {
-  res.redirect("/blogs");
-});
-
-app.get("/authors", (req, res) => {
-  res.redirect("/categories");
-});
-
-app.get("/authorDetails", (req, res) => {
-  res.redirect("/categories");
-});
-
-app.get("/editAuthor", (req, res) => {
-  res.redirect("/categories");
-});
-
-// app.get("/quotes", (req, res) => {
-//   res.redirect("/categories");
-// });
-
-// app.get("/vocabulary", (req, res) => {
-//   res.redirect("/categories");
-// });
-
 app.use("/blogs", blogRoutes);
 app.use("/categories", categoriesRoutes);
 

@@ -26,7 +26,7 @@
                 <% for (var i = 0; i < blogs.length; i++ ) { %> 
                   <% if ( blogs[i].author == author.name) { %>
                     <div class="book-list-item">
-                      <a class="bookLink" href="/blogs/<%= blogs[i].id %>  ">
+                      <a class="bookLink" href="/blogs/blogDetails/<%= blogs[i].id %>  ">
                         <%= blogs[i].bookTitle %>
                       </a>
                     </div>

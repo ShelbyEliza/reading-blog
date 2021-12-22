@@ -5,8 +5,8 @@ const router = express.Router();
 
 router.get("/", blogController.loadHomepage);
 router.get("/create", blogController.loadCreatePage);
-router.get("/:id", blogController.loadBlogDetails);
-router.get("/edit/:id", blogController.loadEditPage);
+router.get("/blogDetails/:id", blogController.loadBlogDetails);
+router.get("/editBlog/:id", blogController.loadEditPage);
 router.delete("/:id", blogController.deletePost);
 
 router.post("/", blogController.createNewPost);

@@ -1,5 +1,9 @@
 const helper = require("../helper");
 
+const testFunction = () => {
+  console.log("hello");
+};
+
 /**
  * loads index.ejs
  * receives all siteData from startup
@@ -30,7 +34,7 @@ const loadBlogDetails = (req, res) => {
         return matchingBlog;
       }
     });
-    res.render("blogs/details", {
+    res.render("blogs/blogDetails", {
       title: "Blog Details",
       blog: this.specifiedBlog,
     });
@@ -47,7 +51,7 @@ const loadEditPage = (req, res) => {
         return matchingBlog;
       }
     });
-    res.render("blogs/edit", {
+    res.render("blogs/editBlog", {
       title: "Edit a Blog",
       blog: this.specifiedBlog,
     });

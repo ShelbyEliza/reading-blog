@@ -10,12 +10,12 @@
         <div class="content-box-top">
           <div class="content-box-heading">
             <h1 class="title"><%= blog.bookTitle %></h1>
-            <a class="authorLink" href="/categories/<%= blog.authorID %>">
+            <a class="authorLink" href="/categories/author/<%= blog.authorID %>">
               <h2 class="author"><%= blog.author %></h2>
             </a>  
           </div>
           <div class="edit-button-container">
-            <a class="edit" href="/blogs/edit/<%= blog.id %>">
+            <a class="edit" href="/blogs/editBlog/<%= blog.id %>">
               <img 
                 class="edit-button-image"
                 src="../../images/edit-opt.svg"
@@ -26,7 +26,7 @@
           <div class="thumbnail">
             <img
               class="title-banner-image"
-              src="../images/test-image-opt.svg"
+              src="../../images/test-image-opt.svg"
               alt="An image of some stylized purple outlined trees on a dark landscape."
             />
           </div>
@@ -36,7 +36,7 @@
           <a class="delete" data-doc="<%= blog.id %>"> 
             <img
             class="delete-button-image"
-            src="../images/garbage-final.svg"
+            src="../../images/garbage-final.svg"
             alt="An image of a green trashcan with yellow crumbled up garbage in it."
           />
           </a>

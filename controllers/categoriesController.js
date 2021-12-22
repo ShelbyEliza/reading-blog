@@ -2,7 +2,7 @@ const helper = require("../helper");
 
 const loadAuthors = (req, res) => {
   helper.startup.then((siteData) => {
-    res.render("categories/authors", {
+    res.render("categories/allAuthors", {
       title: "All Authors",
       authors: siteData.authorsDataObject.authors,
     });

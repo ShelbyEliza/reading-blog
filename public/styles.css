@@ -19,7 +19,11 @@ a:hover {
   text-decoration: underline;
 }
 
-.title-banner-container {
+.title-banner-container > a {
+  z-index: 9999;
+}
+
+.title-banner-image {
   display: flex;
 }
 

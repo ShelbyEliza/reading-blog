@@ -10,7 +10,7 @@
       <div class="content-box">
         <% if (authors.length > 0) { for (var i = 0; i < authors.length; i++ ) { %>
           <div class="author-container">
-            <a class="author" href="/categories/<%= authors[i].authorID %>">
+            <a class="author" href="/categories/author/<%= authors[i].authorID %>">
               <%= authors[i].name %>
             </a>
           </div>
