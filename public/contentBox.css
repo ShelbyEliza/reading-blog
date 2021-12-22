@@ -142,8 +142,8 @@ button {
 }
 
 .author {
-  padding-left: 20px;
-  padding-top: 5px;
+  padding-left: 15px;
+  /* padding-top: 5px; */
 }
 
 .blog-snippet,
@@ -155,15 +155,10 @@ button {
 
 .top-container {
   display: flex;
-  flex-flow: row wrap;
+  /* flex-flow: row wrap; */
 
   color: #966533ff;
   /* border: 3px solid rgb(82, 0, 175); */
-}
-
-.card-col {
-  flex-basis: 50%;
-  /* border: 2px solid rgb(79, 175, 0); */
 }
 
 .card-col-1 {
@@ -196,6 +191,32 @@ button {
 .card-line-full {
   margin-top: 20px;
 }
+
+.dateStarted p,
+.dateFinshed p,
+.tags p {
+  display: flex;
+  justify-content: space-between;
+  /* border: 2px solid rgb(175, 149, 0); */
+}
+
+.date-value {
+  padding: 0px 0px 10px 15px;
+}
+
+.tags-value {
+  padding: 0px 0px 0px 15px;
+}
+
+.date-space {
+  display: flex;
+  justify-content: space-between;
+  /* border: 2px solid rgb(175, 149, 0); */
+}
+
+/* .date-label {
+  display: flex;
+} */
 
 /* top, right, bottom, left */
 

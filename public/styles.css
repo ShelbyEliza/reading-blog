@@ -112,7 +112,7 @@ a:hover {
   border-bottom: none;
 }
 
-.search-field {
+/* .search-field {
   display: flex;
 
   position: absolute;
@@ -169,7 +169,7 @@ a:hover {
 
   padding: 5px 10px;
   cursor: pointer;
-}
+} */
 /* --------------------------------- End of title / menu bar---------------------------------------- */
 .content {
   display: flex;
@@ -200,62 +200,3 @@ a:hover {
   }
 } */
 /* ------------------------------------ End of Universal CSS ---------------------------------------*/
-/* .form-container,
-.content-box {
-  background: #2e2525ff;
-  color: #966533ff;
-
-  padding: 20px;
-  margin-top: 20px;
-
-  border: 5px solid #473120ff;
-}
-
-.content-box-heading {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 10px;
-}
-
-.thumbnail {
-  display: flex;
-}
-
-.author {
-  padding-left: 20px;
-  padding-top: 5px;
-}
-
-.blog-snippet {
-  background: #65292aff;
-  border: 2px solid #473120ff;
-}
-
-
-.form-row label {
-  display: flex;
-  flex-direction: column;
-  margin: 5px 5px 5px 0px;
-  padding: 0px 0px;
-}
-.form-row input {
-  display: flex;
-  flex-direction: column;
-  margin: 5px 5px 5px 0px;
-  padding: 0px 0px;
-}
-
-.form-row textarea {
-  width: 100%;
-  min-height: 200px;
-} */
-
-/* 
-.form-row {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: baseline;
-  margin-bottom: 20px;
-}
-*/

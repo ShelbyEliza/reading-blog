@@ -1,6 +1,18 @@
 const helper = require("../helper");
+const tagList = [
+  "Sci-fi",
+  "Fantasy",
+  "Informative",
+  "Fiction",
+  "Short Story",
+  "Non-fiction",
+  "Biography",
+  "Classical",
+  "Comedy",
+  "Horror",
+];
 
-const loadAuthors = (req, res) => {
+const loadAllAuthors = (req, res) => {
   helper.startup.then((siteData) => {
     res.render("categories/allAuthors", {
       title: "All Authors",
@@ -60,9 +72,40 @@ const updateAuthor = (req, res) => {
     });
 };
 
+const loadAllTags = (req, res) => {
+  res.render("categories/allTags", {
+    title: "Tags List",
+    tags: tagList,
+  });
+};
+
+const loadTagDetails = (req, res) => {
+  helper.startup.then((siteData) => {
+    let blogsDataArray = siteData.blogsDataObject.blogs;
+    let blogsWithTag = [];
+    console.log(req.params.tag);
+    blogsDataArray.forEach((blog) => {
+      if (blog.tags.includes(req.params.tag)) {
+        blogsWithTag.push(blog);
+      }
+    });
+    console.log(blogsWithTag);
+
+    res.render("categories/tagDetails", {
+      title: req.params.tag,
+      tags: tagList,
+      blogsWithTag: blogsWithTag,
+      authorsDataArray: siteData.authorsDataObject.authors,
+      blogsDataArray: siteData.blogsDataObject.blogs,
+    });
+  });
+};
+
 module.exports = {
-  loadAuthors,
+  loadAllAuthors,
   loadAuthorDetails,
   loadEditAuthor,
   updateAuthor,
+  loadAllTags,
+  loadTagDetails,
 };

@@ -1,9 +1,5 @@
 const helper = require("../helper");
 
-const testFunction = () => {
-  console.log("hello");
-};
-
 /**
  * loads index.ejs
  * receives all siteData from startup

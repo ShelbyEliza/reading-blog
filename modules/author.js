@@ -1,5 +1,3 @@
-const { v4: uuidv4 } = require("uuid");
-
 class Author {
   constructor(name, authorID, booksWritten = [], aboutAuthor = "") {
     this.name = name;

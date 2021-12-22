@@ -39,7 +39,11 @@
             id="dateStarted"
             name="dateStarted"
             type="date"
-            value="2021-10-15"
+            <% if (blog.dateStarted !== "") { %> 
+              value="<%= blog.dateStarted %>"
+              <% } else { %> 
+                value="2021-10-15"
+              <% }  %> 
             min="1992-11-16"
             max="2092-11-16"
             />
@@ -51,7 +55,11 @@
             id="dateFinished"
             name="dateFinished"
             type="date"
-            value="2021-10-15"
+            <% if (blog.dateFinished !== "") { %> 
+              value="<%= blog.dateFinished %>"
+              <% } else { %> 
+                value="2021-10-15"
+              <% }  %> 
             min="1992-11-16"
             max="2092-11-16"
             />
@@ -60,32 +68,60 @@
           <div class="form-row-full">
             <fieldset>
                 <legend>Tags:</legend>
+                <% const tagList = blog.tags %> 
               <div class="tag-option">
-                <input type="checkbox" id="sci-fi-fantasy" name="tags" value="sci-fi-fantasy">
+                <input type="checkbox" id="sci-fi-fantasy" name="tags" value="sci-fi-fantasy"
+                <% if(tagList.includes("sci-fi-fantasy")){ %>
+                  checked="true"
+                <% } %> 
+                >
                 <label for="sci-fi-fantasy">Sci-fi / Fantasy</label>
               </div>
               <div class="tag-option">
-                <input type="checkbox" id="informative" name="tags" value="informative">
+                <input type="checkbox" id="informative" name="tags" value="informative"
+                <% if(tagList.includes("informative")){ %>
+                  checked="true"
+                <% } %> >
                 <label for="informative">Informative</label>
               </div>
               <div class="tag-option">
-                <input type="checkbox" id="fiction" name="tags" value="fiction">
+                <input type="checkbox" id="fiction" name="tags" value="fiction"
+                <% if(tagList.includes("fiction")){ %>
+                  checked="true"
+                <% } %> 
+                >
                 <label for="fiction">Fiction</label>
               </div>
               <div class="tag-option">
-                <input type="checkbox" id="short-story" name="tags" value="short-story">
+                <input type="checkbox" id="short-story" name="tags" value="short-story"
+                <% if(tagList.includes("short-story")){ %>
+                  checked="true"
+                <% } %> 
+                >
                 <label for="short-story">Short Story</label>
               </div>
               <div class="tag-option">
-                <input type="checkbox" id="non-fiction" name="tags" value="non-fiction">
+                <input type="checkbox" id="non-fiction" name="tags" value="non-fiction"
+                <% if(tagList.includes("non-fiction")){ %>
+                  checked="true"
+                <% } %> 
+                >
                 <label for="non-fiction">Non-Fiction</label>
               </div>
               <div class="tag-option">
-                <input type="checkbox" id="biography" name="tags" value="biography">
+                <input type="checkbox" id="biography" name="tags" value="biography"
+                <% if(tagList.includes("biography")){ %>
+                  checked="true"
+                <% } %> 
+                >
                 <label for="biography">Biography</label>
               </div>
               <div class="tag-option">
-                <input type="checkbox" id="classical" name="tags" value="classical">
+                <input type="checkbox" id="classical" name="tags" value="classical"
+                <% if(tagList.includes("classical")){ %>
+                  checked="true"
+                <% } %> 
+                >
                 <label for="classical">Classical</label>
               </div>
             </fieldset>

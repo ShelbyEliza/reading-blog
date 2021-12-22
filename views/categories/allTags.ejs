@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <%- include('../partials/header.ejs') %> <%- include('../partials/nav.ejs')
+    %>
+
+    <div class="content">
+      <h2 class="page-title">Find a book by tags</h2>
+      <div class="content-box">
+          <div class="tags-container"> 
+            <ul>
+              <% tags.forEach((tag) => { %>
+                <li>
+                  <a class="tagLink" href="/categories/tagDetails/<%= tag %>">
+                    <%= tag %> 
+                  </a>
+                </li>
+              <% }) %> 
+            </ul>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

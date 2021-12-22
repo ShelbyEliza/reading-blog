@@ -1,6 +1,14 @@
 {
     "authors": [
         {
+            "name": "Seneca",
+            "authorID": "8606afd2-9753-4a3f-b904-69c8c8065074",
+            "booksWritten": [
+                "The Adventures of Books"
+            ],
+            "aboutAuthor": ""
+        },
+        {
             "name": "Edgar Rice Burroughs",
             "authorID": "9171c6b9-15ec-44d0-8c83-4d8162a615f7",
             "booksWritten": [

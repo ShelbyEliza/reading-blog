@@ -27,11 +27,12 @@
               </div>
 
               <div class="card-line">
-                <h3 class="author">by
+                <p class="author">by
                   <a class="authorLink" href="/categories/author/<%= blogs[i].authorID %>">
                     <%= blogs[i].author %>
                   </a>
-                </h3>
+                </p>
+                
                 <a class="edit" href="/categories/editAuthor/<%= blogs[i].authorID %>">
                   <img 
                     class="edit-button-image"
@@ -41,36 +42,49 @@
                 </a>
               </div>
   
-              <div class="card-line">
-                <p class="dateStarted">Started:
-                  <%= blogs[i].dateStarted %>
-                </p>
+              <div class="card-line date-space">
+                <div class="dateStarted">
+                  <p class="date-label">Started:</p>
+                  <p class="date-value"> 
+                    <%= blogs[i].dateStarted %>
+                  </p>
+                </div>
+              <!-- </div>
+
+              <div class="card-line"> -->
+                <div class="dateFinished">
+                  <p class="date-label">Finished:</p>
+                  <p class="date-value"> 
+                    <% if (blogs[i].dateFinished === "") { %> 
+                      <%= "Currently Reading" %> 
+                      <%# console.log(blogs[i].dateFinished) %> 
+                    <% } else { %> 
+                      <%= blogs[i].dateFinished %>
+                    <% } %> 
+                  </p>
+                </div>
               </div>
 
-              <div class="card-line">
-                <p class="dateFinished">Finished:
-                  <% if (blogs[i].dateFinished === "") { %> 
-                    <%= "Currently Reading" %> 
-                    <%# console.log(blogs[i].dateFinished) %> 
-                  <% } else { %> 
-                    <%= blogs[i].dateFinished %>
-                  <% } %> 
-                </p>
-              </div>
-
-              <div class="card-line">
-                <p class="tags">Tags:
+              <div class="card-line tags">
+                <p class="tags-label">Tags:</p>
                   <% if (blogs[i].tags.length === 0) { %> 
-                    <%= "No Tags" %> 
+                   <p class="tags-value">
+                     <%= "No Tags" %> 
+                   </p> 
                   <% } else { %> 
                     <% let tagsObject = blogs[i].tags %>
                     <% let tagsArray = [] %>
                     <% for (const tag in tagsObject) { %>
                       <% tagsArray.push(tagsObject[tag]) %>
                       <% } %>
-                      <%= tagsArray.join(', ') %>
+                      <% tagsArray.forEach((tag) => { %>
+                        <p class="tags-value">
+                          <%= tag %> 
+                          <%# tagsArray.join(', ') %>
+                        </p>
+                      <% }) %> 
                   <% } %> 
-                </p>
+                
               </div>
 
             </div>

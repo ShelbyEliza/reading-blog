@@ -1,123 +1,124 @@
 {
-    "blogs": [
-        {
-            "id": "b1fc334c-dd28-42ec-9b6c-7fadffc18d31",
-            "bookTitle": "Out Of Time's Abyss",
-            "author": "Edgar Rice Burroughs",
-            "authorID": "9171c6b9-15ec-44d0-8c83-4d8162a615f7",
-            "dateStarted": "2021-10-12",
-            "dateFinished": "2021-09-26",
-            "tags": [
-                "sci-fi-fantasy",
-                "short-story",
-                "classical"
-            ],
-            "blogContent": "The Third book in The Caspak Trilogy."
-        },
-        {
-            "id": "a742fb2e-dc0d-48d4-81f4-d4a6f0662096",
-            "bookTitle": "The People That Time Forgot",
-            "author": "Edgar Rice Burroughs",
-            "authorID": "9171c6b9-15ec-44d0-8c83-4d8162a615f7",
-            "dateStarted": "2022-01-20",
-            "dateFinished": "",
-            "tags": [
-                "sci-fi-fantasy",
-                "fiction"
-            ],
-            "blogContent": "The second book in the Caspak Trilogy."
-        },
-        {
-            "id": "d5d79ee9-58a0-42e2-bb70-22f0297aa8fc",
-            "bookTitle": "The Land That Time Forgot",
-            "author": "Edgar Rice Burroughs",
-            "authorID": "9171c6b9-15ec-44d0-8c83-4d8162a615f7",
-            "dateStarted": "2020-01-20",
-            "dateFinished": "2020-05-09",
-            "tags": [
-                "sci-fi-fantasy"
-            ],
-            "blogContent": "First book in the Caspak Trilogy."
-        },
-        {
-            "id": "11",
-            "bookTitle": "The Prophet",
-            "author": "Kahlil Gibran",
-            "authorID": "4A",
-            "dateStarted": "2020-01-20",
-            "dateFinished": "2020-05-09",
-            "tags": [],
-            "blogContent": "Prophet Man!!"
-        },
-        {
-            "id": "10",
-            "bookTitle": "The Fellowship of the Ring",
-            "author": "Tolkein",
-            "dateStarted": "2020-01-20",
-            "dateFinished": "2020-05-09",
-            "tags": [],
-            "authorID": "72243e95-f041-4524-9c85-050ffb7a7ba1",
-            "blogContent": "Pippin!!"
-        },
-        {
-            "id": "9",
-            "bookTitle": "The Hobbit",
-            "author": "Tolkein",
-            "dateStarted": "2020-01-20",
-            "dateFinished": "2020-05-09",
-            "tags": [],
-            "authorID": "72243e95-f041-4524-9c85-050ffb7a7ba1",
-            "blogContent": "Bilbo!!"
-        },
-        {
-            "id": "8",
-            "bookTitle": "Castle in the Air",
-            "author": "Diana Wynne Jones",
-            "authorID": "2A",
-            "dateStarted": "2020-01-20",
-            "dateFinished": "2020-05-09",
-            "tags": [],
-            "blogContent": "Sophie!!"
-        },
-        {
-            "id": "7",
-            "bookTitle": "Howl's Moving Castle",
-            "author": "Diana Wynne Jones",
-            "authorID": "2A",
-            "dateStarted": "2020-01-20",
-            "dateFinished": "2020-05-09",
-            "tags": [],
-            "blogContent": "Lettie!!"
-        },
-        {
-            "id": "3",
-            "bookTitle": "The Farthest Shore",
-            "author": "Ursula K. Le Guin",
-            "authorID": "1A",
-            "dateStarted": "2020-01-20",
-            "dateFinished": "2020-05-09",
-            "tags": [],
-            "blogContent": "Arren!!"
-        },
-        {
-            "id": "2",
-            "bookTitle": "The Tombs of Atuan",
-            "author": "Ursula K. Le Guin",
-            "authorID": "1A",
-            "dateStarted": "2020-01-20",
-            "dateFinished": "2020-05-09",
-            "tags": [],
-            "blogContent": "Tenar!!"
-        },
-        {
-            "id": "1",
-            "bookTitle": "A Wizard of Earthsea",
-            "author": "Ursula K. Le Guin",
-            "authorID": "1A",
-            "dateStarted": "2020-01-20",
-            "dateFinished": "2020-05-09",
-            "tags": [],
-            "blogContent": "Ged!!"
-        }
-    ]
+  "blogs": [
+    {
+      "id": "d7d50085-e834-45ce-8e27-19d4417c5e4c",
+      "bookTitle": "The Adventures of Books",
+      "author": "Seneca",
+      "authorID": "8606afd2-9753-4a3f-b904-69c8c8065074",
+      "dateStarted": "2021-10-15",
+      "dateFinished": "",
+      "tags": ["Sci-fi", "Biography", "Horror"],
+      "blogContent": "Thoughts."
+    },
+    {
+      "id": "b1fc334c-dd28-42ec-9b6c-7fadffc18d31",
+      "bookTitle": "Out Of Time's Abyss",
+      "author": "Edgar Rice Burroughs",
+      "authorID": "9171c6b9-15ec-44d0-8c83-4d8162a615f7",
+      "dateStarted": "2021-10-12",
+      "dateFinished": "2021-09-26",
+      "tags": ["Sci-fi", "Fantasy", "Short Story", "Classical"],
+      "blogContent": "The Third book in The Caspak Trilogy."
+    },
+    {
+      "id": "a742fb2e-dc0d-48d4-81f4-d4a6f0662096",
+      "bookTitle": "The People That Time Forgot",
+      "author": "Edgar Rice Burroughs",
+      "authorID": "9171c6b9-15ec-44d0-8c83-4d8162a615f7",
+      "dateStarted": "2022-01-20",
+      "dateFinished": "",
+      "tags": ["Sci-fi", "Fantasy", "Fiction"],
+      "blogContent": "The second book in the Caspak Trilogy."
+    },
+    {
+      "id": "d5d79ee9-58a0-42e2-bb70-22f0297aa8fc",
+      "bookTitle": "The Land That Time Forgot",
+      "author": "Edgar Rice Burroughs",
+      "authorID": "9171c6b9-15ec-44d0-8c83-4d8162a615f7",
+      "dateStarted": "2020-01-20",
+      "dateFinished": "2020-05-09",
+      "tags": ["Sci-fi", "Fantasy"],
+      "blogContent": "First book in the Caspak Trilogy."
+    },
+    {
+      "id": "11",
+      "bookTitle": "The Prophet",
+      "author": "Kahlil Gibran",
+      "authorID": "4A",
+      "dateStarted": "2020-01-20",
+      "dateFinished": "2020-05-09",
+      "tags": [],
+      "blogContent": "Prophet Man!!"
+    },
+    {
+      "id": "10",
+      "bookTitle": "The Fellowship of the Ring",
+      "author": "Tolkein",
+      "dateStarted": "2020-01-20",
+      "dateFinished": "2020-05-09",
+      "tags": [],
+      "authorID": "72243e95-f041-4524-9c85-050ffb7a7ba1",
+      "blogContent": "Pippin!!"
+    },
+    {
+      "id": "9",
+      "bookTitle": "The Hobbit",
+      "author": "Tolkein",
+      "dateStarted": "2020-01-20",
+      "dateFinished": "2020-05-09",
+      "tags": [],
+      "authorID": "72243e95-f041-4524-9c85-050ffb7a7ba1",
+      "blogContent": "Bilbo!!"
+    },
+    {
+      "id": "8",
+      "bookTitle": "Castle in the Air",
+      "author": "Diana Wynne Jones",
+      "authorID": "2A",
+      "dateStarted": "2020-01-20",
+      "dateFinished": "2020-05-09",
+      "tags": [],
+      "blogContent": "Sophie!!"
+    },
+    {
+      "id": "7",
+      "bookTitle": "Howl's Moving Castle",
+      "author": "Diana Wynne Jones",
+      "authorID": "2A",
+      "dateStarted": "2020-01-20",
+      "dateFinished": "2020-05-09",
+      "tags": [],
+      "blogContent": "Lettie!!"
+    },
+    {
+      "id": "3",
+      "bookTitle": "The Farthest Shore",
+      "author": "Ursula K. Le Guin",
+      "authorID": "1A",
+      "dateStarted": "2020-01-20",
+      "dateFinished": "2020-05-09",
+      "tags": [],
+      "blogContent": "Arren!!"
+    },
+    {
+      "id": "2",
+      "bookTitle": "The Tombs of Atuan",
+      "author": "Ursula K. Le Guin",
+      "authorID": "1A",
+      "dateStarted": "2020-01-20",
+      "dateFinished": "2020-05-09",
+      "tags": [],
+      "blogContent": "Tenar!!"
+    },
+    {
+      "id": "1",
+      "bookTitle": "A Wizard of Earthsea",
+      "author": "Ursula K. Le Guin",
+      "authorID": "1A",
+      "dateStarted": "2020-01-20",
+      "dateFinished": "2020-05-09",
+      "tags": [],
+      "blogContent": "Ged!!"
+    }
+  ]
 }
