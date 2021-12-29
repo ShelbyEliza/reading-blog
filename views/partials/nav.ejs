@@ -1,24 +1,29 @@
-<div class="nav">
-  <ul class="menu">
+<div class="nav-container">
+  <div class="nav-headers">
 
-    <li><a href="/categories/allAuthors">All Authors</a></li>
+    <div class="header top create-button">
+      <a href="/blogs/create">
+        <img
+          src="../../images/add-button-opt.svg"
+          alt="An icon with a plus sign that directs you to the create page."
+        />
+      </a>
+    </div>
 
-    <li class="dropdown">
-      <span><a href="/categories/allTags">Tags</a>▾</span>
-      <ul class="categories-menu">
-        <li><a href="#">Sci-Fi</a></li>
-        <li><a href="#">Fantasy</a></li>
-      </ul>
-    </li>
-    
-  </ul>
-  <div class="create-blog-button-container">
-    <a class="create-blog-button" href="/blogs/create">
-      <img
-        class="create-blog-icon"
-        src="../../images/add-button-opt.svg"
-        alt="An icon with a plus sign that directs you to the create page."
-      />
-    </a>
+    <div class="header top all-blogs">
+      <a href="/blogs/allBlogs">Blogs</a>
+    </div>
+
+    <div class="header top all-authors">
+      <a href="/categories/allAuthors">Authors</a>
+    </div>
+
+    <div class="header bottom all-tags">
+      <a href="/categories/allTags">Tags</a>
+    </div>
   </div>
 </div>
+
+<!-- <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+font-family: 'Cinzel', serif;
+font-family: 'Lora', serif; -->

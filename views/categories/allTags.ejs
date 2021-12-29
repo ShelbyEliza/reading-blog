@@ -8,17 +8,13 @@
     <div class="content">
       <h2 class="page-title">Find a book by tags</h2>
       <div class="content-box">
-          <div class="tags-container"> 
-            <ul>
-              <% tags.forEach((tag) => { %>
-                <li>
-                  <a class="tagLink" href="/categories/tagDetails/<%= tag %>">
-                    <%= tag %> 
-                  </a>
-                </li>
-              <% }) %> 
-            </ul>
+        <% tags.forEach((tag) => { %>
+          <div class="tag-container">
+            <a class="tagLink" href="/categories/tagDetails/<%= tag %>">
+              <%= tag %> 
+            </a>
           </div>
+        <% }) %> 
       </div>
     </div>
   </body>

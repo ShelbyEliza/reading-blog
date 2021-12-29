@@ -6,7 +6,7 @@
     %>
 
     <div class="content">
-      <h2 class="page-title">All Blogs</h2>
+      <!-- <h2 class="page-title">All Blogs</h2> -->
       <% if (blogs.length > 0) { for (var i = 0; i < blogs.length; i++ ) { %>
         <div class="content-box">
           <div class="top-container">
@@ -78,10 +78,10 @@
                       <% tagsArray.push(tagsObject[tag]) %>
                       <% } %>
                       <% tagsArray.forEach((tag) => { %>
-                        <p class="tags-value">
-                          <%= tag %> 
+                        <a class="tags-value" href="/categories/tagDetails/<%= tag %>">
+                          <%= tag %>
                           <%# tagsArray.join(', ') %>
-                        </p>
+                        </a>
                       <% }) %> 
                   <% } %> 
                 
@@ -90,7 +90,7 @@
             </div>
             <div class="card-col card-col-2">
               <img
-                class="title-banner-image"
+                class="stock-image"
                 src="./images/test-image-opt.svg"
                 alt="An image of some stylized purple outlined trees on a dark landscape."
               />

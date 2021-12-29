@@ -4,6 +4,7 @@ const blogController = require("../controllers/blogController");
 const router = express.Router();
 
 router.get("/", blogController.loadHomepage);
+router.get("/allBlogs", blogController.loadAllBlogs);
 router.get("/create", blogController.loadCreatePage);
 router.get("/blogDetails/:id", blogController.loadBlogDetails);
 router.get("/editBlog/:id", blogController.loadEditPage);

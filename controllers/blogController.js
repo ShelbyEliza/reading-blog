@@ -16,6 +16,15 @@ const loadHomepage = (req, res) => {
   });
 };
 
+const loadAllBlogs = (req, res) => {
+  helper.startup.then((siteData) => {
+    res.render("blogs/allBlogs", {
+      title: "All Blogs",
+      blogs: siteData.blogsDataObject.blogs,
+    });
+  });
+};
+
 const loadCreatePage = (req, res) => {
   res.render("blogs/create", { title: "Create a New Blog" });
 };
@@ -96,6 +105,7 @@ const updatePost = (req, res) => {
 
 module.exports = {
   loadHomepage,
+  loadAllBlogs,
   loadCreatePage,
   loadBlogDetails,
   loadEditPage,

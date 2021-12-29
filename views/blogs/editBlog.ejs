@@ -70,59 +70,83 @@
                 <legend>Tags:</legend>
                 <% const tagList = blog.tags %> 
               <div class="tag-option">
-                <input type="checkbox" id="sci-fi-fantasy" name="tags" value="sci-fi-fantasy"
-                <% if(tagList.includes("sci-fi-fantasy")){ %>
+                <input type="checkbox" id="sci-fi" name="tags" value="Sci-fi"
+                <% if(tagList.includes("sci-fi")){ %>
                   checked="true"
                 <% } %> 
                 >
-                <label for="sci-fi-fantasy">Sci-fi / Fantasy</label>
+                <label for="sci-fi">Sci-fi</label>
               </div>
               <div class="tag-option">
-                <input type="checkbox" id="informative" name="tags" value="informative"
-                <% if(tagList.includes("informative")){ %>
+                <input type="checkbox" id="fantasy" name="tags" value="Fantasy"
+                <% if(tagList.includes("fantasy")){ %>
+                  checked="true"
+                <% } %> 
+                >
+                <label for="fantasy">Fantasy</label>
+              </div>
+              <div class="tag-option">
+                <input type="checkbox" id="informative" name="tags" value="Informative"
+                <% if(tagList.includes("Informative")){ %>
                   checked="true"
                 <% } %> >
                 <label for="informative">Informative</label>
               </div>
               <div class="tag-option">
-                <input type="checkbox" id="fiction" name="tags" value="fiction"
-                <% if(tagList.includes("fiction")){ %>
+                <input type="checkbox" id="fiction" name="tags" value="Fiction"
+                <% if(tagList.includes("Fiction")){ %>
                   checked="true"
                 <% } %> 
                 >
                 <label for="fiction">Fiction</label>
               </div>
               <div class="tag-option">
-                <input type="checkbox" id="short-story" name="tags" value="short-story"
-                <% if(tagList.includes("short-story")){ %>
+                <input type="checkbox" id="short-story" name="tags" value="Short Story"
+                <% if(tagList.includes("Short Story")){ %>
                   checked="true"
                 <% } %> 
                 >
                 <label for="short-story">Short Story</label>
               </div>
               <div class="tag-option">
-                <input type="checkbox" id="non-fiction" name="tags" value="non-fiction"
-                <% if(tagList.includes("non-fiction")){ %>
+                <input type="checkbox" id="non-fiction" name="tags" value="Non-fiction"
+                <% if(tagList.includes("Non-fiction")){ %>
                   checked="true"
                 <% } %> 
                 >
-                <label for="non-fiction">Non-Fiction</label>
+                <label for="non-fiction">Non-fiction</label>
               </div>
               <div class="tag-option">
-                <input type="checkbox" id="biography" name="tags" value="biography"
-                <% if(tagList.includes("biography")){ %>
+                <input type="checkbox" id="biography" name="tags" value="Biography"
+                <% if(tagList.includes("Biography")){ %>
                   checked="true"
                 <% } %> 
                 >
                 <label for="biography">Biography</label>
               </div>
               <div class="tag-option">
-                <input type="checkbox" id="classical" name="tags" value="classical"
-                <% if(tagList.includes("classical")){ %>
+                <input type="checkbox" id="classical" name="tags" value="Classical"
+                <% if(tagList.includes("Classical")){ %>
                   checked="true"
                 <% } %> 
                 >
                 <label for="classical">Classical</label>
+              </div>
+              <div class="tag-option">
+                <input type="checkbox" id="comedy" name="tags" value="Comedy"
+                <% if(tagList.includes("Comedy")){ %>
+                  checked="true"
+                <% } %> 
+                >
+                <label for="comedy">Comedy</label>
+              </div>
+              <div class="tag-option">
+                <input type="checkbox" id="horror" name="tags" value="Horror"
+                <% if(tagList.includes("Horror")){ %>
+                  checked="true"
+                <% } %> 
+                >
+                <label for="horror">Horror</label>
               </div>
             </fieldset>
           </div> 

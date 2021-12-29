@@ -9,6 +9,10 @@
   border-radius: 2px;
 }
 
+.content-box:first-of-type {
+  margin-top: 0px;
+}
+
 form {
   display: flex;
   flex-flow: row wrap;
@@ -226,7 +230,9 @@ button {
 
 /*---------------------------- all Authors page ----------------------*/
 
-.author-container {
+.author-container,
+.blog-container,
+.tag-container {
   display: flex;
   justify-content: space-evenly;
   /* border: 2px solid rgb(175, 149, 0); */
