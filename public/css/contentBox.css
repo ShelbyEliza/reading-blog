@@ -1,0 +1,150 @@
+/* top, right, bottom, left */
+/*---------------------------- index page ----------------------*/
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  background: #966533ff;
+  color: #2e2525ff;
+
+  border-left: 3px solid #704c28;
+  border-right: 3px solid #704c28;
+
+  margin: 0px 60px;
+  padding: 0px 40px 100px 40px;
+
+  margin: auto;
+  max-width: 900px;
+}
+
+.content-box {
+  background: #2e2525ff;
+  color: #966533ff;
+  margin-top: 20px;
+  border: 3px solid #704c28;
+  border-radius: 6px;
+}
+
+.content-box:first-of-type {
+  margin-top: 0px;
+}
+
+.top-container {
+  display: flex;
+  padding: 20px 20px 10px 20px;
+}
+
+.card-col-1 {
+  flex: 2;
+}
+
+.card-col-2 {
+  flex: 1;
+}
+
+.card-col-2 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-line {
+  display: flex;
+  flex-flow: row wrap;
+  flex-basis: 50%;
+}
+
+.card-line-full {
+  color: rgb(26, 21, 21);
+}
+
+.title-line,
+.author-line {
+  align-items: center;
+}
+
+.author {
+  padding-left: 15px;
+}
+
+.authorLink {
+  font-size: 30px;
+}
+
+.edit img {
+  max-width: 20px;
+  max-height: 20px;
+  margin: 0px 10px;
+}
+
+.card-image {
+  padding: 20px;
+  max-width: 228.677px;
+  max-height: 171.667px;
+}
+
+.thumbnail {
+  display: flex;
+}
+
+.date-space {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dateStarted p,
+.dateFinshed p,
+.tags p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date-value {
+  padding: 0px 0px 10px 15px;
+}
+
+.tags-value {
+  padding: 0px 0px 0px 15px;
+}
+
+.blog-snippet,
+.about-author {
+  background: #65292aff;
+  padding: 10px;
+  border-top: 3px solid #704c28;
+
+  text-indent: 30px;
+}
+
+/*------------------ all authors/tags/blogs page --------------------*/
+
+.author-container,
+.blog-container,
+.tag-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+
+/*----------------------- author details page ----------------------*/
+
+.page-title {
+  color: #2e2525ff;
+  padding-top: 20px;
+}
+
+.book-list {
+  display: flex;
+  justify-content: space-evenly;
+  color: #65292aff;
+}
+
+.book-list-title {
+  justify-content: center;
+  display: flex;
+  flex-basis: 100%;
+}
+
+.content-box-heading {
+  padding: 20px;
+}

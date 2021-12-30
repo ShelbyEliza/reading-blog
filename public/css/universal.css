@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 18px;
+  font-family: sans-serif;
+  background: #3d4634ff;
+}
+
+h1,
+.authorLink,
+.date-value,
+.tags-value {
+  /* maybe: 
+  font-family: "Estonia", cursive;
+  font-size: 60px;
+  font-weight: 700;
+  */
+  font-family: "Charm", cursive;
+}
+
+a:link,
+a:visited {
+  color: #8e6032ff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.title-banner-container > a {
+  z-index: 9999;
+}
+
+.title-banner-image {
+  display: flex;
+}
+
+/* -------------------------------- nav bar ---------------------------------- */
+
+.nav-container {
+  display: flex;
+  height: 50px;
+  flex-direction: row;
+  background: #966533ff;
+
+  border-left: 3px solid #704c28;
+  border-right: 3px solid #704c28;
+
+  margin: auto;
+  max-width: 900px;
+}
+
+.nav-headers {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: space-evenly;
+
+  padding: 2px;
+
+  color: #966533ff;
+  font-size: 22px;
+  background: #2e2525ff;
+  border-left: 3px solid #704c28;
+  border-right: 3px solid #704c28;
+
+  width: 700px;
+}
+
+.nav-headers .header {
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.create-button {
+  display: flex;
+  /* border-bottom: 3px solid #704c28;
+  border-left: 3px solid #704c28; */
+}
+
+/*--------------------Mobile----------------------*/
+
+/* desktop */
+@media only screen and (max-width: 825px) {
+  form div {
+    flex-basis: 100%;
+  }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 800px) {
+  .nav-headers {
+    /* width: 82%; */
+    max-width: 83%;
+    /* min-width: 10%; */
+  }
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+  .nav-headers {
+    width: 400px;
+  }
+}
+
+/* Desktop Styles */
+/* @media only screen and (min-width: 825px) {
+  .page {
+    width: 960px;
+    margin: 0 auto;
+  }
+  .feature-1,
+  .feature-2,
+  .feature-3 {
+    width: 33.3%;
+  }
+  .header {
+    height: 400px;
+  }
+  .sign-up {
+    height: 200px;
+    order: 1;
+  }
+  .content {
+    order: 2;
+  }
+} */

@@ -37,6 +37,10 @@
     <g
        id="g1465"
        transform="matrix(0.30532511,0,0,0.21356093,42.83829,125.3986)">
+      <!-- <path
+         style="display:inline;fill:#2e2525;fill-opacity:1;stroke:#473120;stroke-width:6.93919;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000"
+         d="M 530.2301,-413.87988 H -93.765057 v 104.83345 H 530.2301 Z"
+         id="path1387" /> -->
       <path
          style="display:inline;fill:#2e2525;fill-opacity:1;stroke:#473120;stroke-width:6.93919;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000"
          d="M 530.2301,-413.87988 H -93.765057 v 104.83345 H 530.2301 Z"
@@ -186,7 +190,10 @@
       </g>
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:59.3819px;line-height:1.25;font-family:'Segoe Script';-inkscape-font-specification:'Segoe Script, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline;fill:#ffeed6;fill-opacity:1;stroke:none;stroke-width:1.32799;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter543592)"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;
+         font-size:59.3819px;line-height:1.25;font-family:'Segoe Script';-inkscape-font-specification:'Segoe Script, Normal';
+         font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline;
+         fill:#ffeed6;fill-opacity:1;stroke:none;stroke-width:1.32799;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter543592)"
          x="29.691107"
          y="-312.69717"
          id="text1463"
@@ -194,7 +201,10 @@
            id="tspan1461"
            x="29.691107"
            y="-312.69717"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:59.3819px;font-family:Bahnschrift;-inkscape-font-specification:'Bahnschrift, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffeed6;fill-opacity:1;stroke:none;stroke-width:1.32799;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Books to Read</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:59.3819px;
+           font-family:Bahnschrift;-inkscape-font-specification:'Bahnschrift, Normal';font-variant-ligatures:normal;
+           font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffeed6;fill-opacity:1;stroke:none;stroke-width:1.32799;
+           stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Books to Read</tspan></text>
     </g>
   </g>
 </svg>
