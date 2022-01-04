@@ -64,7 +64,6 @@ const updateAuthor = (req, res) => {
         siteData.authorsDataObject.authors,
         "name"
       );
-      console.log(req.params);
       helper.modifyAuthor(previousAuthor, req.body, siteData);
     })
     .then((results) => {
@@ -83,13 +82,11 @@ const loadTagDetails = (req, res) => {
   helper.startup.then((siteData) => {
     let blogsDataArray = siteData.blogsDataObject.blogs;
     let blogsWithTag = [];
-    console.log(req.params.tag);
     blogsDataArray.forEach((blog) => {
       if (blog.tags.includes(req.params.tag)) {
         blogsWithTag.push(blog);
       }
     });
-    console.log(blogsWithTag);
 
     res.render("categories/tagDetails", {
       title: req.params.tag,

@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
 
-  background: #966533ff;
+  background: #966533;
   color: #2e2525ff;
 
   border-left: 3px solid #704c28;
@@ -21,13 +21,20 @@
 .content-box {
   background: #2e2525ff;
   color: #966533ff;
+
+  margin: auto;
   margin-top: 20px;
+  max-width: 700px;
+  min-width: 694px;
+
   border: 3px solid #704c28;
-  border-radius: 6px;
+  border-radius: 4px;
+
+  /* padding: 0px 40px 20px 40px; */
 }
 
 .content-box:first-of-type {
-  margin-top: 0px;
+  margin-top: 2px;
 }
 
 .top-container {
@@ -52,10 +59,6 @@
   display: flex;
   flex-flow: row wrap;
   flex-basis: 50%;
-}
-
-.card-line-full {
-  color: rgb(26, 21, 21);
 }
 
 .title-line,
@@ -107,14 +110,39 @@
   padding: 0px 0px 0px 15px;
 }
 
+.tags {
+  align-items: center;
+}
+
 .blog-snippet,
 .about-author {
-  background: #65292aff;
-  padding: 10px;
+  background: rgb(49, 56, 42);
+  color: #ffeed6;
+
   border-top: 3px solid #704c28;
 
+  padding: 1.2em 3em;
+
+  text-indent: 0px;
+  text-align: left;
+
+  line-height: 1.6em;
+
+  font-family: "Lora", serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.blog-snippet :not(p:first-child) {
   text-indent: 30px;
 }
+
+.about-author :not(p:first-child) {
+  text-indent: 30px;
+}
+/* .blog-snippet :not(p:last-child) {
+  margin-bottom: 0.5em;
+} */
 
 /*------------------ all authors/tags/blogs page --------------------*/
 
@@ -126,7 +154,7 @@
   padding: 10px;
 }
 
-/*----------------------- author details page ----------------------*/
+/*----------------------- author/blog details page ----------------------*/
 
 .page-title {
   color: #2e2525ff;
@@ -147,4 +175,15 @@
 
 .content-box-heading {
   padding: 20px;
+}
+
+.delete-button-image {
+  display: flex;
+  flex-basis: 100%;
+  padding: 10px;
+}
+
+.book-list-title,
+.book-list {
+  padding-bottom: 10px;
 }

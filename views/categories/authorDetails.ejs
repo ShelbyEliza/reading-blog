@@ -35,7 +35,20 @@
             </div>
         </div>
         <div class="card-line-full">
-          <div class="about-author"><%= author.aboutAuthor %></div>
+          <div class="about-author">
+            <%# author.aboutAuthor %>
+            <% if (author.aboutAuthor !== "") { %> 
+              <% const reg = /\n/ %>
+              <% let aboutAuthor = author.aboutAuthor.split(reg) %> 
+              <% aboutAuthor.forEach((snip) => { %>
+                <p class="snips">
+                  <%= snip %> 
+                </p>
+            <% }) %> 
+            <% } else { %>
+              <p class="no-snips">Please add information about this author.</p>
+              <% } %>  
+          </div>
         </div>
 
     </div> 

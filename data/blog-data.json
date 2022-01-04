@@ -12,7 +12,7 @@
                 "Comedy",
                 "Horror"
             ],
-            "blogContent": "A book by Freya.\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem. In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.\r\n\r\n"
+            "blogContent": "The second book in the Caspak Trilogy. At the spring of the River Ar I named you,\" the mage said, \"a stream that falls from the mountain to the sea. A man would know the end he goes to, but he cannot know it if he does not turn, and return to his beginning, and hold that beginning in his being. If he would not be a stick whirled and whelmed in the stream, he must be the stream itself, all of it, from its spring to its sinking in the sea.\r\nFirst book in the Caspak Trilogy. They have nothing to give. They have no power of making. All their power is to darken and destroy. They cannot leave this place; they are this place; and it should be left to them. They should not be denied nor forgotten, but neither should they be worshipped. The Earth is beautiful, and bright, and kindly, but that is not all. The Earth is also terrible, and dark, and cruel. The rabbit shrieks dying in the green meadows. The mountains in the sea, and their great hands full of hidden fire. \r\nThere are sharks in the sea, and there is cruelty in men's eyes. And where men worship these things and abase themselves before them, there evil breeds; there places are made in the world where darkness gathers, places given over wholly to the Ones whom we call Nameless, the ancient and holy Powers of the Earth before the Light, the powers of the dark, of ruin, of madness. . . . I think they drove your priestess Kossil mad a long time ago; I think she has prowled these caverns as she prowls the labyrinth of her own self, and now she cannot see the daylight any more. She tells you that the Nameless Ones are dead; only a lost soul, lost to truth, could believe that. They exist. But they are not your Masters. They never were. You are free, Tenar. You were taught to be a slave, but you have broken free."
         },
         {
             "id": "a742fb2e-dc0d-48d4-81f4-d4a6f0662096",
@@ -20,13 +20,13 @@
             "author": "Edgar Rice Burroughs",
             "authorID": "9171c6b9-15ec-44d0-8c83-4d8162a615f7",
             "dateStarted": "2022-01-20",
-            "dateFinished": "",
+            "dateFinished": "2021-10-15",
             "tags": [
                 "Sci-fi",
                 "Fantasy",
                 "Fiction"
             ],
-            "blogContent": "The second book in the Caspak Trilogy."
+            "blogContent": "The second book in the Caspak Trilogy. At the spring of the River Ar I named you,\" the mage said, \"a stream that falls from the mountain to the sea. A man would know the end he goes to, but he cannot know it if he does not turn, and return to his beginning, and hold that beginning in his being. If he would not be a stick whirled and whelmed in the stream, he must be the stream itself, all of it, from its spring to its sinking in the sea.\r\nThey have nothing to give. They have no power of making. All their power is to darken and destroy. They cannot leave this place; they are this place; and it should be left to them. They should not be denied nor forgotten, but neither should they be worshipped. The Earth is beautiful, and bright, and kindly, but that is not all. The Earth is also terrible, and dark, and cruel. The rabbit shrieks dying in the green meadows. The mountains in the sea, and their great hands full of hidden fire. There are sharks in the sea, and there is cruelty in men's eyes. And where men worship these things and abase themselves before them, there evil breeds; there places are made in the world where darkness gathers, places given over wholly to the Ones whom we call Nameless, the ancient and holy Powers of the Earth before the Light, the powers of the dark, of ruin, of madness. . . . I think they drove your priestess Kossil mad a long time ago; I think she has prowled these caverns as she prowls the labyrinth of her own self, and now she cannot see the daylight any more. She tells you that the Nameless Ones are dead; only a lost soul, lost to truth, could believe that. They exist. But they are not your Masters. They never were. You are free, Tenar. You were taught to be a slave, but you have broken free."
         },
         {
             "id": "d5d79ee9-58a0-42e2-bb70-22f0297aa8fc",
@@ -47,7 +47,7 @@
                 "Comedy",
                 "Horror"
             ],
-            "blogContent": "First book in the Caspak Trilogy."
+            "blogContent": "First book in the Caspak Trilogy. They have nothing to give. They have no power of making. All their power is to darken and destroy. They cannot leave this place; they are this place; and it should be left to them. \r\nThey should not be denied nor forgotten, but neither should they be worshipped. The Earth is beautiful, and bright, and kindly, but that is not all. \r\nThe Earth is also terrible, and dark, and cruel. The rabbit shrieks dying in the green meadows. The mountains in the sea, and their great hands full of hidden fire. There are sharks in the sea, and there is cruelty in men's eyes. And where men worship these things and abase themselves before them, there evil breeds; there places are made in the world where darkness gathers, places given over wholly to the Ones whom we call Nameless, the ancient and holy Powers of  the Earth before the Light, the powers of the dark, of ruin, of madness. . . . \r\nI think they drove your priestess Kossil mad a long time ago; I think she has prowled these caverns as she prowls the labyrinth of her own self, and now she cannot see the daylight any more. She tells you that the Nameless Ones are dead; only a lost soul, lost to truth, could believe that. They exist. But they are not your Masters. They never were. You are free, Tenar. You were taught to be a slave, but you have broken free."
         },
         {
             "id": "11",

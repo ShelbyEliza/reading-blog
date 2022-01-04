@@ -95,8 +95,19 @@
               />
             </div>
           </div>
+          <!-- <div class="card-line-full">
+            <div class="blog-snippet"><%# blogs[i].blogContent %></div>
+          </div> -->
           <div class="card-line-full">
-            <div class="blog-snippet"><%= blogs[i].blogContent %></div>
+            <div class="blog-snippet">
+              <% const reg = /\n/ %>
+              <% let blogSnippet = blogs[i].blogContent.split(reg) %> 
+              <% blogSnippet.forEach((snip) => { %>
+                <p class="snips">
+                  <%= snip %> 
+                </p>
+             <% }) %> 
+            </div>
           </div>
         </div>
       <% } } else { %>
@@ -104,4 +115,4 @@
       <% } %>
     </div>
   </body>
-</html>
+</html> 

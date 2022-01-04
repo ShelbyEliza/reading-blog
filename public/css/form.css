@@ -74,6 +74,19 @@ textarea {
 
   width: 100%;
   min-height: 200px;
+
+  padding: 10px;
+
+  text-indent: 30px;
+  text-align: left;
+  font-size: 16px;
+}
+
+textarea:focus {
+  border: 1px solid #2e2525ff;
+  border-radius: 2px;
+
+  outline: none !important;
 }
 
 button {
@@ -83,4 +96,12 @@ button {
   margin-bottom: 30px;
   padding: 10px 20px;
   font-size: medium;
+}
+
+/*------------------ edit author page --------------------*/
+
+.booksWritten {
+  display: flex;
+  flex-flow: row-wrap;
+  padding: 15px 0px 0px 0px;
 }

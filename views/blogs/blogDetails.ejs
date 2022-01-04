@@ -7,32 +7,92 @@
 
     <div class="content">
       <div class="content-box">
-        <div class="content-box-top">
-          <div class="content-box-heading">
-            <h1 class="title"><%= blog.bookTitle %></h1>
-            <a class="authorLink" href="/categories/author/<%= blog.authorID %>">
-              <h2 class="author"><%= blog.author %></h2>
-            </a>  
+        <div class="top-container">
+          <div class="card-col card-col-1">
+            <div class="card-line title-line">
+              <h1 class="title"><%= blog.bookTitle %></h1>
+              <a class="edit" href="/blogs/editBlog/<%= blog.id %>">
+                <img 
+                  class="edit-button-image"
+                  src="../../images/edit-opt.svg"
+                  alt="An icon depicting a pencil, with directs to the edit blog page."
+                />
+              </a>  
+            </div>
+            <div class="card-line author-line">
+              <a class="authorLink" href="/categories/author/<%= blog.authorID %>">
+                <p class="author"><%= blog.author %></p>
+              </a>
           </div>
-          <div class="edit-button-container">
-            <a class="edit" href="/blogs/editBlog/<%= blog.id %>">
-              <img 
-                class="edit-button-image"
-                src="../../images/edit-opt.svg"
-                alt="An icon depicting a pencil, with directs to the edit blog page."
-              />
-            </a>
+
+
+
+          <div class="card-line date-space">
+            <div class="dateStarted">
+              <p class="date-label">Started:</p>
+              <p class="date-value"> 
+                <%= blog.dateStarted %>
+              </p>
+            </div>
+          <!-- </div>
+
+          <div class="card-line"> -->
+            <div class="dateFinished">
+              <p class="date-label">Finished:</p>
+              <p class="date-value"> 
+                <% if (blog.dateFinished === "") { %> 
+                  <%= "Currently Reading" %> 
+                  <%# console.log(blogs[i].dateFinished) %> 
+                <% } else { %> 
+                  <%= blog.dateFinished %>
+                <% } %> 
+              </p>
+            </div>
           </div>
-          <div class="thumbnail">
+
+          <div class="card-line tags">
+            <p class="tags-label">Tags:</p>
+              <% if (blog.tags.length === 0) { %> 
+               <p class="tags-value">
+                 <%= "No Tags" %> 
+               </p> 
+              <% } else { %> 
+                <% let tagsObject = blog.tags %>
+                <% let tagsArray = [] %>
+                <% for (const tag in tagsObject) { %>
+                  <% tagsArray.push(tagsObject[tag]) %>
+                  <% } %>
+                  <% tagsArray.forEach((tag) => { %>
+                    <a class="tags-value" href="/categories/tagDetails/<%= tag %>">
+                      <%= tag %>
+                    </a>
+                  <% }) %> 
+              <% } %> 
+            
+          </div>
+          </div>
+          <div class="card-col card-col-2">
             <img
-              class="title-banner-image"
+              class="card-image"
               src="../../images/test-image-opt.svg"
               alt="An image of some stylized purple outlined trees on a dark landscape."
             />
           </div>
+
         </div>
-        <div class="blog-snippet"><%= blog.blogContent %></div>
-        <div class="delete-button">
+        <!-- <div class="blog-snippet"><%# blog.blogContent %></div> -->
+        <div class="card-line-full">
+          <div class="blog-snippet">
+            <% const reg = /\n/ %>
+            <% let blogSnippet = blog.blogContent.split(reg) %> 
+            <% blogSnippet.forEach((snip) => { %>
+              <p class="snips">
+                <%= snip %> 
+              </p>
+           <% }) %> 
+          </div>
+        </div>
+        <div class="card-line-full">
           <a class="delete" data-doc="<%= blog.id %>"> 
             <img
             class="delete-button-image"
