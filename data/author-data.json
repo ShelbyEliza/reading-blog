@@ -3,9 +3,7 @@
         {
             "name": "Freya",
             "authorID": "370ea7a4-c839-4ab8-babd-6b882ee556f4",
-            "booksWritten": [
-                "Bookshire"
-            ],
+            "booksWritten": [],
             "aboutAuthor": ""
         },
         {
@@ -52,6 +50,14 @@
                 "A Wizard of Earthsea"
             ],
             "aboutAuthor": "Intense Atmosphere!!"
+        },
+        {
+            "name": "Ms. Freya",
+            "authorID": "370ea7a4-c839-4ab8-babd-6b882ee556f4",
+            "booksWritten": [
+                "Bookshire"
+            ],
+            "aboutAuthor": ""
         }
     ]
 }
